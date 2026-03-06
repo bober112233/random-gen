@@ -1,18 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NickForge — Create better usernames</title>
   <meta name="description" content="Short, clean, memorable usernames for socials and games. Smart generator with three modes: Social, Gamer, Spicy." />
-  <meta name="theme-color" content="#1a1725" />
+  <meta name="theme-color" content="#f4f1f9" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="NickForge — Create better usernames" />
   <meta property="og:description" content="Short, clean, memorable usernames for socials and games." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-username.github.io/nickforge/" />
-  <meta property="og:image" content="https://your-username.github.io/nickforge/preview.png" />
 
   <style>
     /* === СБРОС И ОСНОВЫ === */
@@ -24,36 +22,16 @@
 
     body {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(165deg, #191724 0%, #1f1c2b 100%);
-      color: #ffffff;
+      background: linear-gradient(145deg, #f8f6fc 0%, #efebf6 100%);
+      color: #1a1725;
       line-height: 1.5;
       min-height: 100vh;
-      padding: 20px;
+      padding: 24px;
     }
 
     .wrap {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
-    }
-
-    /* === ГЛУБИНА И СЛОИ === */
-    .page {
-      position: relative;
-      z-index: 1;
-    }
-
-    .card {
-      background: rgba(30, 27, 40, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
-
-    .card-higher {
-      background: rgba(37, 34, 47, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
     }
 
     /* === ХЕДЕР === */
@@ -75,91 +53,93 @@
     .logo {
       width: 44px;
       height: 44px;
-      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.4);
+      box-shadow: 0 10px 20px -8px rgba(99, 102, 241, 0.3);
     }
 
     .brand h1 {
       font-size: 24px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #fff, #e2d9ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #1a1725;
     }
 
     .brand p {
-      color: #a59bb5;
+      color: #5f5b70;
       font-size: 14px;
       margin-top: 2px;
     }
 
     .badge {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 18px;
+      background: white;
+      border: 1px solid #e4deee;
+      padding: 8px 18px;
       border-radius: 40px;
       display: flex;
       align-items: center;
       gap: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
 
     .badge a {
-      color: #c4b5fd;
+      color: #6366f1;
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      transition: 0.15s;
     }
 
     .badge a:hover {
-      color: white;
+      color: #4f46e5;
     }
 
     .separator {
       width: 1px;
       height: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      background: #e4deee;
     }
 
-    /* === ОСНОВНОЙ БЛОК === */
+    /* === ОСНОВНАЯ КАРТОЧКА === */
     .main-card {
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
       padding: 28px;
       margin-bottom: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
-    /* === РЕЖИМЫ (3 штуки) === */
+    /* === РЕЖИМЫ === */
     .mode-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 28px;
     }
 
     .mode-btn {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      padding: 16px 20px;
+      background: #f8f6fc;
+      border: 1px solid #e4deee;
+      border-radius: 20px;
+      padding: 14px 18px;
       text-align: left;
       cursor: pointer;
       transition: all 0.2s;
     }
 
     .mode-btn:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.15);
+      background: white;
+      border-color: #c7c0d8;
       transform: translateY(-2px);
     }
 
     .mode-btn.active {
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(168, 85, 247, 0.1));
-      border-color: rgba(124, 58, 237, 0.4);
-      box-shadow: 0 10px 25px -10px #7c3aed;
+      background: white;
+      border-color: #6366f1;
+      box-shadow: 0 10px 20px -10px #6366f1;
     }
 
     .mode-name {
@@ -169,21 +149,21 @@
     }
 
     .mode-desc {
-      color: #a59bb5;
+      color: #5f5b70;
       font-size: 13px;
     }
 
-    .social .mode-name { color: #60a5fa; }
-    .gamer .mode-name { color: #f59e0b; }
+    .social .mode-name { color: #6366f1; }
+    .gamer .mode-name { color: #f97316; }
     .spicy .mode-name { color: #ec4899; }
 
     /* === КОНТРОЛЫ === */
     .controls-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      align-items: flex-end;
-      margin-bottom: 24px;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 28px;
     }
 
     .field {
@@ -194,39 +174,62 @@
       display: block;
       font-size: 12px;
       font-weight: 600;
-      color: #a59bb5;
+      color: #5f5b70;
       text-transform: uppercase;
       margin-bottom: 6px;
     }
 
-    .field input,
-    .field select {
+    .field input {
       width: 100%;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #f8f6fc;
+      border: 1px solid #e4deee;
       border-radius: 16px;
-      padding: 14px 18px;
+      padding: 12px 16px;
       font-size: 15px;
-      color: white;
       font-family: inherit;
     }
 
-    .field input:focus,
-    .field select:focus {
+    .field input:focus {
       outline: none;
-      border-color: #7c3aed;
-      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      background: white;
     }
 
-    .field input::placeholder {
-      color: #5f5a6d;
+    .count-selector {
+      display: flex;
+      background: #f8f6fc;
+      border: 1px solid #e4deee;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .count-btn {
+      padding: 12px 20px;
+      background: transparent;
+      border: none;
+      font-weight: 600;
+      font-size: 15px;
+      color: #5f5b70;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+
+    .count-btn:hover {
+      background: #eeebf4;
+    }
+
+    .count-btn.active {
+      background: white;
+      color: #6366f1;
+      box-shadow: inset 0 -2px 0 #6366f1;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      background: #6366f1;
       border: none;
       border-radius: 40px;
-      padding: 14px 32px;
+      padding: 12px 28px;
       font-weight: 600;
       font-size: 15px;
       color: white;
@@ -236,33 +239,34 @@
     }
 
     .btn-primary:hover {
+      background: #4f46e5;
       transform: translateY(-2px);
-      box-shadow: 0 15px 30px -10px #7c3aed;
+      box-shadow: 0 10px 20px -10px #6366f1;
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: white;
+      border: 1px solid #e4deee;
       border-radius: 40px;
-      padding: 12px 24px;
+      padding: 10px 22px;
       font-weight: 500;
       font-size: 14px;
-      color: white;
+      color: #1a1725;
       cursor: pointer;
       transition: 0.15s;
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.06);
+      background: #f8f6fc;
+      border-color: #c7c0d8;
     }
 
     .btn-icon {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 40px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: white;
+      background: white;
+      border: 1px solid #e4deee;
       font-size: 20px;
       cursor: pointer;
       display: flex;
@@ -270,37 +274,43 @@
       justify-content: center;
     }
 
+    .btn-icon:hover {
+      background: #f8f6fc;
+    }
+
     /* === ТОП ПИК === */
     .top-section {
+      background: linear-gradient(135deg, #f8f6fc 0%, #f0ebf9 100%);
+      border-radius: 28px;
+      padding: 28px;
       margin-bottom: 24px;
+      border: 1px solid #e4deee;
     }
 
     .top-badge {
       display: inline-block;
-      background: rgba(124, 58, 237, 0.2);
-      color: #c4b5fd;
+      background: white;
+      color: #6366f1;
       font-size: 12px;
       font-weight: 600;
       padding: 4px 12px;
       border-radius: 30px;
-      margin-bottom: 12px;
-      border: 1px solid rgba(124, 58, 237, 0.3);
+      margin-bottom: 16px;
+      border: 1px solid #e4deee;
     }
 
     .top-name {
-      font-size: 56px;
+      font-size: 52px;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       word-break: break-word;
-      background: linear-gradient(135deg, #fff, #e2d9ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #1a1725;
     }
 
     .top-meta {
-      color: #a59bb5;
+      color: #5f5b70;
       font-size: 15px;
       margin-bottom: 20px;
     }
@@ -315,15 +325,15 @@
     .results-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 12px;
-      margin-bottom: 40px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     .result-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 20px;
-      padding: 16px 18px;
+      background: #faf9fe;
+      border: 1px solid #e4deee;
+      border-radius: 18px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -331,17 +341,17 @@
     }
 
     .result-item:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.12);
+      background: white;
+      border-color: #c7c0d8;
     }
 
     .item-name {
       font-weight: 600;
       font-size: 16px;
-      color: white;
+      color: #1a1725;
     }
 
-    .item-platform {
+    .item-mode {
       font-size: 11px;
       color: #7c7894;
       margin-top: 2px;
@@ -354,33 +364,37 @@
     }
 
     .copy-mini {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: white;
+      border: 1px solid #e4deee;
       border-radius: 30px;
       padding: 6px 14px;
       font-size: 12px;
       font-weight: 500;
-      color: white;
+      color: #1a1725;
       cursor: pointer;
     }
 
     .copy-mini:hover {
-      background: #7c3aed;
-      border-color: #7c3aed;
+      background: #6366f1;
+      border-color: #6366f1;
+      color: white;
     }
 
     .more-mini {
       width: 32px;
       height: 32px;
       border-radius: 30px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: white;
+      background: white;
+      border: 1px solid #e4deee;
       font-size: 16px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .more-mini:hover {
+      background: #f8f6fc;
     }
 
     /* === МЕНЮ === */
@@ -389,13 +403,13 @@
       top: 100%;
       right: 0;
       margin-top: 8px;
-      background: #2a2737;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: white;
+      border: 1px solid #e4deee;
       border-radius: 16px;
       padding: 6px;
-      min-width: 150px;
-      z-index: 10;
-      box-shadow: 0 20px 40px -12px black;
+      min-width: 160px;
+      z-index: 100;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
     }
 
     .more-menu.hidden {
@@ -410,14 +424,13 @@
       background: transparent;
       border: none;
       border-radius: 10px;
-      color: #e2d9ff;
+      color: #1a1725;
       font-size: 13px;
       cursor: pointer;
     }
 
     .more-menu button:hover {
-      background: rgba(124, 58, 237, 0.3);
-      color: white;
+      background: #f0ebf9;
     }
 
     /* === ВТОРИЧНЫЕ БЛОКИ === */
@@ -425,39 +438,37 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     .secondary-card {
-      background: rgba(30, 27, 40, 0.5);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 28px;
-      padding: 24px;
+      background: white;
+      border-radius: 24px;
+      padding: 22px;
+      border: 1px solid #e4deee;
+      box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
     }
 
     .secondary-card h3 {
       font-size: 18px;
       font-weight: 700;
       margin-bottom: 6px;
-      background: linear-gradient(135deg, #fff, #c4b5fd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #1a1725;
     }
 
     .secondary-card .sub {
-      color: #7c7894;
+      color: #5f5b70;
       font-size: 13px;
       margin-bottom: 20px;
     }
 
-    /* Saved list */
+    /* Saved */
     .saved-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 10px 0;
+      border-bottom: 1px solid #eeecf4;
     }
 
     .saved-item:last-child {
@@ -466,7 +477,6 @@
 
     .saved-name {
       font-weight: 500;
-      color: white;
     }
 
     .saved-mode {
@@ -474,27 +484,38 @@
       color: #7c7894;
     }
 
-    /* Compare */
-    .compare-grid {
+    /* Duel */
+    .duel-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin: 16px 0;
     }
 
-    .compare-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+    .duel-card {
+      background: #faf9fe;
+      border: 1px solid #e4deee;
       border-radius: 18px;
       padding: 16px;
       text-align: center;
     }
 
-    .compare-name {
+    .duel-name {
       font-weight: 700;
       font-size: 18px;
       margin-bottom: 12px;
-      color: white;
+      color: #1a1725;
+    }
+
+    .winner-badge {
+      background: #f0ebf9;
+      color: #6366f1;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 12px;
     }
 
     /* Toast */
@@ -503,17 +524,17 @@
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%) translateY(10px);
-      background: #2a2737;
+      background: #1a1725;
       color: white;
       padding: 14px 28px;
       border-radius: 50px;
       font-size: 14px;
       font-weight: 500;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.3);
       opacity: 0;
       pointer-events: none;
       transition: 0.2s;
-      z-index: 100;
+      z-index: 1000;
     }
 
     .toast.show {
@@ -528,7 +549,7 @@
 </head>
 <body>
   <div class="wrap">
-    <!-- Хедер -->
+    <!-- Хедер с донатом -->
     <header>
       <div class="brand">
         <div class="logo">
@@ -548,9 +569,9 @@
       </div>
     </header>
 
-    <!-- Основная карточка (самый высокий слой) -->
-    <div class="card card-higher main-card">
-      <!-- Режимы: Social / Gamer / Spicy -->
+    <!-- Основная карточка -->
+    <div class="main-card">
+      <!-- Режимы -->
       <div class="mode-grid">
         <div class="mode-btn social active" data-mode="social">
           <div class="mode-name">Social</div>
@@ -558,7 +579,7 @@
         </div>
         <div class="mode-btn gamer" data-mode="gamer">
           <div class="mode-name">Gamer</div>
-          <div class="mode-desc">Short, sharp gaming tags</div>
+          <div class="mode-desc">Sharp, short gaming tags</div>
         </div>
         <div class="mode-btn spicy" data-mode="spicy">
           <div class="mode-name">Spicy</div>
@@ -569,17 +590,17 @@
       <!-- Контролы -->
       <div class="controls-row">
         <div class="field">
-          <label for="base">Base word (optional)</label>
+          <label for="base">Base word</label>
           <input id="base" type="text" placeholder="e.g., alex, ray, max" autocomplete="off" />
         </div>
         <div class="field">
-          <label for="count">Results</label>
-          <select id="count">
-            <option value="8">8</option>
-            <option value="12" selected>12</option>
-            <option value="16">16</option>
-            <option value="20">20</option>
-          </select>
+          <label>Results</label>
+          <div class="count-selector">
+            <button class="count-btn" data-count="8">8</button>
+            <button class="count-btn active" data-count="12">12</button>
+            <button class="count-btn" data-count="16">16</button>
+            <button class="count-btn" data-count="20">20</button>
+          </div>
         </div>
         <button class="btn-primary" id="generateBtn">Generate</button>
       </div>
@@ -593,6 +614,11 @@
           <button class="btn-primary" id="copyTop">Copy</button>
           <button class="btn-secondary" id="saveTop">Save</button>
           <button class="btn-icon" id="moreTop">⋯</button>
+          <div class="more-menu hidden" id="topMoreMenu">
+            <button id="topShare">📤 Share</button>
+            <button id="topDuel">⚔️ Use in duel</button>
+            <button id="topSimilar">🔄 Generate similar</button>
+          </div>
         </div>
       </div>
 
@@ -600,7 +626,7 @@
       <div class="results-grid" id="resultsList"></div>
     </div>
 
-    <!-- Вторичные блоки (чуть ниже по слою) -->
+    <!-- Вторичные блоки -->
     <div class="secondary-grid">
       <!-- Saved names -->
       <div class="secondary-card">
@@ -610,29 +636,30 @@
         <button class="btn-secondary" id="clearSaved" style="width:100%; margin-top:16px;">Clear saved</button>
       </div>
 
-      <!-- Compare names (Nickname Duel) -->
+      <!-- Duel (улучшенный) -->
       <div class="secondary-card">
         <h3>⚔️ Duel</h3>
-        <div class="sub">Pick the better name</div>
-        <div class="compare-grid">
-          <div class="compare-card">
-            <div class="compare-name" id="duelA">vexon</div>
+        <div class="sub">Pick the winner</div>
+        <div class="duel-grid">
+          <div class="duel-card">
+            <div class="duel-name" id="duelA">vexon</div>
             <button class="btn-secondary" id="pickA" style="width:100%;">Pick left</button>
           </div>
-          <div class="compare-card">
-            <div class="compare-name" id="duelB">norkai</div>
+          <div class="duel-card">
+            <div class="duel-name" id="duelB">norkai</div>
             <button class="btn-secondary" id="pickB" style="width:100%;">Pick right</button>
           </div>
         </div>
-        <button class="btn-secondary" id="nextDuel" style="width:100%;">Next pair</button>
-        <div style="margin-top:16px; color:#a59bb5; font-size:14px; text-align:center;" id="duelStats">Wins: 0</div>
+        <div id="duelWinner" class="winner-badge hidden"></div>
+        <button class="btn-secondary" id="nextDuel" style="width:100%; margin-top:12px;">Next pair</button>
+        <div style="margin-top:16px; color:#5f5b70; font-size:14px; text-align:center;" id="duelStats">Wins: 0</div>
       </div>
 
-      <!-- Spicy aliases (отдельный движок) -->
+      <!-- Spicy names -->
       <div class="secondary-card">
         <h3>🔥 Spicy</h3>
         <div class="sub">Bold, flirty, provocative</div>
-        <div style="font-size:28px; font-weight:700; margin:20px 0; text-align:center; color:#f9a8d4;" id="spicyName">velvetnox</div>
+        <div style="font-size:28px; font-weight:700; margin:20px 0; text-align:center; color:#ec4899;" id="spicyName">velvetnox</div>
         <div style="display:flex; gap:8px;">
           <button class="btn-secondary" id="newSpicy" style="flex:1;">New</button>
           <button class="btn-secondary" id="copySpicy" style="flex:1;">Copy</button>
@@ -641,251 +668,297 @@
     </div>
   </div>
 
-  <div class="toast" id="toast">Copied!</div>
+  <div class="toast" id="toast"></div>
 
   <script>
-    // ========== НОВЫЙ УМНЫЙ ДВИЖОК ==========
+    // ========== НОВЫЙ УМНЫЙ ДВИЖОК С ОЦЕНКОЙ ==========
 
-    // Слоги для разных режимов
+    // Расширенные словари
     const SYLLABLES = {
-      soft: ["lu", "na", "mi", "no", "ka", "ri", "ve", "so", "fe", "ma", "le", "sa"],
-      hard: ["vex", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor", "gon"],
-      spicy: ["vel", "sin", "nox", "vel", "heat", "wild", "kiss", "bad", "hot", "dark"],
-      endings: ["xo", "fm", "mp", "zip", "io", "co", "life", "zone", "star", "wave"],
-      prefixes: ["its", "hey", "the", "mr", "ms", "just", "im", "callme"]
+      social: ["lu", "na", "mi", "no", "ka", "ri", "ve", "so", "fe", "ma", "le", "sa", "ra", "vi", "zo", "ne", "ta", "li", "ro", "di"],
+      gamer: ["vex", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor", "gon", "ryx", "kry", "drav", "nox", "zorx"],
+      spicy: ["vel", "sin", "nox", "heat", "wild", "kiss", "bad", "hot", "dark", "sweet", "wicked", "velv", "silk", "rose"],
+      endings: ["xo", "fm", "mp", "zip", "io", "co", "life", "zone", "star", "wave", "byte", "flux", "core", "dot"],
+      prefixes: ["its", "hey", "the", "mr", "ms", "just", "im", "callme", "re", "x"]
     };
 
-    // Словари для разных режимов (не для склейки, а для вдохновения)
-    const DICTS = {
-      social: ["luna", "aria", "milo", "niko", "kai", "ivy", "ray", "max", "leo", "mia", "oli", "zen"],
-      gamer: ["vex", "nox", "zor", "ryx", "kra", "dray", "nork", "zyr", "vor", "rax"],
-      spicy: ["velvet", "sin", "nox", "heat", "wild", "kiss", "bad", "hot", "dark", "sweet", "wicked"]
+    // Конфиг режимов
+    const MODE_CONFIG = {
+      social: {
+        badge: "✨ Best match for Social",
+        meta: "Clean, short, memorable",
+        placeholder: "e.g., alex, ray, max",
+        scoreWeights: { length: 1.2, vowels: 1.5, rareLetters: -1, pattern: 1 }
+      },
+      gamer: {
+        badge: "⚡ Best gamer tag",
+        meta: "Sharp, short gaming style",
+        placeholder: "e.g., x, z, ry",
+        scoreWeights: { length: 1.5, hardConsonants: 1.5, rareLetters: 0.5, pattern: 1 }
+      },
+      spicy: {
+        badge: "🔥 Best spicy name",
+        meta: "Bold, flirty, provocative",
+        placeholder: "e.g., velvet, sin",
+        scoreWeights: { length: 1, spicyWords: 2, pattern: 1 }
+      }
     };
 
-    // ========== УМНАЯ ГЕНЕРАЦИЯ С ОЦЕНКОЙ ==========
+    // ========== ОСНОВНЫЕ ФУНКЦИИ ==========
 
-    // Генерация ника на основе режима
-    function generateName(mode, base = "", count = 1) {
-      const results = [];
-      
-      for (let i = 0; i < count * 3; i++) { // генерируем с запасом, потом отфильтруем
-        let name = "";
-        
-        if (mode === "social") {
-          // Social: короткие, чистые, с вайбом реального ника
-          if (Math.random() < 0.4) {
-            // формат: itsX / heyX
-            const prefix = pick(SYLLABLES.prefixes);
-            const core = pick(DICTS.social);
-            name = prefix + core;
-          } else if (Math.random() < 0.5) {
-            // формат: X.fm / X.mp
-            const core = pick(DICTS.social);
-            const ending = pick(SYLLABLES.endings);
-            name = core + "." + ending;
-          } else {
-            // формат: слог + слог
-            const s1 = pick(SYLLABLES.soft);
-            const s2 = pick(SYLLABLES.soft);
-            name = s1 + s2;
-          }
-        } else if (mode === "gamer") {
-          // Gamer: короткие, резкие, с иксом
-          if (Math.random() < 0.5) {
-            const core = pick(DICTS.gamer);
-            name = core + pick(["x", "z", "r", "n"]);
-          } else {
-            const s1 = pick(SYLLABLES.hard);
-            const s2 = pick(SYLLABLES.hard.slice(0, 5));
-            name = s1 + s2;
-          }
-        } else if (mode === "spicy") {
-          // Spicy: провокационные, но короткие
-          if (Math.random() < 0.5) {
-            const adj = pick(DICTS.spicy);
-            const noun = pick(["luna", "nox", "vex", "sin", "kiss"]);
-            name = adj + noun;
-          } else {
-            const s1 = pick(SYLLABLES.spicy);
-            const s2 = pick(["xo", "rx", "na", "va"]);
-            name = s1 + s2;
-          }
-        }
-        
-        // Добавить base, если есть
-        if (base) {
-          const cleanBase = base.toLowerCase().replace(/[^a-z]/g, "");
-          if (cleanBase && cleanBase.length > 1) {
-            name = Math.random() < 0.5 ? cleanBase + name : name + cleanBase;
-          }
-        }
-        
-        // Обрезать до разумной длины
-        if (name.length > 14) name = name.slice(0, 14);
-        
-        // Оценка качества (чем выше, тем лучше)
-        const score = scoreName(name, mode);
-        
-        results.push({ name, score });
-      }
-      
-      // Сортируем по качеству, убираем дубликаты
-      const unique = [];
-      const seen = new Set();
-      
-      results
-        .sort((a, b) => b.score - a.score)
-        .forEach(item => {
-          if (!seen.has(item.name) && item.name.length > 3 && item.name.length < 15) {
-            seen.add(item.name);
-            unique.push(item.name);
-          }
-        });
-      
-      return unique.slice(0, count);
-    }
-
-    // Оценка качества ника
-    function scoreName(name, mode) {
-      let score = 50; // базовое
-      
-      // Длина (идеально 5-10)
-      if (name.length >= 5 && name.length <= 8) score += 20;
-      else if (name.length === 4 || name.length === 9) score += 10;
-      else if (name.length > 12) score -= 20;
-      
-      // Нет повторяющихся букв подряд
-      if (/(.)\1{2,}/.test(name)) score -= 15;
-      
-      // Режимные предпочтения
-      if (mode === "social") {
-        if (/[aeiouy]{2,}/.test(name)) score += 10; // гласные для читаемости
-        if (/[zxq]/.test(name)) score -= 10; // избегать редких букв
-      } else if (mode === "gamer") {
-        if (/[xz]/.test(name)) score += 10; // икс и зет норм для геймеров
-        if (name.length < 6) score += 10;
-      } else if (mode === "spicy") {
-        if (/vel|sin|nox|heat|kiss/.test(name)) score += 15;
-      }
-      
-      // Если похоже на реальное слово
-      if (/^(luna|aria|milo|niko|kai|ray|max|leo)$/.test(name)) score += 10;
-      
-      return score;
-    }
-
-    // ========== ВСПОМОГАТЕЛЬНЫЕ ==========
-
-    const $ = (s) => document.querySelector(s);
-    const $$ = (s) => Array.from(document.querySelectorAll(s));
-    
     function pick(arr) {
       return arr[Math.floor(Math.random() * arr.length)];
     }
 
-    function toast(msg) {
-      const t = $("#toast");
-      t.textContent = msg;
-      t.classList.add("show");
-      setTimeout(() => t.classList.remove("show"), 1500);
+    // Копирование с fallback
+    async function copyToClipboard(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          return true;
+        } catch (e) {
+          document.body.removeChild(textarea);
+          return false;
+        }
+      }
     }
 
-    function escapeHtml(text) {
-      const div = document.createElement("div");
-      div.textContent = text;
-      return div.innerHTML;
+    // Toast
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 1500);
+    }
+
+    // Оценка качества для social
+    function scoreSocial(name) {
+      let score = 50;
+      
+      // Длина (идеально 5-8)
+      if (name.length >= 5 && name.length <= 8) score += 20;
+      else if (name.length === 4 || name.length === 9) score += 10;
+      else if (name.length > 10) score -= 20;
+      
+      // Гласные для читаемости
+      const vowels = (name.match(/[aeiouy]/gi) || []).length;
+      if (vowels >= 2 && vowels <= 4) score += 15;
+      
+      // Редкие буквы
+      if (/[zxq]/.test(name)) score -= 10;
+      
+      // Повторы
+      if (/(.)\1{2,}/.test(name)) score -= 15;
+      
+      return score;
+    }
+
+    // Оценка для gamer
+    function scoreGamer(name) {
+      let score = 50;
+      
+      if (name.length >= 4 && name.length <= 7) score += 20;
+      if (/[xz]/.test(name)) score += 10;
+      if (/[aeiou]{2,}/.test(name)) score += 5;
+      if (/(.)\1{2,}/.test(name)) score -= 15;
+      
+      return score;
+    }
+
+    // Оценка для spicy
+    function scoreSpicy(name) {
+      let score = 50;
+      
+      const spicyWords = ['vel', 'sin', 'nox', 'heat', 'wild', 'kiss', 'bad'];
+      if (spicyWords.some(w => name.includes(w))) score += 20;
+      
+      if (name.length >= 5 && name.length <= 9) score += 15;
+      if (/[aeiou]/.test(name)) score += 5;
+      
+      return score;
+    }
+
+    // Генерация social имен
+    function generateSocialName(base = "") {
+      const patterns = [
+        () => {
+          const s1 = pick(SYLLABLES.social);
+          const s2 = pick(SYLLABLES.social);
+          return s1 + s2;
+        },
+        () => {
+          const prefix = pick(SYLLABLES.prefixes);
+          const core = pick(SYLLABLES.social).slice(0, 3);
+          return prefix + core;
+        },
+        () => {
+          const core = pick(SYLLABLES.social);
+          const ending = pick(SYLLABLES.endings);
+          return core + "." + ending;
+        },
+        () => {
+          const s1 = pick(SYLLABLES.social);
+          const s2 = pick(['xo', 'io', 'co']);
+          return s1 + s2;
+        }
+      ];
+
+      let name = pick(patterns)();
+      
+      if (base) {
+        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, "").slice(0, 4);
+        if (cleanBase && Math.random() < 0.5) {
+          name = cleanBase + name.slice(0, 5);
+        }
+      }
+      
+      return name.slice(0, 10).toLowerCase();
+    }
+
+    // Генерация gamer имен
+    function generateGamerName(base = "") {
+      const patterns = [
+        () => {
+          const s1 = pick(SYLLABLES.gamer);
+          const ending = pick(['x', 'z', 'r', 'n']);
+          return s1 + ending;
+        },
+        () => {
+          const s1 = pick(SYLLABLES.gamer.slice(0, 5));
+          const s2 = pick(SYLLABLES.gamer.slice(5, 10));
+          return s1 + s2;
+        },
+        () => {
+          return pick(['ryx', 'vorx', 'kraz', 'dray', 'nork']) + pick(['x', 'z']);
+        }
+      ];
+
+      let name = pick(patterns)();
+      
+      if (base) {
+        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, "").slice(0, 3);
+        if (cleanBase) name = cleanBase + name;
+      }
+      
+      return name.slice(0, 8).toLowerCase();
+    }
+
+    // Генерация spicy имен
+    function generateSpicyName(base = "") {
+      const patterns = [
+        () => {
+          const s1 = pick(SYLLABLES.spicy);
+          const s2 = pick(['luna', 'nox', 'vex', 'sin']);
+          return s1 + s2;
+        },
+        () => {
+          const s1 = pick(['velvet', 'sin', 'heat']);
+          const s2 = pick(['xo', 'rx', 'na']);
+          return s1 + s2;
+        },
+        () => {
+          return pick(['wild', 'bad', 'hot']) + pick(['kiss', 'love', 'night']);
+        }
+      ];
+
+      let name = pick(patterns)();
+      
+      if (base) {
+        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, "").slice(0, 3);
+        if (cleanBase) name = cleanBase + name;
+      }
+      
+      return name.slice(0, 10).toLowerCase();
+    }
+
+    // Универсальная генерация с оценкой
+    function generateNames(mode, base, count) {
+      const results = [];
+      const seen = new Set();
+      let attempts = 0;
+      const maxAttempts = count * 20;
+      
+      while (results.length < count && attempts < maxAttempts) {
+        attempts++;
+        
+        let name;
+        if (mode === 'social') name = generateSocialName(base);
+        else if (mode === 'gamer') name = generateGamerName(base);
+        else name = generateSpicyName(base);
+        
+        if (seen.has(name) || name.length < 3) continue;
+        
+        let score;
+        if (mode === 'social') score = scoreSocial(name);
+        else if (mode === 'gamer') score = scoreGamer(name);
+        else score = scoreSpicy(name);
+        
+        if (score < 30) continue; // фильтр низкого качества
+        
+        seen.add(name);
+        results.push({ name, score });
+      }
+      
+      // Сортируем по убыванию score
+      results.sort((a, b) => b.score - a.score);
+      
+      return results.map(r => r.name);
     }
 
     // ========== СОСТОЯНИЕ ==========
 
-    let currentMode = "social";
+    let currentMode = 'social';
+    let currentCount = 12;
     let lastResults = [];
-    let saved = JSON.parse(localStorage.getItem("saved") || "[]");
+    let saved = JSON.parse(localStorage.getItem('saved') || '[]');
     
     // Duel
     let duelWins = 0;
-    let duelA = "", duelB = "";
+    let duelCurrentWinner = null;
+    let duelA = '', duelB = '';
 
     // ========== РЕНДЕР ==========
 
     function renderResults(names) {
-      const list = $("#resultsList");
-      list.innerHTML = "";
+      const list = document.getElementById('resultsList');
+      list.innerHTML = '';
       
       names.forEach(name => {
-        const item = document.createElement("div");
-        item.className = "result-item";
+        const item = document.createElement('div');
+        item.className = 'result-item';
         item.innerHTML = `
           <div>
             <div class="item-name">${escapeHtml(name)}</div>
-            <div class="item-platform">${currentMode} style</div>
+            <div class="item-mode">${currentMode}</div>
           </div>
           <div class="item-actions">
             <button class="copy-mini" data-name="${escapeHtml(name)}">Copy</button>
             <button class="more-mini" data-name="${escapeHtml(name)}">⋯</button>
             <div class="more-menu hidden">
               <button data-pin="${escapeHtml(name)}">📌 Save</button>
-              <button data-open="${escapeHtml(name)}">🌐 Open profile</button>
+              <button data-check="${escapeHtml(name)}">🔍 Check on platform</button>
               <button data-share="${escapeHtml(name)}">📤 Share</button>
             </div>
           </div>
         `;
         list.appendChild(item);
       });
-
-      // Обработчики
-      document.querySelectorAll(".copy-mini").forEach(btn => {
-        btn.addEventListener("click", async (e) => {
-          e.stopPropagation();
-          await navigator.clipboard.writeText(btn.dataset.name);
-          toast("Copied!");
-        });
-      });
-
-      document.querySelectorAll(".more-mini").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const menu = btn.nextElementSibling;
-          document.querySelectorAll(".more-menu").forEach(m => {
-            if (m !== menu) m.classList.add("hidden");
-          });
-          menu.classList.toggle("hidden");
-        });
-      });
-
-      document.querySelectorAll("[data-pin]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const name = btn.dataset.pin;
-          saved.unshift({ name, mode: currentMode, date: Date.now() });
-          saved = saved.slice(0, 20);
-          localStorage.setItem("saved", JSON.stringify(saved));
-          renderSaved();
-          toast("Saved");
-        });
-      });
-
-      document.querySelectorAll("[data-open]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const name = btn.dataset.open;
-          let url = "https://github.com/" + name; // fallback
-          if (currentMode === "social") url = "https://instagram.com/" + name;
-          else if (currentMode === "gamer") url = "https://twitch.tv/" + name;
-          window.open(url, "_blank");
-        });
-      });
-
-      // Закрыть меню при клике вне
-      document.addEventListener("click", () => {
-        document.querySelectorAll(".more-menu").forEach(m => m.classList.add("hidden"));
-      });
     }
 
     function renderSaved() {
-      const container = $("#savedList");
+      const container = document.getElementById('savedList');
       if (!container) return;
       
       if (saved.length === 0) {
-        container.innerHTML = '<div style="color:#7c7894; padding:12px 0;">No saved names yet</div>';
+        container.innerHTML = '<div style="color:#5f5b70; padding:12px 0;">No saved names yet</div>';
         return;
       }
       
@@ -895,55 +968,55 @@
             <div class="saved-name">${escapeHtml(item.name)}</div>
             <div class="saved-mode">${item.mode}</div>
           </div>
-          <button class="copy-mini" data-name="${escapeHtml(item.name)}">Copy</button>
+          <button class="btn-secondary" style="padding:4px 12px;" data-copy-saved="${escapeHtml(item.name)}">Copy</button>
         </div>
-      `).join("");
-      
-      container.querySelectorAll(".copy-mini").forEach(btn => {
-        btn.addEventListener("click", async () => {
-          await navigator.clipboard.writeText(btn.dataset.name);
-          toast("Copied!");
-        });
-      });
+      `).join('');
     }
 
     function renderDuel() {
-      $("#duelA").textContent = duelA || "vexon";
-      $("#duelB").textContent = duelB || "norkai";
-      $("#duelStats").textContent = `Wins: ${duelWins}`;
+      document.getElementById('duelA').textContent = duelA || 'vexon';
+      document.getElementById('duelB').textContent = duelB || 'norkai';
+      document.getElementById('duelStats').textContent = `Wins: ${duelWins}`;
+      
+      const winnerEl = document.getElementById('duelWinner');
+      if (duelCurrentWinner) {
+        winnerEl.textContent = `🏆 Winner: ${duelCurrentWinner}`;
+        winnerEl.classList.remove('hidden');
+      } else {
+        winnerEl.classList.add('hidden');
+      }
     }
 
     function renderSpicy() {
-      const spicy = generateName("spicy", "", 1)[0] || "velvetnox";
-      $("#spicyName").textContent = spicy;
+      const spicy = generateNames('spicy', '', 1)[0] || 'velvetnox';
+      document.getElementById('spicyName').textContent = spicy;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
     }
 
     // ========== ОСНОВНЫЕ ДЕЙСТВИЯ ==========
 
     function generateNew() {
-      const base = $("#base").value;
-      const count = parseInt($("#count").value);
-      
-      lastResults = generateName(currentMode, base, count);
+      const base = document.getElementById('base').value;
+      lastResults = generateNames(currentMode, base, currentCount);
       
       if (lastResults.length > 0) {
-        $("#topName").textContent = lastResults[0];
-        $("#topBadge").textContent = `✨ Best match for ${currentMode}`;
-        
-        let meta = "";
-        if (currentMode === "social") meta = "Clean, short, memorable";
-        else if (currentMode === "gamer") meta = "Sharp, short gaming tag";
-        else meta = "Bold, flirty, provocative";
-        $("#topMeta").textContent = meta;
+        document.getElementById('topName').textContent = lastResults[0];
+        document.getElementById('topBadge').textContent = MODE_CONFIG[currentMode].badge;
+        document.getElementById('topMeta').textContent = MODE_CONFIG[currentMode].meta;
       }
       
       renderResults(lastResults);
     }
 
     function newDuelPair() {
-      const pair = generateName(currentMode, "", 2);
-      duelA = pair[0] || "vexon";
-      duelB = pair[1] || "norkai";
+      const pair = generateNames(currentMode, '', 2);
+      duelA = pair[0] || 'vexon';
+      duelB = pair[1] || 'norkai';
       renderDuel();
     }
 
@@ -951,90 +1024,196 @@
 
     function init() {
       // Режимы
-      $$(".mode-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          $$(".mode-btn").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
+      document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
           currentMode = btn.dataset.mode;
+          document.getElementById('base').placeholder = MODE_CONFIG[currentMode].placeholder;
           generateNew();
           newDuelPair();
         });
       });
 
-      // Генерация
-      $("#generateBtn").addEventListener("click", generateNew);
-      $("#base").addEventListener("keydown", (e) => {
-        if (e.key === "Enter") generateNew();
+      // Count selector
+      document.querySelectorAll('.count-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCount = parseInt(btn.dataset.count);
+          generateNew();
+        });
       });
 
-      // Top actions
-      $("#copyTop").addEventListener("click", async () => {
-        await navigator.clipboard.writeText($("#topName").textContent);
-        toast("Copied top name");
+      // Generate
+      document.getElementById('generateBtn').addEventListener('click', generateNew);
+      document.getElementById('base').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') generateNew();
       });
 
-      $("#saveTop").addEventListener("click", () => {
-        const name = $("#topName").textContent;
-        saved.unshift({ name, mode: currentMode, date: Date.now() });
-        saved = saved.slice(0, 20);
-        localStorage.setItem("saved", JSON.stringify(saved));
-        renderSaved();
-        toast("Saved");
+      // Copy top
+      document.getElementById('copyTop').addEventListener('click', async () => {
+        const ok = await copyToClipboard(document.getElementById('topName').textContent);
+        toast(ok ? 'Copied!' : 'Copy failed');
       });
 
-      $("#moreTop").addEventListener("click", () => {
-        toast("More options coming soon");
+      // Save top
+      document.getElementById('saveTop').addEventListener('click', () => {
+        const name = document.getElementById('topName').textContent;
+        if (!saved.some(s => s.name === name)) {
+          saved.unshift({ name, mode: currentMode });
+          saved = saved.slice(0, 20);
+          localStorage.setItem('saved', JSON.stringify(saved));
+          renderSaved();
+          toast('Saved!');
+        } else {
+          toast('Already saved');
+        }
       });
 
-      // Clear saved
-      $("#clearSaved").addEventListener("click", () => {
+      // More menu в top
+      document.getElementById('moreTop').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const menu = document.getElementById('topMoreMenu');
+        menu.classList.toggle('hidden');
+      });
+
+      document.getElementById('topShare').addEventListener('click', () => {
+        const name = document.getElementById('topName').textContent;
+        navigator.share?.({ title: 'NickForge', text: name }).catch(() => {
+          copyToClipboard(name);
+          toast('Link copied!');
+        });
+      });
+
+      document.getElementById('topDuel').addEventListener('click', () => {
+        const name = document.getElementById('topName').textContent;
+        duelA = name;
+        newDuelPair();
+        toast('Added to duel!');
+      });
+
+      document.getElementById('topSimilar').addEventListener('click', () => {
+        const base = document.getElementById('topName').textContent.slice(0, 4);
+        document.getElementById('base').value = base;
+        generateNew();
+      });
+
+      // Saved
+      document.getElementById('clearSaved').addEventListener('click', () => {
         saved = [];
-        localStorage.removeItem("saved");
+        localStorage.removeItem('saved');
         renderSaved();
-        toast("Saved names cleared");
+        toast('Saved names cleared');
       });
 
       // Duel
-      $("#pickA").addEventListener("click", () => {
+      document.getElementById('pickA').addEventListener('click', () => {
         duelWins++;
+        duelCurrentWinner = duelA;
         toast(`Picked: ${duelA}`);
-        newDuelPair();
+        renderDuel();
       });
 
-      $("#pickB").addEventListener("click", () => {
+      document.getElementById('pickB').addEventListener('click', () => {
         duelWins++;
+        duelCurrentWinner = duelB;
         toast(`Picked: ${duelB}`);
-        newDuelPair();
+        renderDuel();
       });
 
-      $("#nextDuel").addEventListener("click", newDuelPair);
+      document.getElementById('nextDuel').addEventListener('click', newDuelPair);
 
       // Spicy
-      $("#newSpicy").addEventListener("click", renderSpicy);
-      $("#copySpicy").addEventListener("click", async () => {
-        await navigator.clipboard.writeText($("#spicyName").textContent);
-        toast("Copied spicy name");
+      document.getElementById('newSpicy').addEventListener('click', renderSpicy);
+      document.getElementById('copySpicy').addEventListener('click', async () => {
+        const ok = await copyToClipboard(document.getElementById('spicyName').textContent);
+        toast(ok ? 'Copied!' : 'Copy failed');
       });
 
       // Donate / Feedback
-      $("#donateLink").addEventListener("click", (e) => {
+      document.getElementById('donateLink').addEventListener('click', (e) => {
         e.preventDefault();
-        window.open("https://buymeacoffee.com/", "_blank");
+        window.open('https://buymeacoffee.com/', '_blank');
       });
 
-      $("#feedbackLink").addEventListener("click", (e) => {
+      document.getElementById('feedbackLink').addEventListener('click', (e) => {
         e.preventDefault();
-        window.open("mailto:feedback@nickforge.com", "_blank");
+        window.open('mailto:feedback@nickforge.com', '_blank');
       });
 
       // Keyboard shortcut C
-      document.addEventListener("keydown", async (e) => {
-        if (e.key.toLowerCase() === "c" && !e.ctrlKey && !e.metaKey) {
+      document.addEventListener('keydown', async (e) => {
+        if (e.key.toLowerCase() === 'c' && !e.ctrlKey && !e.metaKey) {
           const active = document.activeElement;
-          if (active.tagName !== "INPUT" && active.tagName !== "TEXTAREA") {
-            await navigator.clipboard.writeText($("#topName").textContent);
-            toast("Copied top name");
+          if (active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') {
+            const ok = await copyToClipboard(document.getElementById('topName').textContent);
+            toast(ok ? 'Copied top name' : 'Copy failed');
           }
+        }
+      });
+
+      // Глобальный клик для закрытия меню
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.more-menu').forEach(m => m.classList.add('hidden'));
+      });
+
+      // Делегирование событий для результатов
+      document.getElementById('resultsList').addEventListener('click', async (e) => {
+        const target = e.target;
+        
+        if (target.classList.contains('copy-mini')) {
+          e.stopPropagation();
+          const name = target.dataset.name;
+          const ok = await copyToClipboard(name);
+          toast(ok ? 'Copied!' : 'Copy failed');
+        }
+        
+        if (target.classList.contains('more-mini')) {
+          e.stopPropagation();
+          const menu = target.nextElementSibling;
+          document.querySelectorAll('.more-menu').forEach(m => {
+            if (m !== menu) m.classList.add('hidden');
+          });
+          menu.classList.toggle('hidden');
+        }
+        
+        if (target.dataset.pin) {
+          const name = target.dataset.pin;
+          if (!saved.some(s => s.name === name)) {
+            saved.unshift({ name, mode: currentMode });
+            saved = saved.slice(0, 20);
+            localStorage.setItem('saved', JSON.stringify(saved));
+            renderSaved();
+            toast('Saved!');
+          }
+        }
+        
+        if (target.dataset.check) {
+          const name = target.dataset.check;
+          let url = `https://instagram.com/${name}`;
+          if (currentMode === 'gamer') url = `https://twitch.tv/${name}`;
+          else if (currentMode === 'spicy') {
+            toast('Spicy names are for inspiration only');
+            return;
+          }
+          window.open(url, '_blank');
+        }
+        
+        if (target.dataset.share) {
+          const name = target.dataset.share;
+          navigator.share?.({ title: 'NickForge', text: name }).catch(() => {
+            copyToClipboard(name);
+            toast('Link copied!');
+          });
+        }
+      });
+
+      // Делегирование для saved
+      document.addEventListener('click', async (e) => {
+        if (e.target.dataset.copySaved) {
+          const ok = await copyToClipboard(e.target.dataset.copySaved);
+          toast(ok ? 'Copied!' : 'Copy failed');
         }
       });
 
