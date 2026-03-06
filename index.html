@@ -1,0 +1,2008 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NickForge — Username Generator for TikTok, Instagram & Games</title>
+  <meta name="description" content="Generate clean, unique usernames for TikTok, Instagram, games, and more. No repeats, stylish separators, and strong word packs. Free and fast." />
+  <meta name="theme-color" content="#241131" />
+
+  <!-- ✅ SEO fix #1: Canonical -->
+  <link rel="canonical" href="https://YOURNAME.github.io/nickforge/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NickForge — Modern Username Generator" />
+  <meta property="og:description" content="Unique handles for TikTok, Instagram, gamer tags & nicknames. Smart separators. No repeats." />
+  <meta property="og:type" content="website" />
+  <!-- ✅ OG/Twitter filled for production -->
+  <meta property="og:url" content="https://YOURNAME.github.io/nickforge/" />
+  <meta property="og:image" content="https://YOURNAME.github.io/nickforge/preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NickForge — Modern Username Generator" />
+  <meta name="twitter:description" content="Unique handles for TikTok, Instagram, gamer tags & nicknames. Smart separators. No repeats." />
+  <meta name="twitter:image" content="https://YOURNAME.github.io/nickforge/preview.png" />
+
+  <!-- Minimal JSON-LD for SEO -->
+  <!-- ✅ SEO fix #2: add url + image -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NickForge",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Any",
+    "url": "https://YOURNAME.github.io/nickforge/",
+    "image": "https://YOURNAME.github.io/nickforge/preview.png",
+    "description": "Generate unique usernames for TikTok, Instagram, and games with smart formatting and no repeats.",
+    "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+
+  <style>
+    :root{
+      /* Deep aubergine / cosmic (no stars) */
+      --bg0:#140a1e;
+      --bg1:#1b0d28;
+      --bg2:#25103a;
+      --ink:#f3eaff;
+      --muted:rgba(243,234,255,.72);
+      --faint:rgba(243,234,255,.12);
+
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.085);
+      --border:rgba(255,255,255,.14);
+
+      --accent:#8a5cff; /* violet */
+      --accent2:#5eead4; /* mint */
+      --accent3:#ffcc66; /* warm */
+      --danger:#ff5c8a;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 22px;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(138,92,255,.25), transparent 60%),
+        radial-gradient(900px 650px at 80% 30%, rgba(94,234,212,.18), transparent 55%),
+        radial-gradient(900px 600px at 50% 90%, rgba(255,204,102,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* Animated blobs (subtle) */
+    .blob{
+      position:fixed; inset:auto;
+      width:520px; height:520px;
+      border-radius:999px;
+      filter: blur(38px);
+      opacity:.22;
+      pointer-events:none;
+      mix-blend-mode:screen;
+      animation: floaty 12s ease-in-out infinite;
+    }
+    .blob.b1{left:-180px; top:120px; background: radial-gradient(circle at 30% 30%, #8a5cff, transparent 55%);}
+    .blob.b2{right:-220px; top:40px; background: radial-gradient(circle at 30% 30%, #5eead4, transparent 60%); animation-duration: 14s;}
+    .blob.b3{left:25%; bottom:-260px; background: radial-gradient(circle at 30% 30%, #ffcc66, transparent 62%); animation-duration: 16s;}
+
+    @keyframes floaty{
+      0%,100%{transform: translate(0,0) scale(1)}
+      50%{transform: translate(18px,-22px) scale(1.04)}
+    }
+
+    /* Layout */
+    .wrap{
+      width:min(1180px, 92vw);
+      margin: 26px auto 80px;
+      position:relative;
+    }
+
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+      padding: 12px 6px 18px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      user-select:none;
+    }
+    .logo{
+      width:42px; height:42px;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(138,92,255,.32), rgba(94,234,212,.18));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 40px rgba(0,0,0,.45);
+      display:grid; place-items:center;
+      overflow:hidden;
+    }
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.4px;
+    }
+    .brand p{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+
+    .top-actions{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.35);
+      backdrop-filter: blur(14px);
+    }
+    .pill small{color:var(--muted)}
+    .kbd{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      background: rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      color:rgba(243,234,255,.85);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns: 1fr}
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow:hidden;
+      position:relative;
+    }
+    .card .hd{
+      padding: 18px 18px 14px;
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), transparent);
+    }
+    .card .hd h2{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.3px;
+    }
+    .card .hd p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.35;
+    }
+
+    .card .bd{padding: 16px 18px 18px;}
+        /* Tabs */
+    .tabs{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .tab{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(243,234,255,.86);
+      padding:10px 12px;
+      border-radius: 14px;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      font-weight:600;
+      font-size:13px;
+    }
+    .tab:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
+    .tab.active{
+      background: linear-gradient(135deg, rgba(138,92,255,.35), rgba(94,234,212,.10));
+      border-color: rgba(138,92,255,.45);
+      box-shadow: 0 10px 30px rgba(138,92,255,.14);
+    }
+    .tab:focus-visible{
+      outline:2px solid rgba(94,234,212,.55);
+      outline-offset: 2px;
+    }
+
+    /* Controls */
+    .row{display:grid; grid-template-columns: 1.1fr .9fr; gap:12px; margin-top:14px;}
+    @media (max-width: 620px){ .row{grid-template-columns: 1fr} }
+
+    .field{
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding:12px 12px;
+    }
+    .field label{
+      display:block;
+      font-size:12px;
+      color: var(--muted);
+      margin-bottom:8px;
+    }
+    input[type="text"], input[type="number"], select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--ink);
+      outline:none;
+      font-size:15px;
+    }
+    input::placeholder{color: rgba(243,234,255,.40)}
+    select{cursor:pointer}
+
+    .controls{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 620px){ .controls{grid-template-columns: 1fr} }
+
+    .toggle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.16);
+    }
+    .toggle strong{font-size:13px}
+    .toggle small{display:block; color:var(--muted); margin-top:4px; font-size:12px; line-height:1.25}
+
+    /* Switch as button for A11y, visual unchanged */
+    .switch{
+      width:54px; height:30px; border-radius:999px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      position:relative; cursor:pointer; flex:0 0 auto;
+      transition: background .15s ease, border-color .15s ease;
+      appearance:none;
+      padding:0;
+    }
+    .switch::after{
+      content:"";
+      position:absolute; top:50%; left:4px;
+      width:22px; height:22px; border-radius:999px;
+      transform: translateY(-50%);
+      background: rgba(243,234,255,.92);
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      transition: left .15s ease, background .15s ease;
+    }
+    .switch.on{
+      background: rgba(138,92,255,.35);
+      border-color: rgba(138,92,255,.45);
+    }
+    .switch.on::after{left:28px}
+    .switch:focus-visible{
+      outline:2px solid rgba(94,234,212,.55);
+      outline-offset: 3px;
+    }
+
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+    .btn{
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(243,234,255,.92);
+      cursor:pointer;
+      font-weight:700;
+      letter-spacing:.2px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(138,92,255,.55), rgba(94,234,212,.18));
+      border-color: rgba(138,92,255,.55);
+      box-shadow: 0 14px 40px rgba(138,92,255,.18);
+    }
+    .btn.ghost{
+      background: transparent;
+    }
+
+    /* Results */
+    .results{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .topPick{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(138,92,255,.22), rgba(255,255,255,.03));
+      padding: 16px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.40);
+    }
+    .topPick .name{
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      line-height:1.1;
+    }
+    .topPick .meta{
+      color: var(--muted);
+      font-size: 12px;
+      margin-top:6px;
+    }
+    .pickBtns{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+
+    .list{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 720px){ .list{grid-template-columns: 1fr} }
+
+    .item{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.14);
+      padding: 12px 12px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      transition: transform .15s ease, background .15s ease;
+      min-height:64px;
+    }
+    .item:hover{transform: translateY(-1px); background: rgba(0,0,0,.18)}
+    .item .txt{
+      min-width:0;
+    }
+    .item .nick{
+      font-weight:800;
+      font-size:16px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .item .sub{
+      margin-top:4px;
+      font-size:11.5px;
+      color: var(--muted);
+    }
+    .miniBtns{display:flex; gap:8px; flex:0 0 auto;}
+    .mini{
+      padding:8px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      cursor:pointer;
+      color: rgba(243,234,255,.92);
+      font-weight:800;
+      font-size:12px;
+    }
+    .mini:hover{background: rgba(255,255,255,.08)}
+    .mini:focus-visible{
+      outline:2px solid rgba(94,234,212,.55);
+      outline-offset: 2px;
+    }
+
+    /* ✅ Added: Battle mode layout (uses existing style language; no redesign) */
+    .battleWrap{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.14);
+      padding: 12px 12px;
+      display:none;
+    }
+    .battleHd{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:10px;
+    }
+    .battleHd .left{
+      min-width:0;
+    }
+    .battleHd .title{
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:13px;
+    }
+    .battleHd .hint{
+      color:rgba(243,234,255,.68);
+      font-size:11.5px;
+      margin-top:4px;
+      line-height:1.25;
+    }
+    .battleGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 720px){ .battleGrid{grid-template-columns: 1fr} }
+
+    .battleCard{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.14);
+      padding: 12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-height:74px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .battleCard:hover{transform: translateY(-1px); background: rgba(0,0,0,.18)}
+    .battleName{
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+    }
+    .battleMeta{
+      color:rgba(243,234,255,.68);
+      font-size:11.5px;
+      margin-top:4px;
+    }
+    .battleBtns{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+      flex: 0 0 auto;
+    }
+
+    /* Right column: Spicy Stage Name + Favorites */
+    .sideGrid{
+      display:grid;
+      gap:18px;
+    }
+        .stageName{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(255,204,102,.14), rgba(138,92,255,.12));
+      box-shadow: 0 16px 45px rgba(0,0,0,.35);
+    }
+    .stageName .big{
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:.3px;
+      cursor:pointer;
+    }
+    .stageName .small{
+      margin-top:4px;
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    .favList{display:grid; gap:10px;}
+    .favItem{
+      padding: 12px 12px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.14);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:22px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.14);
+      color: rgba(243,234,255,.92);
+      padding: 10px 12px;
+      border-radius: 14px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 16px 50px rgba(0,0,0,.55);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease;
+      font-size:13px;
+    }
+    .toast.show{opacity:1; transform: translateX(-50%) translateY(-4px)}
+    footer{
+      margin-top:18px;
+      color: rgba(243,234,255,.55);
+      font-size: 12px;
+      padding: 0 6px;
+    }
+    a{color: rgba(138,92,255,.95); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Screen-reader only helper */
+    .sr-only{
+      position:absolute !important;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
+
+    /* ✅ Added: Copy success micro animation (visual only) */
+    .copy-success{
+      background: rgba(94,234,212,.22) !important;
+      border-color: rgba(94,234,212,.55) !important;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- Simple, memorable icon: “spark-forge” -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l2.2 5.4L20 9.5l-4.6 3.6L17 19l-5-2.9L7 19l1.6-5.9L4 9.5l5.8-2.1L12 2z" stroke="rgba(243,234,255,.92)" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M7.3 21.5c2.2-1.2 7.2-1.2 9.4 0" stroke="rgba(94,234,212,.70)" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>NickForge</h1>
+          <p>Clean, unique usernames — TikTok • Instagram • Games • Nicknames</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <div class="pill">
+          <small>Tip:</small>
+          <span class="kbd">Enter</span><small>generate</small>
+          <span class="kbd">C</span><small>copy top</small>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- MAIN -->
+      <section class="card" id="mainCard">
+        <div class="hd">
+          <div>
+            <!-- ✅ Visible H2 tweak (no hidden SEO) -->
+            <h2>🎮 Username Generator for Games & Social Media</h2>
+            <p>
+              Type an optional base name. Results are unique by design (no repeats per session).
+              Numbers are off by default.
+            </p>
+          </div>
+
+          <!-- Accessible tablist -->
+          <div class="tabs" role="tablist" aria-label="Generators">
+            <button
+              class="tab active"
+              data-mode="nickname"
+              id="tab-nickname"
+              role="tab"
+              aria-selected="true"
+              tabindex="0"
+              aria-controls="panel-results"
+            >Nickname</button>
+
+            <button
+              class="tab"
+              data-mode="tiktok"
+              id="tab-tiktok"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+              aria-controls="panel-results"
+            >TikTok Username</button>
+
+            <button
+              class="tab"
+              data-mode="instagram"
+              id="tab-instagram"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+              aria-controls="panel-results"
+            >Instagram Handle</button>
+
+            <button
+              class="tab"
+              data-mode="gamer"
+              id="tab-gamer"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+              aria-controls="panel-results"
+            >Gamer Tag</button>
+          </div>
+        </div>
+
+        <div class="bd">
+          <div class="row">
+            <div class="field">
+              <label for="base">Base name (optional) — letters only are used</label>
+              <input id="base" type="text" placeholder="e.g., tom, ben, neo" autocomplete="off" />
+              <div id="baseNote" class="sr-only" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="count">How many results</label>
+              <select id="count">
+                <option>12</option>
+                <option selected>24</option>
+                <option>36</option>
+                <option>48</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="controls">
+            <div class="toggle">
+              <div>
+                <strong>Allow numbers</strong>
+                <small>Off by default. Adds tasteful suffixes (rare).</small>
+              </div>
+
+              <!-- switch as button: A11y + same visuals -->
+              <button
+                class="switch"
+                id="swNumbers"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Allow numbers"
+              ></button>
+
+              <!-- extra state text for screen readers -->
+              <span class="sr-only" id="swNumbersState">Allow numbers: off</span>
+            </div>
+
+            <div class="field" style="padding:14px 14px;">
+              <label for="sep">Separator style</label>
+              <select id="sep">
+                <option value="smart" selected>Smart (recommended)</option>
+                <option value="camel">CamelCase</option>
+                <option value="snake">snake_case</option>
+                <option value="kebab">kebab-case</option>
+                <option value="dot">dot.style</option>
+              </select>
+            </div>
+
+            <!-- ✅ Added: Theme selector -->
+            <div class="field" style="padding:14px 14px;">
+              <label for="theme">Theme</label>
+              <select id="theme">
+                <option value="classic" selected>Classic</option>
+                <option value="cyberpunk">Cyberpunk</option>
+                <option value="nature">Nature</option>
+                <option value="mythology">Mythology</option>
+                <option value="space">Space</option>
+                <option value="gaming">Gaming</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="btn primary" id="btnGen" type="button">Generate</button>
+            <button class="btn" id="btnSurprise" type="button">Surprise me</button>
+            <button class="btn ghost" id="btnClearFavs" type="button">Clear favorites</button>
+            <button class="btn ghost" id="btnMore" type="button">Generate more</button>
+            <!-- ✅ Added: Battle/Vote -->
+            <button class="btn ghost" id="btnBattle" type="button">Battle mode</button>
+          </div>
+
+          <!-- Tab panel target (shared) -->
+          <div class="results" id="panel-results" role="tabpanel" tabindex="0" aria-labelledby="tab-nickname">
+            <div class="topPick" id="topPick">
+              <div>
+                <div class="name" id="topName">—</div>
+                <div class="meta" id="topMeta">Top pick (copy or pin). Reroll for a new top pick.</div>
+              </div>
+              <div class="pickBtns">
+                <button class="mini" id="btnCopyTop" type="button">Copy</button>
+                <button class="mini" id="btnPinTop" type="button">Pin</button>
+                <button class="mini" id="btnRerollTop" type="button">Reroll</button>
+                <button class="mini" id="btnCheckTop" type="button">Check</button>
+                <button class="mini" id="btnShareTop" type="button">Share</button>
+              </div>
+            </div>
+
+            <!-- ✅ Added: Battle UI block (hidden unless battleOn) -->
+            <div class="battleWrap" id="battleWrap" role="region" aria-label="Battle mode">
+              <div class="battleHd">
+                <div class="left">
+                  <div class="title" id="battleTitle">Battle / Vote (1v1)</div>
+                  <div class="hint" id="battleHint">Pick the better username. Keys: ← / → or A / D. Enter = pick left, Space = pick right.</div>
+                </div>
+                <div class="battleBtns">
+                  <button class="mini" id="btnBattleExit" type="button">Exit</button>
+                  <button class="mini" id="btnBattleNext" type="button">Next pair</button>
+                </div>
+              </div>
+
+              <div class="battleGrid">
+                <div class="battleCard" id="battleCardA" tabindex="0" role="button" aria-label="Pick left username">
+                  <div style="min-width:0;">
+                    <div class="battleName" id="battleNameA">—</div>
+                    <div class="battleMeta" id="battleMetaA">Left (A / ←)</div>
+                  </div>
+                  <div class="battleBtns">
+                    <button class="mini" id="btnPickA" type="button">Pick</button>
+                    <button class="mini" id="btnCopyA" type="button">Copy</button>
+                    <button class="mini" id="btnCheckA" type="button">Check</button>
+                  </div>
+                </div>
+
+                <div class="battleCard" id="battleCardB" tabindex="0" role="button" aria-label="Pick right username">
+                  <div style="min-width:0;">
+                    <div class="battleName" id="battleNameB">—</div>
+                    <div class="battleMeta" id="battleMetaB">Right (D / →)</div>
+                  </div>
+                  <div class="battleBtns">
+                    <button class="mini" id="btnPickB" type="button">Pick</button>
+                    <button class="mini" id="btnCopyB" type="button">Copy</button>
+                    <button class="mini" id="btnCheckB" type="button">Check</button>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:10px;color:rgba(243,234,255,.68);font-size:11.5px;">
+                <span id="battleStats">Wins: 0 • Streak: 0</span>
+              </div>
+            </div>
+
+            <div class="list" id="list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIDE -->
+      <aside class="sideGrid">
+        <section class="card">
+          <div class="hd">
+            <div>
+              <h2>✨ Creative Alias Generator</h2>
+              <p>Fun alias generator (separate from the main handles).</p>
+            </div>
+          </div>
+          <div class="bd">
+            <div class="stageName">
+              <div>
+                <div class="big" id="stageBig" role="button" tabindex="0" aria-label="Regenerate stage name">Velvet Tiger Deluxe</div>
+                <div class="small">Tap to regenerate — then Copy.</div>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <button class="mini" id="btnStage" type="button">New</button>
+                <button class="mini" id="btnCopyStage" type="button">Copy</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="hd">
+            <div>
+              <h2>📌 Favorite Nicknames</h2>
+              <p>Pinned picks stay here (local only).</p>
+            </div>
+          </div>
+          <div class="bd">
+            <div class="favList" id="favList"></div>
+            <footer>
+              Works best on GitHub Pages. If you want analytics later, add GA4 in one line.
+            </footer>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+<script>
+  /* -------------------------
+   Word Packs (big + varied)
+-------------------------- */
+const WORD = {
+  adj: [
+    "Velvet","Neon","Crimson","Silent","Brave","Electric","Lunar","Midnight","Iris","Golden","Arcane",
+    "Noble","Cosmic","Satin","Jade","Wild","Calm","Rapid","Clever","Radiant","Azure","Obsidian",
+    "Hollow","Vivid","Nova","Moody","Urban","Royal","Prime","Frost","Amber","Cipher","Daring",
+    "Magnet","Sleek","Stormy","Epic","Mellow","Glowing","Modern","Ultra","Glitch","Polar","Dusk",
+    "Serene","Rogue","Vintage","Zen","Apex","Bliss","Echoing","Lucid","Phantom","Solar","Karma",
+    "Crave","Charmed","Basil","Indigo","Opal","Quartz","Halo","Drift","Cobalt","Eternal","Fable",
+    "Mythic","Rustic","Vortex","Pristine","Hushed","Sable","Nimbus","Ember","Soft","Pure"
+  ],
+  noun: [
+    "Tiger","Fox","Wolf","Raven","Falcon","Panther","Dragon","Comet","Orchid","Lotus","Wave","Circuit",
+    "Cipher","Glacier","Atlas","Voyager","Pilot","Ninja","Samurai","Monarch","Muse","Nomad","Beacon",
+    "Temple","Neptune","Jupiter","Aurora","Mirage","Legend","Matrix","Runner","Horizon","Cosmos",
+    "Vertex","Canyon","Harbor","Garden","Blossom","Crescent","Saber","Lantern","Dagger","Pearl",
+    "Guitar","Cinema","Studio","Skylight","Ritual","Crown","Empire","Dynamo","Rocket","Signal",
+    "Shadow","Thunder","Breeze","Valley","River","Wildfire","Voltage","Marble","Velour","Canvas",
+    "Pixel","Syntax","Orbit","Sonnet","Alchemy","Fjord","Grove","Knight","Bounty","Warden"
+  ],
+  vibe: [
+    "Drift","Glow","Haze","Pulse","Echo","Rush","Bloom","Ride","Spark","Shift","Chase","Nova",
+    "Forge","Craft","Skate","Wave","Slice","Dash","Quest","Roam","Flicker","Charge","Flow"
+  ],
+  tail: [
+    "Club","House","Lab","Crew","Studio","Core","Mode","Vibes","Works","Forge","Craft","HQ",
+    "Files","Realm","Verse","Zone","Room","Arcade","Base","Vault"
+  ],
+  num: ["7","9","11","13","17","21","23","27","33","37","41","55","77","88","99"]
+};
+
+/* -------------------------
+   ✅ Theme Packs (expands pools; does NOT replace WORD)
+-------------------------- */
+const THEMES = {
+  cyberpunk:{
+    adj:["Neon","Chrome","Cyber","Glitch","Digital","Pixel","Synth","Hacker","Quantum","Encrypted","VR","Augmented","Nano","Wired","Neural","Static"],
+    noun:["Matrix","Circuit","Drone","Protocol","Terminal","Server","Kernel","Firewall","Datastream","Backdoor","Mainframe","Console","Byte","Cipher","Grid","Router"],
+    vibe:["Hack","Shift","Pulse","Overclock","Sync","Scan","Debug","Compile","Encrypt","Decode","Deploy","Patch","Trace","Inject","Ghost"],
+    tail:["Labs","Node","Core","Net","Ops","Runtime","Stack","Shell","Port","Proxy"]
+  },
+  nature:{
+    adj:["Wild","Forest","River","Golden","Emerald","Silent","Blooming","Misty","Autumn","Frosted","Sunny","Verdant","Sacred","Rustling","Crystal","Ancient"],
+    noun:["Wolf","Oak","Valley","River","Leaf","Stone","Flame","Meadow","Cedar","Falcon","Brook","Grove","Pine","Rain","Dawn","Creek"],
+    vibe:["Roam","Breathe","Bloom","Drift","Flow","Wander","Hike","Rise","Glide","Shine","Sprout","Sway"],
+    tail:["Trail","Garden","Woods","Creek","Ridge","Cove","Haven","Grove"]
+  },
+  mythology:{
+    adj:["Ancient","Divine","Sacred","Mythic","Arcane","Titan","Olympian","Cursed","Blessed","Heroic","Eternal","Runic","Fabled","Celestial","Prophetic","Hallowed"],
+    noun:["Phoenix","Dragon","Oracle","Zeus","Atlas","Hydra","Ares","Athena","Hera","Apollo","Odin","Loki","Thor","Sphinx","Kraken","Cerberus"],
+    vibe:["Ascend","Summon","Ritual","Prophecy","Awaken","Forge","Conquer","Enchant","Invoke","Bless","Claim","Reborn"],
+    tail:["Saga","Temple","Realm","Chronicle","Myth","Pantheon","Legend"]
+  },
+  space:{
+    adj:["Cosmic","Lunar","Solar","Nebula","Stellar","Galactic","Astral","Radiant","Void","Orbital","Gravity","Eclipse","Meteoric","Comet","Nova","Zenith"],
+    noun:["Orbit","Galaxy","Nova","Meteor","Comet","Quasar","Pulsar","Astra","Zenith","Horizon","Saturn","Neptune","Jupiter","Apollo","Voyager","Andromeda"],
+    vibe:["Launch","Drift","Warp","Pulse","Orbit","Align","Traverse","Glide","Ascend","Radiate","Eclipse"],
+    tail:["Lab","Station","Fleet","Mission","Module","Base","Port"]
+  },
+  gaming:{
+    adj:["Epic","Rapid","Savage","Stealth","Shadow","Rogue","Apex","Prime","Elite","Ultra","Fatal","Clutch","Sweaty","Ranked","Arcade","Pro"],
+    noun:["Slayer","Sniper","Knight","Raider","Champion","Warden","Vandal","Gladiator","Striker","Phantom","Viper","Ranger","Assassin","Sentinel","Juggernaut","Caster"],
+    vibe:["Clutch","Rush","Queue","Frag","Grind","Carry","Boost","Skirmish","Duel","Raid","Quest"],
+    tail:["GG","Squad","Clan","Arena","Rank","Lobby","Main","Alt"]
+  }
+};
+
+// Spicy stage words (separate generator)
+const STAGE = {
+  a: ["Velvet","Satin","Silk","Cherry","Midnight","Honey","Neon","Crimson","Lunar","Electric","Golden","Opal","Jade","Iris","Cobalt","Amber"],
+  b: ["Tiger","Vixen","Panther","Dahlia","Lotus","Nova","Muse","Siren","Comet","Orchid","Raven","Clover","Diamond","Tempo","Mirage","Halo"],
+  c: ["Deluxe","Supreme","Encore","Edition","AfterHours","Signature","Royale","Select","Prime","Gold","Ultra","VIP","Glow","Classique"]
+};
+
+/* -------------------------
+   Helpers
+-------------------------- */
+const $ = (s)=>document.querySelector(s);
+const $$ = (s)=>Array.from(document.querySelectorAll(s));
+
+function toast(msg="Copied"){
+  const t=$("#toast");
+  t.textContent=msg;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 1200);
+}
+
+function pick(arr){ return arr[Math.floor(Math.random()*arr.length)] }
+
+function cleanBase(raw){
+  return (raw||"").trim().replace(/\s+/g," ").slice(0,24);
+}
+function onlyLetters(raw){
+  return raw.replace(/[^a-zA-Z]/g,"");
+}
+function lowerAlphaNum(raw){
+  return raw.toLowerCase().replace(/[^a-z0-9._-]/g,"");
+}
+function clampLen(str, max){
+  return str.length<=max ? str : str.slice(0,max);
+}
+
+/* ✅ Theme safe getter */
+function getThemeValue(){
+  try{
+    const el = $("#theme");
+    if(!el) return "classic";
+    return String(el.value || "classic");
+  }catch(e){
+    return "classic";
+  }
+}
+
+/* ✅ SEO/UX: dynamic meta descriptions per mode */
+function updateMetaDescription(mode){
+  const descriptions = {
+    tiktok: "Free TikTok username generator. Create clean, stylish usernames with smart separators. No repeats per session.",
+    instagram: "Instagram handle generator. Create unique usernames with dots or underscores. Smart formatting. No repeats per session.",
+    gamer: "Gamer tag generator for Steam, Discord, Twitch and more. Short, memorable names with no repeats per session.",
+    nickname: "Nickname generator for any purpose. Smart separators, strong word packs, unique combinations. No repeats per session."
+  };
+
+  const desc = descriptions[mode] || descriptions.nickname;
+
+  const mDesc = document.querySelector('meta[name="description"]');
+  if(mDesc) mDesc.setAttribute("content", desc);
+
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if(ogDesc) ogDesc.setAttribute("content", desc);
+
+  const twDesc = document.querySelector('meta[name="twitter:description"]');
+  if(twDesc) twDesc.setAttribute("content", desc);
+}
+
+function resolveSepStyle(mode, sepStyle){
+  if(sepStyle !== "smart") return sepStyle;
+  if(mode === "tiktok" || mode === "instagram") return "snake";
+  return "camel";
+}
+
+function formatSeparator(parts, style){
+  const p = parts.filter(Boolean);
+  if(style==="camel"){
+    return p.map((w,i)=> i===0 ? w.toLowerCase() : (w[0].toUpperCase()+w.slice(1).toLowerCase())).join("");
+  }
+  if(style==="snake"){
+    return p.map(w=>w.toLowerCase()).join("_");
+  }
+  if(style==="kebab"){
+    return p.map(w=>w.toLowerCase()).join("-");
+  }
+  if(style==="dot"){
+    return p.map(w=>w.toLowerCase()).join(".");
+  }
+  return p.join("");
+}
+
+/* -------------------------
+   Added UX helpers
+-------------------------- */
+
+function animateCopyButton(btn){
+  if(!btn) return;
+  const original = btn.textContent;
+  btn.classList.add("copy-success");
+  btn.textContent = "✓";
+  setTimeout(()=>{
+    btn.textContent = original;
+    btn.classList.remove("copy-success");
+  }, 900);
+}
+
+/* ✅ Availability: expanded platforms + Shift+Check picker */
+function buildAvailabilityUrl(platform, name){
+  if(!platform || !name) return "";
+  const p = String(platform).toLowerCase().trim();
+
+  /* ✅ PRIORITY 1 — Discord URL check must NOT exist */
+  if(p === "discord"){
+    return "";
+  }
+
+  const urls = {
+    tiktok: `https://www.tiktok.com/@${name}`,
+    instagram: `https://www.instagram.com/${name}/`,
+    x: `https://x.com/${name}`,
+    twitter: `https://x.com/${name}`,
+    twitch: `https://www.twitch.tv/${name}`,
+    youtube: `https://www.youtube.com/@${name}`,
+    github: `https://github.com/${name}`,
+    steam: `https://steamcommunity.com/id/${name}`
+  };
+
+  return urls[p] || "";
+}
+
+function choosePlatformPrompt(){
+  const choices = ["tiktok","instagram","x","twitch","youtube","github","steam","discord"];
+  const msg =
+    "Check username on platform:\n\n" +
+    choices.map((c,i)=>`${i+1}. ${c.toUpperCase()}`).join("\n") +
+    "\n\nEnter number (1-" + choices.length + ") or type name (e.g. instagram):";
+
+  const raw = prompt(msg);
+  if(raw == null) return null;
+
+  const v = String(raw).trim().toLowerCase();
+  if(!v) return null;
+
+  const asNum = Number(v);
+  if(Number.isFinite(asNum) && asNum >= 1 && asNum <= choices.length){
+    return choices[asNum - 1];
+  }
+
+  if(choices.includes(v)) return v;
+  if(v === "twitter") return "x";
+  return null;
+}
+
+function checkUsernameAvailability(name, advanced=false){
+  if(!name) return;
+
+  let platform = "github";
+  if(MODE === "tiktok") platform = "tiktok";
+  if(MODE === "instagram") platform = "instagram";
+  if(MODE === "gamer") platform = "twitch";
+
+  if(advanced){
+    const picked = choosePlatformPrompt();
+    if(picked) platform = picked;
+  }
+
+  const url = buildAvailabilityUrl(platform, name);
+
+  /* ✅ PRIORITY 1 — Discord cannot be checked via URL */
+  if(String(platform).toLowerCase().trim() === "discord"){
+    toast("Discord usernames cannot be checked via URL");
+    return;
+  }
+
+  if(!url){
+    toast("Check URL not available");
+    return;
+  }
+
+  window.open(url, "_blank", "noopener");
+}
+
+function shareNickname(name){
+  if(!name) return;
+
+  const url =
+    location.origin +
+    location.pathname +
+    "?nick=" +
+    encodeURIComponent(name) +
+    "&mode=" +
+    encodeURIComponent(MODE);
+
+  copyText(url);
+  toast("Share link copied");
+}
+
+/* ✅ Lock system */
+let lockedWord = null;
+
+function toggleLock(word){
+  if(!word) return;
+
+  if(lockedWord === word){
+    lockedWord = null;
+    toast("Lock removed");
+  }else{
+    lockedWord = word;
+    toast(`Locked: ${word}`);
+  }
+}
+
+function makeCandidate(base, mode, sepStyle, allowNumbers){
+  if(lockedWord){
+    base = lockedWord;
+  }
+
+  const theme = getThemeValue();
+
+  let adjPool = WORD.adj;
+  let nounPool = WORD.noun;
+  let vibePool = WORD.vibe;
+  let tailPool = WORD.tail;
+
+  if(theme !== "classic" && THEMES[theme]){
+    const t = THEMES[theme];
+    if(t && Array.isArray(t.adj)) adjPool = adjPool.concat(t.adj);
+    if(t && Array.isArray(t.noun)) nounPool = nounPool.concat(t.noun);
+    if(t && Array.isArray(t.vibe)) vibePool = vibePool.concat(t.vibe);
+    if(t && Array.isArray(t.tail)) tailPool = tailPool.concat(t.tail);
+  }
+
+  const hasBase = base.length>0;
+  const baseWord = hasBase ? base : "";
+
+  const families = [
+    () => [pick(adjPool), baseWord, pick(nounPool)],
+    () => [baseWord, pick(adjPool), pick(vibePool)],
+    () => [pick(nounPool), baseWord, pick(vibePool)],
+    () => [pick(adjPool), pick(nounPool), baseWord]
+  ];
+
+  function fill(parts){
+    return parts.map(x => x || pick(Math.random()<0.55 ? nounPool : vibePool));
+  }
+
+  let parts = fill(pick(families)());
+  let handle = formatSeparator(parts, sepStyle);
+
+  if(mode==="tiktok"){
+    handle = lowerAlphaNum(handle.replace(/-/g,"_"));
+    handle = clampLen(handle, 24);
+  } else if(mode==="instagram"){
+    handle = lowerAlphaNum(handle.replace(/-/g,"_"));
+    handle = handle.replace(/^\.+/,"");
+    handle = clampLen(handle, 30);
+  } else if(mode==="gamer"){
+    handle = formatSeparator(parts, sepStyle).replace(/\./g,"");
+    handle = clampLen(handle, 18);
+  } else {
+    handle = clampLen(handle, 18);
+  }
+
+  if(allowNumbers && Math.random() < 0.18){
+    const suffix = pick(WORD.num);
+    const max = (mode==="instagram" ? 30 : (mode==="tiktok" ? 24 : 18));
+    handle = clampLen(handle + suffix, max);
+  }
+
+  if(hasBase){
+    const b = base.toLowerCase();
+    if(!handle.toLowerCase().includes(b)){
+      if(mode==="instagram" || mode==="tiktok"){
+        handle = clampLen((b + "_" + handle).replace(/__+/g,"_"), mode==="instagram"?30:24);
+      }else{
+        handle = clampLen((base + handle), 18);
+      }
+    }
+  }
+
+  return handle;
+}
+
+/* -------------------------
+   "No repeats" per session
+-------------------------- */
+const SESSION_KEY = "nf_seen_v1";
+const SESSION_LIMIT = 6000;
+
+function loadSeen(){
+  try{
+    const raw = sessionStorage.getItem(SESSION_KEY);
+    if(!raw) return new Set();
+    const arr = JSON.parse(raw);
+    return new Set(Array.isArray(arr) ? arr : []);
+  }catch(e){
+    return new Set();
+  }
+}
+function saveSeen(seen){
+  try{
+    const arr = Array.from(seen);
+    if(arr.length > SESSION_LIMIT){
+      const trimmed = arr.slice(arr.length - SESSION_LIMIT);
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(trimmed));
+      return;
+    }
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(arr));
+  }catch(e){
+    // ignore
+  }
+}
+let seenSession = loadSeen();
+
+function uniqueGenerate({base, mode, sepStyle, allowNumbers, count}){
+  const seenBatch = new Set();
+  const out = [];
+  let safety = 0;
+
+  let b = cleanBase(base);
+  let bLetters = "";
+  if(b){
+    bLetters = onlyLetters(b);
+    if(bLetters !== b){
+      $("#baseNote").textContent = `Base normalized to letters: ${bLetters || "(empty)"}`;
+    }
+    b = bLetters;
+  }
+
+  const sepResolved = resolveSepStyle(mode, sepStyle);
+
+  while(out.length < count && safety < 8000){
+    safety++;
+    const cand = makeCandidate(b, mode, sepResolved, allowNumbers);
+    const key = (mode + ":" + cand).toLowerCase();
+
+    if(seenBatch.has(key)) continue;
+    if(seenSession.has(key)) continue;
+
+    if(/___/.test(cand)) continue;
+    if(cand.length < 5) continue;
+
+    seenBatch.add(key);
+    out.push(cand);
+  }
+
+  out.forEach(v => seenSession.add((mode + ":" + v).toLowerCase()));
+  saveSeen(seenSession);
+
+  return out;
+}
+
+/* -------------------------
+   Clipboard: robust copy
+-------------------------- */
+async function copyText(text){
+  if(!text) return false;
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  }catch(e){}
+
+  try{
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    ta.style.top = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return !!ok;
+  }catch(e){
+    return false;
+  }
+}
+
+/* -------------------------
+   UI State
+-------------------------- */
+let MODE = "nickname";
+let allowNumbers = false;
+let lastBatch = [];
+let pinned = loadPinned();
+
+/* ✅ PRIORITY 2 — Debounce + Loading indicator (no redesign, only behavior) */
+let isGenerating = false;
+
+function setGenLoading(on){
+  const btn = $("#btnGen");
+  if(!btn) return;
+
+  if(on){
+    if(!btn.dataset._txt) btn.dataset._txt = btn.textContent || "Generate";
+    btn.disabled = true;
+    btn.textContent = "Generating...";
+  }else{
+    btn.disabled = false;
+    btn.textContent = btn.dataset._txt || "Generate";
+  }
+}
+
+function genGuardStart(){
+  if(isGenerating) return false;
+  isGenerating = true;
+  setGenLoading(true);
+  return true;
+}
+
+function genGuardEnd(){
+  setTimeout(()=>{
+    isGenerating = false;
+    setGenLoading(false);
+  }, 400);
+}
+
+/* ✅ Battle state (added, no refactors) */
+let battleOn = false;
+let battleA = "";
+let battleB = "";
+let battleWins = 0;
+let battleStreak = 0;
+
+function loadPinned(){
+  try{
+    return JSON.parse(localStorage.getItem("nf_pins")||"[]");
+  }catch(e){ return [] }
+}
+function savePinned(){
+  localStorage.setItem("nf_pins", JSON.stringify(pinned.slice(0,60)));
+}
+
+function renderPins(){
+  const box = $("#favList");
+  box.innerHTML = "";
+  if(!pinned.length){
+    box.innerHTML = `<div style="color:rgba(243,234,255,.65);font-size:12.5px;">
+      No favorites yet. Pin results to keep them here.
+    </div>`;
+    return;
+  }
+  pinned.slice(0,30).forEach((p, idx)=>{
+    const el = document.createElement("div");
+    el.className="favItem";
+    el.innerHTML = `
+      <div style="min-width:0;">
+        <div style="font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escapeHtml(p.value)}</div>
+        <div style="color:rgba(243,234,255,.68);font-size:11.5px;margin-top:4px;">${escapeHtml(p.mode)}</div>
+      </div>
+      <div style="display:flex;gap:8px;flex:0 0 auto;">
+        <button class="mini" type="button" data-copy="${escapeHtml(p.value)}">Copy</button>
+        <button class="mini" type="button" data-del="${idx}">Remove</button>
+      </div>
+    `;
+    box.appendChild(el);
+  });
+
+  box.querySelectorAll("[data-copy]").forEach(btn=>{
+    btn.addEventListener("click", async ()=>{
+      const ok = await copyText(btn.getAttribute("data-copy"));
+      if(ok) animateCopyButton(btn);
+      toast(ok ? "Copied" : "Copy failed");
+    });
+  });
+  box.querySelectorAll("[data-del]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const i = Number(btn.getAttribute("data-del"));
+      pinned.splice(i,1);
+      savePinned(); renderPins();
+    });
+  });
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+}
+
+/* -------------------------
+   Render main results
+-------------------------- */
+function setTopPick(value, mode){
+  $("#topName").textContent = value || "—";
+  $("#topMeta").textContent = value ? `Top pick • ${labelMode(mode)} • Unique` : "Top pick (copy or pin). Reroll for a new top pick.";
+}
+
+function labelMode(m){
+  if(m==="tiktok") return "TikTok username";
+  if(m==="instagram") return "Instagram handle";
+  if(m==="gamer") return "Gamer tag";
+  return "Nickname";
+}
+
+function renderList(arr, mode){
+  const list = $("#list");
+  list.innerHTML = "";
+  arr.forEach((v)=>{
+    const el = document.createElement("div");
+    el.className="item";
+    el.innerHTML = `
+      <div class="txt">
+        <div class="nick">${escapeHtml(v)}</div>
+        <div class="sub">${escapeHtml(labelMode(mode))} • unique</div>
+      </div>
+      <div class="miniBtns">
+        <button class="mini" type="button" data-copy="${escapeHtml(v)}">Copy</button>
+        <button class="mini" type="button" data-pin="${escapeHtml(v)}">Pin</button>
+        <button class="mini" type="button" data-check="${escapeHtml(v)}">Check</button>
+        <button class="mini" type="button" data-lock="${escapeHtml(v)}">Lock</button>
+        <button class="mini" type="button" data-share="${escapeHtml(v)}">Share</button>
+      </div>
+    `;
+    list.appendChild(el);
+  });
+
+  list.querySelectorAll("[data-copy]").forEach(btn=>{
+    btn.addEventListener("click", async ()=>{
+      const ok = await copyText(btn.getAttribute("data-copy"));
+      if(ok) animateCopyButton(btn);
+      toast(ok ? "Copied" : "Copy failed");
+    });
+  });
+  list.querySelectorAll("[data-pin]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const value = btn.getAttribute("data-pin");
+      pinValue(value, MODE);
+    });
+  });
+
+  list.querySelectorAll("[data-check]").forEach(btn=>{
+    btn.addEventListener("click", (e)=>{
+      const value = btn.getAttribute("data-check");
+      checkUsernameAvailability(value, !!(e && e.shiftKey));
+    });
+  });
+
+  list.querySelectorAll("[data-lock]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const value = btn.getAttribute("data-lock");
+      toggleLock(value);
+    });
+  });
+
+  list.querySelectorAll("[data-share]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const value = btn.getAttribute("data-share");
+      shareNickname(value);
+    });
+  });
+}
+
+function pinValue(value, mode){
+  const key = (mode + ":" + value).toLowerCase();
+  if(pinned.some(p => (p.mode+":"+p.value).toLowerCase()===key)){
+    toast("Already pinned");
+    return;
+  }
+  pinned.unshift({mode: labelMode(mode), value, ts: Date.now()});
+  savePinned();
+  renderPins();
+  toast("Pinned");
+}
+
+/* -------------------------
+   Stage Name generator
+-------------------------- */
+function genStageName(){
+  const base = onlyLetters(cleanBase($("#base").value));
+  const w1 = pick(STAGE.a);
+  const w2 = pick(STAGE.b);
+  const w3 = pick(STAGE.c);
+
+  let name = `${w1} ${w2} ${w3}`;
+  if(base && Math.random()<0.35){
+    name = `${w1} ${base[0].toUpperCase()+base.slice(1).toLowerCase()} ${w2}`;
+  }
+  $("#stageBig").textContent = name;
+}
+
+/* -------------------------
+   Main generation flow
+-------------------------- */
+function generate(){
+  if(!genGuardStart()) return;
+
+  try{
+    const base = $("#base").value;
+    const count = Number($("#count").value);
+    const sep = $("#sep").value;
+
+    const batch = uniqueGenerate({
+      base, mode: MODE, sepStyle: sep, allowNumbers, count
+    });
+
+    lastBatch = batch;
+    const top = batch[0] || "—";
+    setTopPick(top, MODE);
+    renderList(batch, MODE);
+
+    if(batch.length < count){
+      toast(`Generated ${batch.length}/${count} — try a different base or separator`);
+    }
+  }finally{
+    genGuardEnd();
+  }
+}
+
+function generateMore(){
+  if(!genGuardStart()) return;
+
+  const listEl = $("#list");
+
+  /* ✅ PRIORITY 2 — list limit */
+  if(listEl && listEl.children && listEl.children.length > 120){
+    toast("Too many results — clear list");
+    genGuardEnd();
+    return;
+  }
+
+  try{
+    const base = $("#base").value;
+    const count = Number($("#count").value);
+    const sep = $("#sep").value;
+
+    const batch = uniqueGenerate({
+      base, mode: MODE, sepStyle: sep, allowNumbers, count
+    });
+
+    const list = $("#list");
+
+    batch.forEach((v)=>{
+      const el = document.createElement("div");
+      el.className="item";
+      el.innerHTML = `
+        <div class="txt">
+          <div class="nick">${escapeHtml(v)}</div>
+          <div class="sub">${escapeHtml(labelMode(MODE))} • unique</div>
+        </div>
+        <div class="miniBtns">
+          <button class="mini" type="button" data-copy="${escapeHtml(v)}">Copy</button>
+          <button class="mini" type="button" data-pin="${escapeHtml(v)}">Pin</button>
+          <button class="mini" type="button" data-check="${escapeHtml(v)}">Check</button>
+          <button class="mini" type="button" data-lock="${escapeHtml(v)}">Lock</button>
+          <button class="mini" type="button" data-share="${escapeHtml(v)}">Share</button>
+        </div>
+      `;
+
+      const btnCopy = el.querySelector("[data-copy]");
+      const btnPin  = el.querySelector("[data-pin]");
+      const btnCheck= el.querySelector("[data-check]");
+      const btnLock = el.querySelector("[data-lock]");
+      const btnShare= el.querySelector("[data-share]");
+
+      if(btnCopy){
+        btnCopy.addEventListener("click", async ()=>{
+          const ok = await copyText(btnCopy.getAttribute("data-copy"));
+          if(ok) animateCopyButton(btnCopy);
+          toast(ok ? "Copied" : "Copy failed");
+        });
+      }
+      if(btnPin){
+        btnPin.addEventListener("click", ()=>{
+          pinValue(btnPin.getAttribute("data-pin"), MODE);
+        });
+      }
+      if(btnCheck){
+        btnCheck.addEventListener("click", (e)=>{
+          checkUsernameAvailability(btnCheck.getAttribute("data-check"), !!(e && e.shiftKey));
+        });
+      }
+      if(btnLock){
+        btnLock.addEventListener("click", ()=>{
+          toggleLock(btnLock.getAttribute("data-lock"));
+        });
+      }
+      if(btnShare){
+        btnShare.addEventListener("click", ()=>{
+          shareNickname(btnShare.getAttribute("data-share"));
+        });
+      }
+
+      list.appendChild(el);
+    });
+
+    if(batch.length < count){
+      toast(`Generated ${batch.length}/${count} — try a different base or separator`);
+    }
+  }finally{
+    genGuardEnd();
+  }
+}
+
+function rerollTop(){
+  if(!lastBatch.length) return;
+  lastBatch.push(lastBatch.shift());
+  setTopPick(lastBatch[0], MODE);
+  renderList(lastBatch, MODE);
+}
+
+function surprise(){
+  const seeds = ["neo","ben","luna","aria","kai","milo","nova","sage","rio","zane","iris","jade","echo","atlas","maya","noah"];
+  if(!cleanBase($("#base").value)){
+    $("#base").value = pick(seeds);
+  }
+  generate();
+}
+
+/* -------------------------
+   Battle mode (added)
+-------------------------- */
+function updateBattleUIVisibility(){
+  const wrap = $("#battleWrap");
+  if(!wrap) return;
+  wrap.style.display = battleOn ? "block" : "none";
+  // keep list visible in normal mode; hide list in battle mode (no DOM removal)
+  const list = $("#list");
+  if(list) list.style.display = battleOn ? "none" : "grid";
+}
+
+function updateBattleStats(){
+  const el = $("#battleStats");
+  if(el) el.textContent = `Wins: ${battleWins} • Streak: ${battleStreak}`;
+}
+
+function setBattlePair(a, b){
+  battleA = a || "—";
+  battleB = b || "—";
+  $("#battleNameA").textContent = battleA;
+  $("#battleNameB").textContent = battleB;
+  updateBattleStats();
+}
+
+function getTwoCandidatesForBattle(){
+  const base = $("#base").value;
+  const sep = $("#sep").value;
+  const batch = uniqueGenerate({
+    base, mode: MODE, sepStyle: sep, allowNumbers, count: 2
+  });
+  return batch;
+}
+
+function battleNextPair(){
+  if(!genGuardStart()) return;
+
+  try{
+    const batch = getTwoCandidatesForBattle();
+    const a = batch[0] || "—";
+    const b = batch[1] || (batch[0] || "—");
+    setBattlePair(a, b);
+  }finally{
+    genGuardEnd();
+  }
+}
+
+function battleEnter(){
+  battleOn = true;
+  battleWins = 0;
+  battleStreak = 0;
+  updateBattleUIVisibility();
+  battleNextPair();
+  toast("Battle mode on");
+}
+
+function battleExit(){
+  battleOn = false;
+
+  /* ✅ PRIORITY 2 — Reset battle stats on exit */
+  battleWins = 0;
+  battleStreak = 0;
+  updateBattleStats();
+
+  updateBattleUIVisibility();
+  toast("Battle mode off");
+}
+
+function battlePick(which){
+  if(!battleOn) return;
+  const winner = (which === "A") ? battleA : battleB;
+  const loser  = (which === "A") ? battleB : battleA;
+
+  if(winner && winner !== "—"){
+    setTopPick(winner, MODE);
+  }
+
+  battleWins++;
+  battleStreak++;
+
+  // Replace loser with a new candidate, keep winner as opponent to create “streak”
+  const base = $("#base").value;
+  const sep = $("#sep").value;
+  const batch = uniqueGenerate({
+    base, mode: MODE, sepStyle: sep, allowNumbers, count: 1
+  });
+  const next = batch[0] || "—";
+
+  if(which === "A"){
+    setBattlePair(winner, next);
+  }else{
+    setBattlePair(next, winner);
+  }
+
+  toast(`Picked: ${winner}`);
+}
+
+function battleCopy(name, btn){
+  if(!name || name==="—") return;
+  copyText(name).then(ok=>{
+    if(ok && btn) animateCopyButton(btn);
+    toast(ok ? "Copied" : "Copy failed");
+  });
+}
+
+function battleCheck(name, e){
+  if(!name || name==="—") return;
+  checkUsernameAvailability(name, !!(e && e.shiftKey));
+}
+
+/* -------------------------
+   Accessible tabs
+-------------------------- */
+function updateTabs(m){
+  MODE = m;
+
+  const tabs = $$(".tab");
+  tabs.forEach(t=>{
+    const active = t.dataset.mode === m;
+    t.classList.toggle("active", active);
+    t.setAttribute("aria-selected", active ? "true" : "false");
+    t.tabIndex = active ? 0 : -1;
+  });
+
+  const activeTab = tabs.find(t=>t.dataset.mode===m);
+  if(activeTab){
+    $("#panel-results").setAttribute("aria-labelledby", activeTab.id);
+  }
+
+  updateMetaDescription(m);
+
+  try{
+    const params = new URLSearchParams(location.search);
+    params.set("mode", m);
+    history.replaceState(null, "", `${location.pathname}?${params.toString()}`);
+  }catch(e){}
+
+  // If battle is on, keep battle flow
+  if(battleOn){
+    battleNextPair();
+    return;
+  }
+
+  generate();
+}
+
+function focusTabByIndex(tabs, idx){
+  const n = tabs.length;
+  const next = (idx + n) % n;
+  tabs[next].focus();
+  updateTabs(tabs[next].dataset.mode);
+}
+
+function bindTabEvents(){
+  const tabs = $$(".tab");
+  tabs.forEach((t, idx)=>{
+    t.addEventListener("click", ()=>updateTabs(t.dataset.mode));
+    t.addEventListener("keydown", (e)=>{
+      if(e.key === "ArrowRight"){
+        e.preventDefault();
+        focusTabByIndex(tabs, idx+1);
+      }
+      if(e.key === "ArrowLeft"){
+        e.preventDefault();
+        focusTabByIndex(tabs, idx-1);
+      }
+      if(e.key === "Home"){
+        e.preventDefault();
+        focusTabByIndex(tabs, 0);
+      }
+      if(e.key === "End"){
+        e.preventDefault();
+        focusTabByIndex(tabs, tabs.length-1);
+      }
+    });
+  });
+}
+
+/* -------------------------
+   Switch (numbers)
+-------------------------- */
+function setNumbersSwitch(on){
+  allowNumbers = !!on;
+  const sw = $("#swNumbers");
+  sw.classList.toggle("on", allowNumbers);
+  sw.setAttribute("aria-checked", allowNumbers ? "true" : "false");
+  $("#swNumbersState").textContent = `Allow numbers: ${allowNumbers ? "on" : "off"}`;
+}
+
+function toggleNumbers(){
+  setNumbersSwitch(!allowNumbers);
+  if(battleOn){
+    battleNextPair();
+  }else{
+    generate();
+  }
+}
+
+/* -------------------------
+   Events
+-------------------------- */
+bindTabEvents();
+
+$("#btnGen").addEventListener("click", ()=>{
+  if(battleOn){
+    battleNextPair();
+  }else{
+    generate();
+  }
+});
+$("#btnSurprise").addEventListener("click", ()=>{
+  surprise();
+  if(battleOn){
+    battleNextPair();
+  }
+});
+$("#btnRerollTop").addEventListener("click", rerollTop);
+$("#btnMore").addEventListener("click", ()=>{
+  if(battleOn){
+    battleNextPair();
+  }else{
+    generateMore();
+  }
+});
+
+$("#theme").addEventListener("change", ()=>{
+  if(battleOn){
+    battleNextPair();
+  }else{
+    generate();
+  }
+});
+
+$("#btnCopyTop").addEventListener("click", async ()=>{
+  const v = $("#topName").textContent;
+  if(v && v!=="—"){
+    const ok = await copyText(v);
+    if(ok) animateCopyButton($("#btnCopyTop"));
+    toast(ok ? "Copied top pick" : "Copy failed");
+  }
+});
+
+$("#btnPinTop").addEventListener("click", ()=>{
+  const v = $("#topName").textContent;
+  if(v && v!=="—") pinValue(v, MODE);
+});
+
+$("#btnCheckTop").addEventListener("click", (e)=>{
+  const v = $("#topName").textContent;
+  if(v && v!=="—") checkUsernameAvailability(v, !!(e && e.shiftKey));
+});
+$("#btnShareTop").addEventListener("click", ()=>{
+  const v = $("#topName").textContent;
+  if(v && v!=="—") shareNickname(v);
+});
+
+$("#btnClearFavs").addEventListener("click", ()=>{
+  pinned = [];
+  try{ localStorage.removeItem("nf_pins"); }catch(e){}
+  renderPins();
+  toast("Favorites cleared");
+});
+
+$("#swNumbers").addEventListener("click", toggleNumbers);
+$("#swNumbers").addEventListener("keydown", (e)=>{
+  if(e.key === "Enter" || e.key === " "){
+    e.preventDefault();
+    toggleNumbers();
+  }
+});
+
+/* Battle buttons */
+$("#btnBattle").addEventListener("click", ()=>{
+  if(battleOn){
+    battleExit();
+  }else{
+    battleEnter();
+  }
+});
+$("#btnBattleExit").addEventListener("click", battleExit);
+$("#btnBattleNext").addEventListener("click", battleNextPair);
+
+$("#btnPickA").addEventListener("click", ()=>battlePick("A"));
+$("#btnPickB").addEventListener("click", ()=>battlePick("B"));
+
+$("#btnCopyA").addEventListener("click", (e)=>battleCopy(battleA, $("#btnCopyA")));
+$("#btnCopyB").addEventListener("click", (e)=>battleCopy(battleB, $("#btnCopyB")));
+$("#btnCheckA").addEventListener("click", (e)=>battleCheck(battleA, e));
+$("#btnCheckB").addEventListener("click", (e)=>battleCheck(battleB, e));
+
+$("#battleCardA").addEventListener("click", ()=>battlePick("A"));
+$("#battleCardB").addEventListener("click", ()=>battlePick("B"));
+
+/* Stage */
+$("#btnStage").addEventListener("click", ()=>{
+  genStageName();
+  toast("New stage name");
+});
+$("#btnCopyStage").addEventListener("click", async ()=>{
+  const ok = await copyText($("#stageBig").textContent);
+  if(ok) animateCopyButton($("#btnCopyStage"));
+  toast(ok ? "Copied stage name" : "Copy failed");
+});
+$("#stageBig").addEventListener("click", genStageName);
+$("#stageBig").addEventListener("keydown", (e)=>{
+  if(e.key === "Enter" || e.key === " "){
+    e.preventDefault();
+    genStageName();
+  }
+});
+
+$("#base").addEventListener("keydown", (e)=>{
+  if(e.key==="Enter"){
+    if(battleOn){
+      battleNextPair();
+    }else{
+      generate();
+    }
+  }
+});
+
+/* Hotkey C guard + Battle hotkeys */
+document.addEventListener("keydown", async (e)=>{
+  const active = document.activeElement;
+  if(active && (
+    active.tagName === "INPUT" ||
+    active.tagName === "TEXTAREA" ||
+    active.isContentEditable
+  )) return;
+
+  if(battleOn){
+    const k = e.key.toLowerCase();
+    if(e.key === "ArrowLeft" || k === "a"){
+      e.preventDefault();
+      battlePick("A");
+      return;
+    }
+    if(e.key === "ArrowRight" || k === "d"){
+      e.preventDefault();
+      battlePick("B");
+      return;
+    }
+    if(e.key === "Enter"){
+      e.preventDefault();
+      battlePick("A");
+      return;
+    }
+    if(e.key === " "){
+      e.preventDefault();
+      battlePick("B");
+      return;
+    }
+  }
+
+  if(e.key.toLowerCase()==="c" && !e.ctrlKey && !e.metaKey && !e.altKey){
+    const v = $("#topName").textContent;
+    if(v && v!=="—"){
+      const ok = await copyText(v);
+      toast(ok ? "Copied top pick" : "Copy failed");
+    }
+  }
+});
+
+/* Init from URL */
+(function initFromURL(){
+  try{
+    const params = new URLSearchParams(location.search);
+    const urlMode = params.get("mode");
+    const sharedNick = params.get("nick");
+
+    if(urlMode){
+      const allowed = ["nickname","tiktok","instagram","gamer"];
+      if(allowed.includes(urlMode)){
+        updateTabs(urlMode);
+      }else{
+        updateMetaDescription(MODE);
+      }
+    }else{
+      updateMetaDescription(MODE);
+    }
+
+    if(sharedNick){
+      setTopPick(sharedNick, MODE);
+      toast("Shared nickname loaded");
+    }
+  }catch(e){
+    updateMetaDescription(MODE);
+  }
+})();
+
+/* Init */
+renderPins();
+setNumbersSwitch(false);
+genStageName();
+updateBattleUIVisibility();
+generate();
+</script>
+</body>
+</html>
