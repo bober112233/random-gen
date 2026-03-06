@@ -7,25 +7,25 @@
   <meta name="description" content="Generate clean, unique usernames for TikTok, Instagram, and games. Smart, fast, and free." />
   <meta name="theme-color" content="#ffffff" />
 
-  <!-- Canonical - ЗАМЕНИТЕ YOUR-USERNAME -->
-  <link rel="canonical" href="https://[your-username].github.io/nickforge/" />
+  <!-- Canonical - ЗАМЕНИТЕ your-username -->
+  <link rel="canonical" href="https://your-username.github.io/nickforge/" />
 
-  <!-- Open Graph - ЗАМЕНИТЕ YOUR-USERNAME -->
+  <!-- Open Graph - ЗАМЕНИТЕ your-username -->
   <meta property="og:title" content="NickForge — Modern Username Generator" />
   <meta property="og:description" content="Unique handles for TikTok, Instagram, and gamer tags." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://[your-username].github.io/nickforge/" />
-  <meta property="og:image" content="https://[your-username].github.io/nickforge/preview.png" />
+  <meta property="og:url" content="https://your-username.github.io/nickforge/" />
+  <meta property="og:image" content="https://your-username.github.io/nickforge/preview.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter - ЗАМЕНИТЕ YOUR-USERNAME -->
+  <!-- Twitter - ЗАМЕНИТЕ your-username -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="NickForge — Modern Username Generator" />
   <meta name="twitter:description" content="Unique handles for TikTok, Instagram, and gamer tags." />
-  <meta name="twitter:image" content="https://[your-username].github.io/nickforge/preview.png" />
+  <meta name="twitter:image" content="https://your-username.github.io/nickforge/preview.png" />
 
-  <!-- JSON-LD - ЗАМЕНИТЕ YOUR-USERNAME -->
+  <!-- JSON-LD - ЗАМЕНИТЕ your-username -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,8 +33,8 @@
     "name": "NickForge",
     "applicationCategory": "WebApplication",
     "operatingSystem": "Any",
-    "url": "https://[your-username].github.io/nickforge/",
-    "image": "https://[your-username].github.io/nickforge/preview.png",
+    "url": "https://your-username.github.io/nickforge/",
+    "image": "https://your-username.github.io/nickforge/preview.png",
     "description": "Generate unique usernames for TikTok, Instagram, and games.",
     "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"}
   }
@@ -244,7 +244,7 @@
       background: white;
     }
 
-    /* Controls bottom row - ИСПРАВЛЕНО: теперь 3 колонки */
+    /* Controls bottom row - 3 колонки */
     .controls {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -469,7 +469,7 @@
       color: white;
     }
 
-    /* Battle mode - ДОБАВЛЕНЫ НЕДОСТАЮЩИЕ КНОПКИ CHECK */
+    /* Battle mode */
     .battleWrap {
       background: #f8f7fc;
       border: 1px solid #e5e2ee;
@@ -614,7 +614,7 @@
       color: white !important;
     }
 
-    /* ПОЛНАЯ ВЕРСИЯ .sr-only */
+    /* Полная версия .sr-only */
     .sr-only {
       position: absolute !important;
       width: 1px;
@@ -668,7 +668,7 @@
             <div class="field">
               <label for="base">Base name</label>
               <input id="base" type="text" placeholder="e.g., tom, ben, neo" autocomplete="off" />
-              <div id="baseNote" class="sr-only" aria-live="polite"></div> <!-- ВОССТАНОВЛЕНО -->
+              <div id="baseNote" class="sr-only" aria-live="polite"></div>
             </div>
             <div class="field">
               <label for="count">Results</label>
@@ -681,14 +681,14 @@
             </div>
           </div>
 
-          <div class="controls"> <!-- ТЕПЕРЬ 3 КОЛОНКИ -->
+          <div class="controls">
             <div class="toggle">
               <div>
                 <strong>Allow numbers</strong>
                 <small>Tasteful suffixes</small>
               </div>
               <button class="switch" id="swNumbers" type="button" role="switch" aria-checked="false"></button>
-              <span class="sr-only" id="swNumbersState">Allow numbers: off</span> <!-- ВОССТАНОВЛЕНО -->
+              <span class="sr-only" id="swNumbersState">Allow numbers: off</span>
             </div>
 
             <div class="field">
@@ -734,12 +734,12 @@
                 <button class="mini" id="btnCopyTop" type="button">Copy</button>
                 <button class="mini" id="btnPinTop" type="button">Pin</button>
                 <button class="mini" id="btnRerollTop" type="button">Reroll</button>
-                <button class="mini" id="btnCheckTop" type="button">Open</button> <!-- ПЕРЕИМЕНОВАНО -->
+                <button class="mini" id="btnCheckTop" type="button">Open</button>
                 <button class="mini" id="btnShareTop" type="button">Share</button>
               </div>
             </div>
 
-            <!-- Battle UI с ВОССТАНОВЛЕННЫМИ КНОПКАМИ CHECK -->
+            <!-- Battle UI с кнопками type="button" -->
             <div class="battleWrap" id="battleWrap">
               <div class="battleHd">
                 <span class="title">Battle mode — pick your favorite</span>
@@ -755,9 +755,9 @@
                     <div class="meta" id="battleMetaA">Left (A / ←)</div>
                   </div>
                   <div>
-                    <button class="mini" id="btnPickA">Pick</button>
-                    <button class="mini" id="btnCopyA">Copy</button>
-                    <button class="mini" id="btnCheckA">Open</button> <!-- ВОССТАНОВЛЕНО и переименовано -->
+                    <button class="mini" id="btnPickA" type="button">Pick</button>
+                    <button class="mini" id="btnCopyA" type="button">Copy</button>
+                    <button class="mini" id="btnCheckA" type="button">Open</button>
                   </div>
                 </div>
                 <div class="battleCard" id="battleCardB" tabindex="0" role="button">
@@ -766,9 +766,9 @@
                     <div class="meta" id="battleMetaB">Right (D / →)</div>
                   </div>
                   <div>
-                    <button class="mini" id="btnPickB">Pick</button>
-                    <button class="mini" id="btnCopyB">Copy</button>
-                    <button class="mini" id="btnCheckB">Open</button> <!-- ВОССТАНОВЛЕНО и переименовано -->
+                    <button class="mini" id="btnPickB" type="button">Pick</button>
+                    <button class="mini" id="btnCopyB" type="button">Copy</button>
+                    <button class="mini" id="btnCheckB" type="button">Open</button>
                   </div>
                 </div>
               </div>
@@ -820,215 +820,1048 @@
   <div class="toast" id="toast">Copied</div>
 
 <script>
-  // --- ПОЛНОСТЬЮ ИСПРАВЛЕННЫЙ И ЗАЩИЩЕННЫЙ JAVASCRIPT ---
-
+  // --- СЛОВАРИ (без изменений) ---
   const WORD = { adj: ["Velvet","Neon","Crimson","Silent","Brave","Electric","Lunar","Midnight","Iris","Golden","Arcane","Noble","Cosmic","Satin","Jade","Wild","Calm","Rapid","Clever","Radiant","Azure","Obsidian","Hollow","Vivid","Nova","Moody","Urban","Royal","Prime","Frost","Amber","Cipher","Daring","Magnet","Sleek","Stormy","Epic","Mellow","Glowing","Modern","Ultra","Glitch","Polar","Dusk","Serene","Rogue","Vintage","Zen","Apex","Bliss","Echoing","Lucid","Phantom","Solar","Karma","Crave","Charmed","Basil","Indigo","Opal","Quartz","Halo","Drift","Cobalt","Eternal","Fable","Mythic","Rustic","Vortex","Pristine","Hushed","Sable","Nimbus","Ember","Soft","Pure"], noun: ["Tiger","Fox","Wolf","Raven","Falcon","Panther","Dragon","Comet","Orchid","Lotus","Wave","Circuit","Cipher","Glacier","Atlas","Voyager","Pilot","Ninja","Samurai","Monarch","Muse","Nomad","Beacon","Temple","Neptune","Jupiter","Aurora","Mirage","Legend","Matrix","Runner","Horizon","Cosmos","Vertex","Canyon","Harbor","Garden","Blossom","Crescent","Saber","Lantern","Dagger","Pearl","Guitar","Cinema","Studio","Skylight","Ritual","Crown","Empire","Dynamo","Rocket","Signal","Shadow","Thunder","Breeze","Valley","River","Wildfire","Voltage","Marble","Velour","Canvas","Pixel","Syntax","Orbit","Sonnet","Alchemy","Fjord","Grove","Knight","Bounty","Warden"], vibe: ["Drift","Glow","Haze","Pulse","Echo","Rush","Bloom","Ride","Spark","Shift","Chase","Nova","Forge","Craft","Skate","Wave","Slice","Dash","Quest","Roam","Flicker","Charge","Flow"], tail: ["Club","House","Lab","Crew","Studio","Core","Mode","Vibes","Works","Forge","Craft","HQ","Files","Realm","Verse","Zone","Room","Arcade","Base","Vault"], num: ["7","9","11","13","17","21","23","27","33","37","41","55","77","88","99"] };
   const THEMES = { cyberpunk:{ adj:["Neon","Chrome","Cyber","Glitch","Digital","Pixel","Synth","Hacker","Quantum","Encrypted","VR","Augmented","Nano","Wired","Neural","Static"], noun:["Matrix","Circuit","Drone","Protocol","Terminal","Server","Kernel","Firewall","Datastream","Backdoor","Mainframe","Console","Byte","Cipher","Grid","Router"], vibe:["Hack","Shift","Pulse","Overclock","Sync","Scan","Debug","Compile","Encrypt","Decode","Deploy","Patch","Trace","Inject","Ghost"], tail:["Labs","Node","Core","Net","Ops","Runtime","Stack","Shell","Port","Proxy"] }, nature:{ adj:["Wild","Forest","River","Golden","Emerald","Silent","Blooming","Misty","Autumn","Frosted","Sunny","Verdant","Sacred","Rustling","Crystal","Ancient"], noun:["Wolf","Oak","Valley","River","Leaf","Stone","Flame","Meadow","Cedar","Falcon","Brook","Grove","Pine","Rain","Dawn","Creek"], vibe:["Roam","Breathe","Bloom","Drift","Flow","Wander","Hike","Rise","Glide","Shine","Sprout","Sway"], tail:["Trail","Garden","Woods","Creek","Ridge","Cove","Haven","Grove"] }, mythology:{ adj:["Ancient","Divine","Sacred","Mythic","Arcane","Titan","Olympian","Cursed","Blessed","Heroic","Eternal","Runic","Fabled","Celestial","Prophetic","Hallowed"], noun:["Phoenix","Dragon","Oracle","Zeus","Atlas","Hydra","Ares","Athena","Hera","Apollo","Odin","Loki","Thor","Sphinx","Kraken","Cerberus"], vibe:["Ascend","Summon","Ritual","Prophecy","Awaken","Forge","Conquer","Enchant","Invoke","Bless","Claim","Reborn"], tail:["Saga","Temple","Realm","Chronicle","Myth","Pantheon","Legend"] }, space:{ adj:["Cosmic","Lunar","Solar","Nebula","Stellar","Galactic","Astral","Radiant","Void","Orbital","Gravity","Eclipse","Meteoric","Comet","Nova","Zenith"], noun:["Orbit","Galaxy","Nova","Meteor","Comet","Quasar","Pulsar","Astra","Zenith","Horizon","Saturn","Neptune","Jupiter","Apollo","Voyager","Andromeda"], vibe:["Launch","Drift","Warp","Pulse","Orbit","Align","Traverse","Glide","Ascend","Radiate","Eclipse"], tail:["Lab","Station","Fleet","Mission","Module","Base","Port"] }, gaming:{ adj:["Epic","Rapid","Savage","Stealth","Shadow","Rogue","Apex","Prime","Elite","Ultra","Fatal","Clutch","Sweaty","Ranked","Arcade","Pro"], noun:["Slayer","Sniper","Knight","Raider","Champion","Warden","Vandal","Gladiator","Striker","Phantom","Viper","Ranger","Assassin","Sentinel","Juggernaut","Caster"], vibe:["Clutch","Rush","Queue","Frag","Grind","Carry","Boost","Skirmish","Duel","Raid","Quest"], tail:["GG","Squad","Clan","Arena","Rank","Lobby","Main","Alt"] } };
   const STAGE = { a: ["Velvet","Satin","Silk","Cherry","Midnight","Honey","Neon","Crimson","Lunar","Electric","Golden","Opal","Jade","Iris","Cobalt","Amber"], b: ["Tiger","Vixen","Panther","Dahlia","Lotus","Nova","Muse","Siren","Comet","Orchid","Raven","Clover","Diamond","Tempo","Mirage","Halo"], c: ["Deluxe","Supreme","Encore","Edition","AfterHours","Signature","Royale","Select","Prime","Gold","Ultra","VIP","Glow","Classique"] };
   
-  // --- БЕЗОПАСНЫЙ HELPER ДЛЯ QUERYSELECTOR ---
+  // --- БЕЗОПАСНЫЙ HELPER ---
   const $ = (s) => document.querySelector(s);
-  const safe$ = (s) => {
-    const el = document.querySelector(s);
-    if (!el) console.warn(`Element not found: ${s}`);
-    return el;
-  };
   const $$ = (s) => Array.from(document.querySelectorAll(s));
   
-  // --- ОСТАЛЬНОЙ JS (ИСПРАВЛЕННЫЙ) ---
-  function toast(msg="Copied"){ const t=$("#toast"); if(t){ t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"), 1200); } }
-  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-  function cleanBase(raw){ return (raw||"").trim().replace(/\s+/g," ").slice(0,24); }
-  function onlyLetters(raw){ return raw.replace(/[^a-zA-Z]/g,""); }
-  function lowerAlphaNum(raw){ return raw.toLowerCase().replace(/[^a-z0-9._-]/g,""); }
-  function clampLen(str, max){ return str.length<=max ? str : str.slice(0,max); }
-  function getThemeValue(){ try{ const el = $("#theme"); if(!el) return "classic"; return String(el.value || "classic"); }catch(e){ return "classic"; } }
-  function updateMetaDescription(mode){ const descriptions = { tiktok: "Free TikTok username generator. Create clean, stylish usernames with smart separators. No repeats per session.", instagram: "Instagram handle generator. Create unique usernames with dots or underscores. Smart formatting. No repeats per session.", gamer: "Gamer tag generator for Steam, Discord, Twitch and more. Short, memorable names with no repeats per session.", nickname: "Nickname generator for any purpose. Smart separators, strong word packs, unique combinations. No repeats per session." }; const desc = descriptions[mode] || descriptions.nickname; const mDesc = document.querySelector('meta[name="description"]'); if(mDesc) mDesc.setAttribute("content", desc); const ogDesc = document.querySelector('meta[property="og:description"]'); if(ogDesc) ogDesc.setAttribute("content", desc); const twDesc = document.querySelector('meta[name="twitter:description"]'); if(twDesc) twDesc.setAttribute("content", desc); }
-  function resolveSepStyle(mode, sepStyle){ if(sepStyle !== "smart") return sepStyle; if(mode === "tiktok" || mode === "instagram") return "snake"; return "camel"; }
-  function formatSeparator(parts, style){ const p = parts.filter(Boolean); if(style==="camel"){ return p.map((w,i)=> i===0 ? w.toLowerCase() : (w[0].toUpperCase()+w.slice(1).toLowerCase())).join(""); } if(style==="snake"){ return p.map(w=>w.toLowerCase()).join("_"); } if(style==="kebab"){ return p.map(w=>w.toLowerCase()).join("-"); } if(style==="dot"){ return p.map(w=>w.toLowerCase()).join("."); } return p.join(""); }
-  function animateCopyButton(btn){ if(!btn) return; const original = btn.textContent; btn.classList.add("copy-success"); btn.textContent = "✓"; setTimeout(()=>{ btn.textContent = original; btn.classList.remove("copy-success"); }, 900); }
-  function buildAvailabilityUrl(platform, name){ if(!platform || !name) return ""; const p = String(platform).toLowerCase().trim(); const urls = { tiktok: `https://www.tiktok.com/@${name}`, instagram: `https://www.instagram.com/${name}/`, x: `https://x.com/${name}`, twitter: `https://x.com/${name}`, twitch: `https://www.twitch.tv/${name}`, youtube: `https://www.youtube.com/@${name}`, github: `https://github.com/${name}`, steam: `https://steamcommunity.com/id/${name}` }; return urls[p] || ""; }
-  function choosePlatformPrompt(){ // УБРАЛ DISCORD ИЗ СПИСКА
-    const choices = ["tiktok","instagram","x","twitch","youtube","github","steam"]; 
-    const msg = "Check username on platform:\n\n" + choices.map((c,i)=>`${i+1}. ${c.toUpperCase()}`).join("\n") + "\n\nEnter number (1-" + choices.length + ") or type name:"; 
-    const raw = prompt(msg); if(raw == null) return null; const v = String(raw).trim().toLowerCase(); if(!v) return null; const asNum = Number(v); if(Number.isFinite(asNum) && asNum >= 1 && asNum <= choices.length){ return choices[asNum - 1]; } if(choices.includes(v)) return v; if(v === "twitter") return "x"; return null; 
+  // --- УТИЛИТЫ ---
+  function toast(msg = "Copied") {
+    const t = $("#toast");
+    if (t) {
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 1200);
+    }
   }
-  function checkUsernameAvailability(name, advanced=false){ if(!name) return; let platform = "github"; if(MODE === "tiktok") platform = "tiktok"; if(MODE === "instagram") platform = "instagram"; if(MODE === "gamer") platform = "twitch"; if(advanced){ const picked = choosePlatformPrompt(); if(picked) platform = picked; } const url = buildAvailabilityUrl(platform, name); if(!url){ toast("URL not available"); return; } window.open(url, "_blank", "noopener"); }
-  function shareNickname(name){ if(!name) return; const url = location.origin + location.pathname + "?nick=" + encodeURIComponent(name) + "&mode=" + encodeURIComponent(MODE); copyText(url); toast("Share link copied"); }
+  
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+  
+  function cleanBase(raw) {
+    return (raw || "").trim().replace(/\s+/g, " ").slice(0, 24);
+  }
+  
+  function onlyLetters(raw) {
+    return raw.replace(/[^a-zA-Z]/g, "");
+  }
+  
+  function lowerAlphaNum(raw) {
+    return raw.toLowerCase().replace(/[^a-z0-9._-]/g, "");
+  }
+  
+  function clampLen(str, max) {
+    return str.length <= max ? str : str.slice(0, max);
+  }
+  
+  function getThemeValue() {
+    try {
+      const el = $("#theme");
+      if (!el) return "classic";
+      return String(el.value || "classic");
+    } catch (e) {
+      return "classic";
+    }
+  }
+  
+  // ИСПРАВЛЕНО: убран Discord из описания
+  function updateMetaDescription(mode) {
+    const descriptions = {
+      tiktok: "Free TikTok username generator. Create clean, stylish usernames with smart separators. No repeats per session.",
+      instagram: "Instagram handle generator. Create unique usernames with dots or underscores. Smart formatting. No repeats per session.",
+      gamer: "Gamer tag generator for Steam, Twitch, YouTube and more. Short, memorable names with no repeats per session.",
+      nickname: "Nickname generator for any purpose. Smart separators, strong word packs, unique combinations. No repeats per session."
+    };
+    const desc = descriptions[mode] || descriptions.nickname;
+    const mDesc = document.querySelector('meta[name="description"]');
+    if (mDesc) mDesc.setAttribute("content", desc);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", desc);
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute("content", desc);
+  }
+  
+  function resolveSepStyle(mode, sepStyle) {
+    if (sepStyle !== "smart") return sepStyle;
+    if (mode === "tiktok" || mode === "instagram") return "snake";
+    return "camel";
+  }
+  
+  function formatSeparator(parts, style) {
+    const p = parts.filter(Boolean);
+    if (style === "camel") {
+      return p.map((w, i) => i === 0 ? w.toLowerCase() : (w[0].toUpperCase() + w.slice(1).toLowerCase())).join("");
+    }
+    if (style === "snake") {
+      return p.map(w => w.toLowerCase()).join("_");
+    }
+    if (style === "kebab") {
+      return p.map(w => w.toLowerCase()).join("-");
+    }
+    if (style === "dot") {
+      return p.map(w => w.toLowerCase()).join(".");
+    }
+    return p.join("");
+  }
+  
+  function animateCopyButton(btn) {
+    if (!btn) return;
+    const original = btn.textContent;
+    btn.classList.add("copy-success");
+    btn.textContent = "✓";
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove("copy-success");
+    }, 900);
+  }
+  
+  function buildAvailabilityUrl(platform, name) {
+    if (!platform || !name) return "";
+    const p = String(platform).toLowerCase().trim();
+    const urls = {
+      tiktok: `https://www.tiktok.com/@${name}`,
+      instagram: `https://www.instagram.com/${name}/`,
+      x: `https://x.com/${name}`,
+      twitter: `https://x.com/${name}`,
+      twitch: `https://www.twitch.tv/${name}`,
+      youtube: `https://www.youtube.com/@${name}`,
+      github: `https://github.com/${name}`,
+      steam: `https://steamcommunity.com/id/${name}`
+    };
+    return urls[p] || "";
+  }
+  
+  // ИСПРАВЛЕНО: убран Discord из списка
+  function choosePlatformPrompt() {
+    const choices = ["tiktok", "instagram", "x", "twitch", "youtube", "github", "steam"];
+    const msg = "Check username on platform:\n\n" +
+      choices.map((c, i) => `${i + 1}. ${c.toUpperCase()}`).join("\n") +
+      "\n\nEnter number (1-" + choices.length + ") or type name:";
+    const raw = prompt(msg);
+    if (raw == null) return null;
+    const v = String(raw).trim().toLowerCase();
+    if (!v) return null;
+    const asNum = Number(v);
+    if (Number.isFinite(asNum) && asNum >= 1 && asNum <= choices.length) {
+      return choices[asNum - 1];
+    }
+    if (choices.includes(v)) return v;
+    if (v === "twitter") return "x";
+    return null;
+  }
+  
+  function checkUsernameAvailability(name, advanced = false) {
+    if (!name) return;
+    let platform = "github";
+    if (MODE === "tiktok") platform = "tiktok";
+    if (MODE === "instagram") platform = "instagram";
+    if (MODE === "gamer") platform = "twitch";
+    if (advanced) {
+      const picked = choosePlatformPrompt();
+      if (picked) platform = picked;
+    }
+    const url = buildAvailabilityUrl(platform, name);
+    if (!url) {
+      toast("URL not available");
+      return;
+    }
+    window.open(url, "_blank", "noopener");
+  }
+  
+  function shareNickname(name) {
+    if (!name) return;
+    const url = location.origin + location.pathname + "?nick=" + encodeURIComponent(name) + "&mode=" + encodeURIComponent(MODE);
+    copyText(url);
+    toast("Share link copied");
+  }
+  
   let lockedWord = null;
-  function toggleLock(word){ if(!word) return; if(lockedWord === word){ lockedWord = null; toast("Lock removed"); }else{ lockedWord = word; toast(`Locked: ${word}`); } }
-  function makeCandidate(base, mode, sepStyle, allowNumbers){ if(lockedWord){ base = lockedWord; } const theme = getThemeValue(); let adjPool = WORD.adj; let nounPool = WORD.noun; let vibePool = WORD.vibe; let tailPool = WORD.tail; if(theme !== "classic" && THEMES[theme]){ const t = THEMES[theme]; if(t && Array.isArray(t.adj)) adjPool = adjPool.concat(t.adj); if(t && Array.isArray(t.noun)) nounPool = nounPool.concat(t.noun); if(t && Array.isArray(t.vibe)) vibePool = vibePool.concat(t.vibe); if(t && Array.isArray(t.tail)) tailPool = tailPool.concat(t.tail); } const hasBase = base.length>0; const baseWord = hasBase ? base : ""; const families = [ () => [pick(adjPool), baseWord, pick(nounPool)], () => [baseWord, pick(adjPool), pick(vibePool)], () => [pick(nounPool), baseWord, pick(vibePool)], () => [pick(adjPool), pick(nounPool), baseWord] ]; function fill(parts){ return parts.map(x => x || pick(Math.random()<0.55 ? nounPool : vibePool)); } let parts = fill(pick(families)()); let handle = formatSeparator(parts, sepStyle); if(mode==="tiktok"){ handle = lowerAlphaNum(handle.replace(/-/g,"_")); handle = clampLen(handle, 24); } else if(mode==="instagram"){ handle = lowerAlphaNum(handle.replace(/-/g,"_")); handle = handle.replace(/^\.+/,""); handle = clampLen(handle, 30); } else if(mode==="gamer"){ handle = formatSeparator(parts, sepStyle).replace(/\./g,""); handle = clampLen(handle, 18); } else { handle = clampLen(handle, 18); } if(allowNumbers && Math.random() < 0.18){ const suffix = pick(WORD.num); const max = (mode==="instagram" ? 30 : (mode==="tiktok" ? 24 : 18)); handle = clampLen(handle + suffix, max); } if(hasBase){ const b = base.toLowerCase(); if(!handle.toLowerCase().includes(b)){ if(mode==="instagram" || mode==="tiktok"){ handle = clampLen((b + "_" + handle).replace(/__+/g,"_"), mode==="instagram"?30:24); }else{ handle = clampLen((base + handle), 18); } } } return handle; }
-  const SESSION_KEY = "nf_seen_v1"; const SESSION_LIMIT = 6000;
-  function loadSeen(){ try{ const raw = sessionStorage.getItem(SESSION_KEY); if(!raw) return new Set(); const arr = JSON.parse(raw); return new Set(Array.isArray(arr) ? arr : []); }catch(e){ return new Set(); } }
-  function saveSeen(seen){ try{ const arr = Array.from(seen); if(arr.length > SESSION_LIMIT){ const trimmed = arr.slice(arr.length - SESSION_LIMIT); sessionStorage.setItem(SESSION_KEY, JSON.stringify(trimmed)); return; } sessionStorage.setItem(SESSION_KEY, JSON.stringify(arr)); }catch(e){} }
+  
+  function toggleLock(word) {
+    if (!word) return;
+    if (lockedWord === word) {
+      lockedWord = null;
+      toast("Lock removed");
+    } else {
+      lockedWord = word;
+      toast(`Locked: ${word}`);
+    }
+  }
+  
+  // ИСПРАВЛЕНО: добавлено использование tailPool
+  function makeCandidate(base, mode, sepStyle, allowNumbers) {
+    if (lockedWord) {
+      base = lockedWord;
+    }
+    const theme = getThemeValue();
+    let adjPool = WORD.adj;
+    let nounPool = WORD.noun;
+    let vibePool = WORD.vibe;
+    let tailPool = WORD.tail;
+    
+    if (theme !== "classic" && THEMES[theme]) {
+      const t = THEMES[theme];
+      if (t && Array.isArray(t.adj)) adjPool = adjPool.concat(t.adj);
+      if (t && Array.isArray(t.noun)) nounPool = nounPool.concat(t.noun);
+      if (t && Array.isArray(t.vibe)) vibePool = vibePool.concat(t.vibe);
+      if (t && Array.isArray(t.tail)) tailPool = tailPool.concat(t.tail);
+    }
+    
+    const hasBase = base.length > 0;
+    const baseWord = hasBase ? base : "";
+    
+    const families = [
+      () => [pick(adjPool), baseWord, pick(nounPool)],
+      () => [baseWord, pick(adjPool), pick(vibePool)],
+      () => [pick(nounPool), baseWord, pick(vibePool)],
+      () => [pick(adjPool), pick(nounPool), baseWord],
+      () => [pick(adjPool), baseWord, pick(tailPool)],
+      () => [baseWord, pick(nounPool), pick(tailPool)],
+      () => [pick(nounPool), baseWord, pick(tailPool)]
+    ];
+    
+    function fill(parts) {
+      return parts.map(x => x || pick(Math.random() < 0.55 ? nounPool : vibePool));
+    }
+    
+    let parts = fill(pick(families)());
+    let handle = formatSeparator(parts, sepStyle);
+    
+    if (mode === "tiktok") {
+      handle = lowerAlphaNum(handle.replace(/-/g, "_"));
+      handle = clampLen(handle, 24);
+    } else if (mode === "instagram") {
+      handle = lowerAlphaNum(handle.replace(/-/g, "_"));
+      handle = handle.replace(/^\.+/, "");
+      handle = clampLen(handle, 30);
+    } else if (mode === "gamer") {
+      handle = formatSeparator(parts, sepStyle).replace(/\./g, "");
+      handle = clampLen(handle, 18);
+    } else {
+      handle = clampLen(handle, 18);
+    }
+    
+    if (allowNumbers && Math.random() < 0.18) {
+      const suffix = pick(WORD.num);
+      const max = (mode === "instagram" ? 30 : (mode === "tiktok" ? 24 : 18));
+      handle = clampLen(handle + suffix, max);
+    }
+    
+    if (hasBase) {
+      const b = base.toLowerCase();
+      if (!handle.toLowerCase().includes(b)) {
+        if (mode === "instagram" || mode === "tiktok") {
+          handle = clampLen((b + "_" + handle).replace(/__+/g, "_"), mode === "instagram" ? 30 : 24);
+        } else {
+          handle = clampLen((base + handle), 18);
+        }
+      }
+    }
+    
+    return handle;
+  }
+  
+  const SESSION_KEY = "nf_seen_v1";
+  const SESSION_LIMIT = 6000;
+  
+  function loadSeen() {
+    try {
+      const raw = sessionStorage.getItem(SESSION_KEY);
+      if (!raw) return new Set();
+      const arr = JSON.parse(raw);
+      return new Set(Array.isArray(arr) ? arr : []);
+    } catch (e) {
+      return new Set();
+    }
+  }
+  
+  function saveSeen(seen) {
+    try {
+      const arr = Array.from(seen);
+      if (arr.length > SESSION_LIMIT) {
+        const trimmed = arr.slice(arr.length - SESSION_LIMIT);
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(trimmed));
+        return;
+      }
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(arr));
+    } catch (e) {}
+  }
+  
   let seenSession = loadSeen();
-  function uniqueGenerate({base, mode, sepStyle, allowNumbers, count}){ const seenBatch = new Set(); const out = []; let safety = 0; let b = cleanBase(base); let bLetters = ""; if(b){ bLetters = onlyLetters(b); if(bLetters !== b){ const baseNote = $("#baseNote"); if(baseNote) { baseNote.textContent = `Base normalized to letters: ${bLetters || "(empty)"}`; } } b = bLetters; } const sepResolved = resolveSepStyle(mode, sepStyle); while(out.length < count && safety < 8000){ safety++; const cand = makeCandidate(b, mode, sepResolved, allowNumbers); const key = (mode + ":" + cand).toLowerCase(); if(seenBatch.has(key)) continue; if(seenSession.has(key)) continue; if(/___/.test(cand)) continue; if(cand.length < 5) continue; seenBatch.add(key); out.push(cand); } out.forEach(v => seenSession.add((mode + ":" + v).toLowerCase())); saveSeen(seenSession); return out; }
-  async function copyText(text){ if(!text) return false; try{ if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); return true; } }catch(e){} try{ const ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.left = "-9999px"; ta.style.top = "0"; document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, ta.value.length); const ok = document.execCommand("copy"); document.body.removeChild(ta); return !!ok; }catch(e){ return false; } }
-  let MODE = "nickname"; let allowNumbers = false; let lastBatch = []; let pinned = loadPinned(); let isGenerating = false;
-  function setGenLoading(on){ const btn = $("#btnGen"); if(!btn) return; if(on){ if(!btn.dataset._txt) btn.dataset._txt = btn.textContent || "Generate"; btn.disabled = true; btn.textContent = "Generating..."; }else{ btn.disabled = false; btn.textContent = btn.dataset._txt || "Generate"; } }
-  function genGuardStart(){ if(isGenerating) return false; isGenerating = true; setGenLoading(true); return true; }
-  function genGuardEnd(){ setTimeout(()=>{ isGenerating = false; setGenLoading(false); }, 400); }
-  let battleOn = false; let battleA = ""; let battleB = ""; let battleWins = 0; let battleStreak = 0;
-  function loadPinned(){ try{ return JSON.parse(localStorage.getItem("nf_pins")||"[]"); }catch(e){ return []; } }
-  function savePinned(){ localStorage.setItem("nf_pins", JSON.stringify(pinned.slice(0,60))); }
-  function renderPins(){ const box = $("#favList"); if(!box) return; box.innerHTML = ""; if(!pinned.length){ box.innerHTML = `<div style="color:#6b6678;font-size:14px;">No favorites yet.</div>`; return; } pinned.slice(0,30).forEach((p, idx)=>{ const el = document.createElement("div"); el.className="favItem"; el.innerHTML = `<div style="min-width:0;"><div style="font-weight:700;">${escapeHtml(p.value)}</div><div style="color:#6b6678;font-size:12px;">${escapeHtml(p.mode)}</div></div><div><button class="mini" data-copy="${escapeHtml(p.value)}">Copy</button><button class="mini" data-del="${idx}">Remove</button></div>`; box.appendChild(el); }); box.querySelectorAll("[data-copy]").forEach(btn=>{ btn.addEventListener("click", async ()=>{ const ok = await copyText(btn.getAttribute("data-copy")); if(ok) animateCopyButton(btn); toast(ok ? "Copied" : "Copy failed"); }); }); box.querySelectorAll("[data-del]").forEach(btn=>{ btn.addEventListener("click", ()=>{ const i = Number(btn.getAttribute("data-del")); pinned.splice(i,1); savePinned(); renderPins(); }); }); }
-  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[m])); }
-  function setTopPick(value, mode){ const topName = $("#topName"); const topMeta = $("#topMeta"); if(topName) topName.textContent = value || "—"; if(topMeta) topMeta.textContent = value ? `Top pick • ${labelMode(mode)} • Unique` : "Top pick (copy or pin). Reroll for a new top pick."; }
-  function labelMode(m){ if(m==="tiktok") return "TikTok username"; if(m==="instagram") return "Instagram handle"; if(m==="gamer") return "Gamer tag"; return "Nickname"; }
-  function renderList(arr, mode){ const list = $("#list"); if(!list) return; list.innerHTML = ""; arr.forEach((v)=>{ const el = document.createElement("div"); el.className="item"; el.innerHTML = `<div class="txt"><div class="nick">${escapeHtml(v)}</div><div class="sub">${escapeHtml(labelMode(mode))}</div></div><div class="miniBtns"><button class="mini" data-copy="${escapeHtml(v)}">Copy</button><button class="mini" data-pin="${escapeHtml(v)}">Pin</button><button class="mini" data-check="${escapeHtml(v)}">Open</button><button class="mini" data-lock="${escapeHtml(v)}">Lock</button><button class="mini" data-share="${escapeHtml(v)}">Share</button></div>`; list.appendChild(el); }); list.querySelectorAll("[data-copy]").forEach(btn=>{ btn.addEventListener("click", async ()=>{ const ok = await copyText(btn.getAttribute("data-copy")); if(ok) animateCopyButton(btn); toast(ok ? "Copied" : "Copy failed"); }); }); list.querySelectorAll("[data-pin]").forEach(btn=>{ btn.addEventListener("click", ()=>{ const value = btn.getAttribute("data-pin"); pinValue(value, MODE); }); }); list.querySelectorAll("[data-check]").forEach(btn=>{ btn.addEventListener("click", (e)=>{ const value = btn.getAttribute("data-check"); checkUsernameAvailability(value, !!(e && e.shiftKey)); }); }); list.querySelectorAll("[data-lock]").forEach(btn=>{ btn.addEventListener("click", ()=>{ const value = btn.getAttribute("data-lock"); toggleLock(value); }); }); list.querySelectorAll("[data-share]").forEach(btn=>{ btn.addEventListener("click", ()=>{ const value = btn.getAttribute("data-share"); shareNickname(value); }); }); }
-  function pinValue(value, mode){ const key = (mode + ":" + value).toLowerCase(); if(pinned.some(p => (p.mode+":"+p.value).toLowerCase()===key)){ toast("Already pinned"); return; } pinned.unshift({mode: labelMode(mode), value, ts: Date.now()}); savePinned(); renderPins(); toast("Pinned"); }
-  function genStageName(){ const base = onlyLetters(cleanBase($("#base")?.value || "")); const w1 = pick(STAGE.a); const w2 = pick(STAGE.b); const w3 = pick(STAGE.c); let name = `${w1} ${w2} ${w3}`; if(base && Math.random()<0.35){ name = `${w1} ${base[0].toUpperCase()+base.slice(1).toLowerCase()} ${w2}`; } const stageBig = $("#stageBig"); if(stageBig) stageBig.textContent = name; }
-  function generate(){ if(!genGuardStart()) return; try{ const base = $("#base")?.value || ""; const count = Number($("#count")?.value || 24); const sep = $("#sep")?.value || "smart"; const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count }); lastBatch = batch; const top = batch[0] || "—"; setTopPick(top, MODE); renderList(batch, MODE); if(batch.length < count){ toast(`Generated ${batch.length}/${count} — try a different base or separator`); } }finally{ genGuardEnd(); } }
-  function generateMore(){ if(!genGuardStart()) return; const listEl = $("#list"); if(listEl && listEl.children && listEl.children.length > 120){ toast("Too many results — clear list"); genGuardEnd(); return; } try{ const base = $("#base")?.value || ""; const count = Number($("#count")?.value || 24); const sep = $("#sep")?.value || "smart"; const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count }); const list = $("#list"); if(!list) return; batch.forEach((v)=>{ const el = document.createElement("div"); el.className="item"; el.innerHTML = `<div class="txt"><div class="nick">${escapeHtml(v)}</div><div class="sub">${escapeHtml(labelMode(MODE))}</div></div><div class="miniBtns"><button class="mini" data-copy="${escapeHtml(v)}">Copy</button><button class="mini" data-pin="${escapeHtml(v)}">Pin</button><button class="mini" data-check="${escapeHtml(v)}">Open</button><button class="mini" data-lock="${escapeHtml(v)}">Lock</button><button class="mini" data-share="${escapeHtml(v)}">Share</button></div>`; const btnCopy = el.querySelector("[data-copy]"); const btnPin  = el.querySelector("[data-pin]"); const btnCheck= el.querySelector("[data-check]"); const btnLock = el.querySelector("[data-lock]"); const btnShare= el.querySelector("[data-share]"); if(btnCopy){ btnCopy.addEventListener("click", async ()=>{ const ok = await copyText(btnCopy.getAttribute("data-copy")); if(ok) animateCopyButton(btnCopy); toast(ok ? "Copied" : "Copy failed"); }); } if(btnPin){ btnPin.addEventListener("click", ()=>{ pinValue(btnPin.getAttribute("data-pin"), MODE); }); } if(btnCheck){ btnCheck.addEventListener("click", (e)=>{ checkUsernameAvailability(btnCheck.getAttribute("data-check"), !!(e && e.shiftKey)); }); } if(btnLock){ btnLock.addEventListener("click", ()=>{ toggleLock(btnLock.getAttribute("data-lock")); }); } if(btnShare){ btnShare.addEventListener("click", ()=>{ shareNickname(btnShare.getAttribute("data-share")); }); } list.appendChild(el); }); if(batch.length < count){ toast(`Generated ${batch.length}/${count} — try a different base or separator`); } }finally{ genGuardEnd(); } }
-  function rerollTop(){ if(!lastBatch.length) return; lastBatch.push(lastBatch.shift()); setTopPick(lastBatch[0], MODE); renderList(lastBatch, MODE); }
-  function surprise(){ const seeds = ["neo","ben","luna","aria","kai","milo","nova","sage","rio","zane","iris","jade","echo","atlas","maya","noah"]; const baseInput = $("#base"); if(baseInput && !cleanBase(baseInput.value)){ baseInput.value = pick(seeds); } generate(); }
-  function updateBattleUIVisibility(){ const wrap = $("#battleWrap"); if(!wrap) return; wrap.style.display = battleOn ? "block" : "none"; const list = $("#list"); if(list) list.style.display = battleOn ? "none" : "grid"; }
-  function updateBattleStats(){ const el = $("#battleStats"); if(el) el.textContent = `Wins: ${battleWins} • Streak: ${battleStreak}`; }
-  function setBattlePair(a, b){ battleA = a || "—"; battleB = b || "—"; const nameA = $("#battleNameA"); const nameB = $("#battleNameB"); if(nameA) nameA.textContent = battleA; if(nameB) nameB.textContent = battleB; updateBattleStats(); }
-  function getTwoCandidatesForBattle(){ const base = $("#base")?.value || ""; const sep = $("#sep")?.value || "smart"; const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count: 2 }); return batch; }
-  function battleNextPair(){ if(!genGuardStart()) return; try{ const batch = getTwoCandidatesForBattle(); const a = batch[0] || "—"; const b = batch[1] || (batch[0] || "—"); setBattlePair(a, b); }finally{ genGuardEnd(); } }
-  function battleEnter(){ battleOn = true; battleWins = 0; battleStreak = 0; updateBattleUIVisibility(); battleNextPair(); toast("Battle mode on"); }
-  function battleExit(){ battleOn = false; battleWins = 0; battleStreak = 0; updateBattleStats(); updateBattleUIVisibility(); toast("Battle mode off"); }
-  function battlePick(which){ if(!battleOn) return; const winner = (which === "A") ? battleA : battleB; if(winner && winner !== "—"){ setTopPick(winner, MODE); } battleWins++; battleStreak++; const base = $("#base")?.value || ""; const sep = $("#sep")?.value || "smart"; const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count: 1 }); const next = batch[0] || "—"; if(which === "A"){ setBattlePair(winner, next); }else{ setBattlePair(next, winner); } toast(`Picked: ${winner}`); }
-  function battleCopy(name, btn){ if(!name || name==="—") return; copyText(name).then(ok=>{ if(ok && btn) animateCopyButton(btn); toast(ok ? "Copied" : "Copy failed"); }); }
-  function battleCheck(name, e){ if(!name || name==="—") return; checkUsernameAvailability(name, !!(e && e.shiftKey)); }
-  function updateTabs(m){ MODE = m; const tabs = $$(".tab"); tabs.forEach(t=>{ const active = t.dataset.mode === m; t.classList.toggle("active", active); t.setAttribute("aria-selected", active ? "true" : "false"); t.tabIndex = active ? 0 : -1; }); const activeTab = tabs.find(t=>t.dataset.mode===m); if(activeTab){ const panel = $("#panel-results"); if(panel) panel.setAttribute("aria-labelledby", activeTab.id); } updateMetaDescription(m); try{ const params = new URLSearchParams(location.search); params.set("mode", m); history.replaceState(null, "", `${location.pathname}?${params.toString()}`); }catch(e){} if(battleOn){ battleNextPair(); return; } generate(); }
-  function focusTabByIndex(tabs, idx){ const n = tabs.length; const next = (idx + n) % n; tabs[next].focus(); updateTabs(tabs[next].dataset.mode); }
-  function bindTabEvents(){ const tabs = $$(".tab"); tabs.forEach((t, idx)=>{ t.addEventListener("click", ()=>updateTabs(t.dataset.mode)); t.addEventListener("keydown", (e)=>{ if(e.key === "ArrowRight"){ e.preventDefault(); focusTabByIndex(tabs, idx+1); } if(e.key === "ArrowLeft"){ e.preventDefault(); focusTabByIndex(tabs, idx-1); } if(e.key === "Home"){ e.preventDefault(); focusTabByIndex(tabs, 0); } if(e.key === "End"){ e.preventDefault(); focusTabByIndex(tabs, tabs.length-1); } }); }); }
-  function setNumbersSwitch(on){ allowNumbers = !!on; const sw = $("#swNumbers"); if(sw){ sw.classList.toggle("on", allowNumbers); sw.setAttribute("aria-checked", allowNumbers ? "true" : "false"); } const state = $("#swNumbersState"); if(state) { state.textContent = `Allow numbers: ${allowNumbers ? "on" : "off"}`; } }
-  function toggleNumbers(){ setNumbersSwitch(!allowNumbers); if(battleOn){ battleNextPair(); }else{ generate(); } }
+  
+  function uniqueGenerate({ base, mode, sepStyle, allowNumbers, count }) {
+    const seenBatch = new Set();
+    const out = [];
+    let safety = 0;
+    let b = cleanBase(base);
+    let bLetters = "";
+    
+    if (b) {
+      bLetters = onlyLetters(b);
+      if (bLetters !== b) {
+        const baseNote = $("#baseNote");
+        if (baseNote) {
+          baseNote.textContent = `Base normalized to letters: ${bLetters || "(empty)"}`;
+        }
+      }
+      b = bLetters;
+    }
+    
+    const sepResolved = resolveSepStyle(mode, sepStyle);
+    
+    while (out.length < count && safety < 8000) {
+      safety++;
+      const cand = makeCandidate(b, mode, sepResolved, allowNumbers);
+      const key = (mode + ":" + cand).toLowerCase();
+      if (seenBatch.has(key)) continue;
+      if (seenSession.has(key)) continue;
+      if (/___/.test(cand)) continue;
+      if (cand.length < 5) continue;
+      seenBatch.add(key);
+      out.push(cand);
+    }
+    
+    out.forEach(v => seenSession.add((mode + ":" + v).toLowerCase()));
+    saveSeen(seenSession);
+    return out;
+  }
+  
+  async function copyText(text) {
+    if (!text) return false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (e) {}
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      ta.style.top = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, ta.value.length);
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return !!ok;
+    } catch (e) {
+      return false;
+    }
+  }
+  
+  let MODE = "nickname";
+  let allowNumbers = false;
+  let lastBatch = [];
+  let pinned = loadPinned();
+  let isGenerating = false;
+  
+  function setGenLoading(on) {
+    const btn = $("#btnGen");
+    if (!btn) return;
+    if (on) {
+      if (!btn.dataset._txt) btn.dataset._txt = btn.textContent || "Generate";
+      btn.disabled = true;
+      btn.textContent = "Generating...";
+    } else {
+      btn.disabled = false;
+      btn.textContent = btn.dataset._txt || "Generate";
+    }
+  }
+  
+  function genGuardStart() {
+    if (isGenerating) return false;
+    isGenerating = true;
+    setGenLoading(true);
+    return true;
+  }
+  
+  function genGuardEnd() {
+    setTimeout(() => {
+      isGenerating = false;
+      setGenLoading(false);
+    }, 400);
+  }
+  
+  let battleOn = false;
+  let battleA = "";
+  let battleB = "";
+  let battleWins = 0;
+  let battleStreak = 0;
+  let lastWinner = null; // Добавлено для корректного streak
+  
+  function loadPinned() {
+    try {
+      return JSON.parse(localStorage.getItem("nf_pins") || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+  
+  function savePinned() {
+    localStorage.setItem("nf_pins", JSON.stringify(pinned.slice(0, 60)));
+  }
+  
+  function renderPins() {
+    const box = $("#favList");
+    if (!box) return;
+    box.innerHTML = "";
+    if (!pinned.length) {
+      box.innerHTML = `<div style="color:#6b6678;font-size:14px;">No favorites yet.</div>`;
+      return;
+    }
+    pinned.slice(0, 30).forEach((p, idx) => {
+      const el = document.createElement("div");
+      el.className = "favItem";
+      el.innerHTML = `<div style="min-width:0;"><div style="font-weight:700;">${escapeHtml(p.value)}</div><div style="color:#6b6678;font-size:12px;">${escapeHtml(p.mode)}</div></div><div><button class="mini" data-copy="${escapeHtml(p.value)}">Copy</button><button class="mini" data-del="${idx}">Remove</button></div>`;
+      box.appendChild(el);
+    });
+    box.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const ok = await copyText(btn.getAttribute("data-copy"));
+        if (ok) animateCopyButton(btn);
+        toast(ok ? "Copied" : "Copy failed");
+      });
+    });
+    box.querySelectorAll("[data-del]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const i = Number(btn.getAttribute("data-del"));
+        pinned.splice(i, 1);
+        savePinned();
+        renderPins();
+      });
+    });
+  }
+  
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, m => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[m]));
+  }
+  
+  function setTopPick(value, mode) {
+    const topName = $("#topName");
+    const topMeta = $("#topMeta");
+    if (topName) topName.textContent = value || "—";
+    if (topMeta) topMeta.textContent = value ? `Top pick • ${labelMode(mode)} • Unique` : "Top pick (copy or pin). Reroll for a new top pick.";
+  }
+  
+  function labelMode(m) {
+    if (m === "tiktok") return "TikTok username";
+    if (m === "instagram") return "Instagram handle";
+    if (m === "gamer") return "Gamer tag";
+    return "Nickname";
+  }
+  
+  function renderList(arr, mode) {
+    const list = $("#list");
+    if (!list) return;
+    list.innerHTML = "";
+    arr.forEach((v) => {
+      const el = document.createElement("div");
+      el.className = "item";
+      el.innerHTML = `<div class="txt"><div class="nick">${escapeHtml(v)}</div><div class="sub">${escapeHtml(labelMode(mode))}</div></div><div class="miniBtns"><button class="mini" data-copy="${escapeHtml(v)}">Copy</button><button class="mini" data-pin="${escapeHtml(v)}">Pin</button><button class="mini" data-check="${escapeHtml(v)}">Open</button><button class="mini" data-lock="${escapeHtml(v)}">Lock</button><button class="mini" data-share="${escapeHtml(v)}">Share</button></div>`;
+      list.appendChild(el);
+    });
+    list.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const ok = await copyText(btn.getAttribute("data-copy"));
+        if (ok) animateCopyButton(btn);
+        toast(ok ? "Copied" : "Copy failed");
+      });
+    });
+    list.querySelectorAll("[data-pin]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const value = btn.getAttribute("data-pin");
+        pinValue(value, MODE);
+      });
+    });
+    list.querySelectorAll("[data-check]").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const value = btn.getAttribute("data-check");
+        checkUsernameAvailability(value, !!(e && e.shiftKey));
+      });
+    });
+    list.querySelectorAll("[data-lock]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const value = btn.getAttribute("data-lock");
+        toggleLock(value);
+      });
+    });
+    list.querySelectorAll("[data-share]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const value = btn.getAttribute("data-share");
+        shareNickname(value);
+      });
+    });
+  }
+  
+  function pinValue(value, mode) {
+    const key = (mode + ":" + value).toLowerCase();
+    if (pinned.some(p => (p.mode + ":" + p.value).toLowerCase() === key)) {
+      toast("Already pinned");
+      return;
+    }
+    pinned.unshift({ mode: labelMode(mode), value, ts: Date.now() });
+    savePinned();
+    renderPins();
+    toast("Pinned");
+  }
+  
+  function genStageName() {
+    const base = onlyLetters(cleanBase($("#base")?.value || ""));
+    const w1 = pick(STAGE.a);
+    const w2 = pick(STAGE.b);
+    const w3 = pick(STAGE.c);
+    let name = `${w1} ${w2} ${w3}`;
+    if (base && Math.random() < 0.35) {
+      name = `${w1} ${base[0].toUpperCase() + base.slice(1).toLowerCase()} ${w2}`;
+    }
+    const stageBig = $("#stageBig");
+    if (stageBig) stageBig.textContent = name;
+  }
+  
+  function generate() {
+    if (!genGuardStart()) return;
+    try {
+      const base = $("#base")?.value || "";
+      const count = Number($("#count")?.value || 24);
+      const sep = $("#sep")?.value || "smart";
+      const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count });
+      lastBatch = batch;
+      const top = batch[0] || "—";
+      setTopPick(top, MODE);
+      renderList(batch, MODE);
+      if (batch.length < count) {
+        toast(`Generated ${batch.length}/${count} — try a different base or separator`);
+      }
+    } finally {
+      genGuardEnd();
+    }
+  }
+  
+  function generateMore() {
+    if (!genGuardStart()) return;
+    const listEl = $("#list");
+    if (listEl && listEl.children && listEl.children.length > 120) {
+      toast("Too many results — clear list");
+      genGuardEnd();
+      return;
+    }
+    try {
+      const base = $("#base")?.value || "";
+      const count = Number($("#count")?.value || 24);
+      const sep = $("#sep")?.value || "smart";
+      const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count });
+      const list = $("#list");
+      if (!list) return;
+      batch.forEach((v) => {
+        const el = document.createElement("div");
+        el.className = "item";
+        el.innerHTML = `<div class="txt"><div class="nick">${escapeHtml(v)}</div><div class="sub">${escapeHtml(labelMode(MODE))}</div></div><div class="miniBtns"><button class="mini" data-copy="${escapeHtml(v)}">Copy</button><button class="mini" data-pin="${escapeHtml(v)}">Pin</button><button class="mini" data-check="${escapeHtml(v)}">Open</button><button class="mini" data-lock="${escapeHtml(v)}">Lock</button><button class="mini" data-share="${escapeHtml(v)}">Share</button></div>`;
+        const btnCopy = el.querySelector("[data-copy]");
+        const btnPin = el.querySelector("[data-pin]");
+        const btnCheck = el.querySelector("[data-check]");
+        const btnLock = el.querySelector("[data-lock]");
+        const btnShare = el.querySelector("[data-share]");
+        if (btnCopy) {
+          btnCopy.addEventListener("click", async () => {
+            const ok = await copyText(btnCopy.getAttribute("data-copy"));
+            if (ok) animateCopyButton(btnCopy);
+            toast(ok ? "Copied" : "Copy failed");
+          });
+        }
+        if (btnPin) {
+          btnPin.addEventListener("click", () => {
+            pinValue(btnPin.getAttribute("data-pin"), MODE);
+          });
+        }
+        if (btnCheck) {
+          btnCheck.addEventListener("click", (e) => {
+            checkUsernameAvailability(btnCheck.getAttribute("data-check"), !!(e && e.shiftKey));
+          });
+        }
+        if (btnLock) {
+          btnLock.addEventListener("click", () => {
+            toggleLock(btnLock.getAttribute("data-lock"));
+          });
+        }
+        if (btnShare) {
+          btnShare.addEventListener("click", () => {
+            shareNickname(btnShare.getAttribute("data-share"));
+          });
+        }
+        list.appendChild(el);
+      });
+      if (batch.length < count) {
+        toast(`Generated ${batch.length}/${count} — try a different base or separator`);
+      }
+    } finally {
+      genGuardEnd();
+    }
+  }
+  
+  function rerollTop() {
+    if (!lastBatch.length) return;
+    lastBatch.push(lastBatch.shift());
+    setTopPick(lastBatch[0], MODE);
+    renderList(lastBatch, MODE);
+  }
+  
+  function surprise() {
+    const seeds = ["neo", "ben", "luna", "aria", "kai", "milo", "nova", "sage", "rio", "zane", "iris", "jade", "echo", "atlas", "maya", "noah"];
+    const baseInput = $("#base");
+    if (baseInput && !cleanBase(baseInput.value)) {
+      baseInput.value = pick(seeds);
+    }
+    generate();
+  }
+  
+  function updateBattleUIVisibility() {
+    const wrap = $("#battleWrap");
+    if (!wrap) return;
+    wrap.style.display = battleOn ? "block" : "none";
+    const list = $("#list");
+    if (list) list.style.display = battleOn ? "none" : "grid";
+  }
+  
+  function updateBattleStats() {
+    const el = $("#battleStats");
+    if (el) el.textContent = `Wins: ${battleWins} • Streak: ${battleStreak}`;
+  }
+  
+  function setBattlePair(a, b) {
+    battleA = a || "—";
+    battleB = b || "—";
+    const nameA = $("#battleNameA");
+    const nameB = $("#battleNameB");
+    if (nameA) nameA.textContent = battleA;
+    if (nameB) nameB.textContent = battleB;
+    updateBattleStats();
+  }
+  
+  function getTwoCandidatesForBattle() {
+    const base = $("#base")?.value || "";
+    const sep = $("#sep")?.value || "smart";
+    const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count: 2 });
+    return batch;
+  }
+  
+  function battleNextPair() {
+    if (!genGuardStart()) return;
+    try {
+      const batch = getTwoCandidatesForBattle();
+      const a = batch[0] || "—";
+      const b = batch[1] || (batch[0] || "—");
+      setBattlePair(a, b);
+    } finally {
+      genGuardEnd();
+    }
+  }
+  
+  function battleEnter() {
+    battleOn = true;
+    battleWins = 0;
+    battleStreak = 0;
+    lastWinner = null;
+    updateBattleUIVisibility();
+    battleNextPair();
+    toast("Battle mode on");
+  }
+  
+  function battleExit() {
+    battleOn = false;
+    battleWins = 0;
+    battleStreak = 0;
+    lastWinner = null;
+    updateBattleStats();
+    updateBattleUIVisibility();
+    toast("Battle mode off");
+  }
+  
+  // ИСПРАВЛЕНО: корректный streak и убран loser
+  function battlePick(which) {
+    if (!battleOn) return;
+    const winner = (which === "A") ? battleA : battleB;
+    
+    if (winner && winner !== "—") {
+      setTopPick(winner, MODE);
+    }
+    
+    battleWins++;
+    
+    // Обновляем streak
+    if (lastWinner === winner) {
+      battleStreak++;
+    } else {
+      battleStreak = 1;
+      lastWinner = winner;
+    }
+    
+    const base = $("#base")?.value || "";
+    const sep = $("#sep")?.value || "smart";
+    const batch = uniqueGenerate({ base, mode: MODE, sepStyle: sep, allowNumbers, count: 1 });
+    const next = batch[0] || "—";
+    
+    if (which === "A") {
+      setBattlePair(winner, next);
+    } else {
+      setBattlePair(next, winner);
+    }
+    
+    toast(`Picked: ${winner}`);
+  }
+  
+  function battleCopy(name, btn) {
+    if (!name || name === "—") return;
+    copyText(name).then(ok => {
+      if (ok && btn) animateCopyButton(btn);
+      toast(ok ? "Copied" : "Copy failed");
+    });
+  }
+  
+  function battleCheck(name, e) {
+    if (!name || name === "—") return;
+    checkUsernameAvailability(name, !!(e && e.shiftKey));
+  }
+  
+  function updateTabs(m) {
+    MODE = m;
+    const tabs = $$(".tab");
+    tabs.forEach(t => {
+      const active = t.dataset.mode === m;
+      t.classList.toggle("active", active);
+      t.setAttribute("aria-selected", active ? "true" : "false");
+      t.tabIndex = active ? 0 : -1;
+    });
+    const activeTab = tabs.find(t => t.dataset.mode === m);
+    if (activeTab) {
+      const panel = $("#panel-results");
+      if (panel) panel.setAttribute("aria-labelledby", activeTab.id);
+    }
+    updateMetaDescription(m);
+    try {
+      const params = new URLSearchParams(location.search);
+      params.set("mode", m);
+      history.replaceState(null, "", `${location.pathname}?${params.toString()}`);
+    } catch (e) {}
+    if (battleOn) {
+      battleNextPair();
+      return;
+    }
+    generate();
+  }
+  
+  function focusTabByIndex(tabs, idx) {
+    const n = tabs.length;
+    const next = (idx + n) % n;
+    tabs[next].focus();
+    updateTabs(tabs[next].dataset.mode);
+  }
+  
+  function bindTabEvents() {
+    const tabs = $$(".tab");
+    tabs.forEach((t, idx) => {
+      t.addEventListener("click", () => updateTabs(t.dataset.mode));
+      t.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          focusTabByIndex(tabs, idx + 1);
+        }
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          focusTabByIndex(tabs, idx - 1);
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          focusTabByIndex(tabs, 0);
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          focusTabByIndex(tabs, tabs.length - 1);
+        }
+      });
+    });
+  }
+  
+  function setNumbersSwitch(on) {
+    allowNumbers = !!on;
+    const sw = $("#swNumbers");
+    if (sw) {
+      sw.classList.toggle("on", allowNumbers);
+      sw.setAttribute("aria-checked", allowNumbers ? "true" : "false");
+    }
+    const state = $("#swNumbersState");
+    if (state) {
+      state.textContent = `Allow numbers: ${allowNumbers ? "on" : "off"}`;
+    }
+  }
+  
+  function toggleNumbers() {
+    setNumbersSwitch(!allowNumbers);
+    if (battleOn) {
+      battleNextPair();
+    } else {
+      generate();
+    }
+  }
   
   // ИНИЦИАЛИЗАЦИЯ
   bindTabEvents();
   
   const btnGen = $("#btnGen");
-  if(btnGen) btnGen.addEventListener("click", ()=>{ if(battleOn){ battleNextPair(); }else{ generate(); } });
-  
-  const btnSurprise = $("#btnSurprise");
-  if(btnSurprise) btnSurprise.addEventListener("click", ()=>{ surprise(); if(battleOn){ battleNextPair(); } });
-  
-  const btnRerollTop = $("#btnRerollTop");
-  if(btnRerollTop) btnRerollTop.addEventListener("click", rerollTop);
-  
-  const btnMore = $("#btnMore");
-  if(btnMore) btnMore.addEventListener("click", ()=>{ if(battleOn){ battleNextPair(); }else{ generateMore(); } });
-  
-  const themeSelect = $("#theme");
-  if(themeSelect) themeSelect.addEventListener("change", ()=>{ if(battleOn){ battleNextPair(); }else{ generate(); } });
-  
-  const btnCopyTop = $("#btnCopyTop");
-  if(btnCopyTop) btnCopyTop.addEventListener("click", async ()=>{ const v = $("#topName")?.textContent; if(v && v!=="—"){ const ok = await copyText(v); if(ok) animateCopyButton(btnCopyTop); toast(ok ? "Copied top pick" : "Copy failed"); } });
-  
-  const btnPinTop = $("#btnPinTop");
-  if(btnPinTop) btnPinTop.addEventListener("click", ()=>{ const v = $("#topName")?.textContent; if(v && v!=="—") pinValue(v, MODE); });
-  
-  const btnCheckTop = $("#btnCheckTop");
-  if(btnCheckTop) btnCheckTop.addEventListener("click", (e)=>{ const v = $("#topName")?.textContent; if(v && v!=="—") checkUsernameAvailability(v, !!(e && e.shiftKey)); });
-  
-  const btnShareTop = $("#btnShareTop");
-  if(btnShareTop) btnShareTop.addEventListener("click", ()=>{ const v = $("#topName")?.textContent; if(v && v!=="—") shareNickname(v); });
-  
-  const btnClearFavs = $("#btnClearFavs");
-  if(btnClearFavs) btnClearFavs.addEventListener("click", ()=>{ pinned = []; try{ localStorage.removeItem("nf_pins"); }catch(e){} renderPins(); toast("Favorites cleared"); });
-  
-  const swNumbers = $("#swNumbers");
-  if(swNumbers){ swNumbers.addEventListener("click", toggleNumbers); swNumbers.addEventListener("keydown", (e)=>{ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggleNumbers(); } }); }
-  
-  const btnBattle = $("#btnBattle");
-  if(btnBattle) btnBattle.addEventListener("click", ()=>{ if(battleOn){ battleExit(); }else{ battleEnter(); } });
-  
-  const btnBattleExit = $("#btnBattleExit");
-  if(btnBattleExit) btnBattleExit.addEventListener("click", battleExit);
-  
-  const btnBattleNext = $("#btnBattleNext");
-  if(btnBattleNext) btnBattleNext.addEventListener("click", battleNextPair);
-  
-  const btnPickA = $("#btnPickA");
-  if(btnPickA) btnPickA.addEventListener("click", ()=>battlePick("A"));
-  
-  const btnPickB = $("#btnPickB");
-  if(btnPickB) btnPickB.addEventListener("click", ()=>battlePick("B"));
-  
-  const btnCopyA = $("#btnCopyA");
-  if(btnCopyA) btnCopyA.addEventListener("click", (e)=>battleCopy(battleA, btnCopyA));
-  
-  const btnCopyB = $("#btnCopyB");
-  if(btnCopyB) btnCopyB.addEventListener("click", (e)=>battleCopy(battleB, btnCopyB));
-  
-  const btnCheckA = $("#btnCheckA");
-  if(btnCheckA) btnCheckA.addEventListener("click", (e)=>battleCheck(battleA, e));
-  
-  const btnCheckB = $("#btnCheckB");
-  if(btnCheckB) btnCheckB.addEventListener("click", (e)=>battleCheck(battleB, e));
-  
-  const battleCardA = $("#battleCardA");
-  if(battleCardA) battleCardA.addEventListener("click", ()=>battlePick("A"));
-  
-  const battleCardB = $("#battleCardB");
-  if(battleCardB) battleCardB.addEventListener("click", ()=>battlePick("B"));
-  
-  const btnStage = $("#btnStage");
-  if(btnStage) btnStage.addEventListener("click", ()=>{ genStageName(); toast("New stage name"); });
-  
-  const btnCopyStage = $("#btnCopyStage");
-  if(btnCopyStage) btnCopyStage.addEventListener("click", async ()=>{ const ok = await copyText($("#stageBig")?.textContent || ""); if(ok) animateCopyButton(btnCopyStage); toast(ok ? "Copied stage name" : "Copy failed"); });
-  
-  const stageBig = $("#stageBig");
-  if(stageBig){ stageBig.addEventListener("click", genStageName); stageBig.addEventListener("keydown", (e)=>{ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); genStageName(); } }); }
-  
-  const baseInput = $("#base");
-  if(baseInput) baseInput.addEventListener("keydown", (e)=>{ if(e.key==="Enter"){ if(battleOn){ battleNextPair(); }else{ generate(); } } });
-  
-  document.addEventListener("keydown", async (e)=>{ 
-    const active = document.activeElement; 
-    if(active && ( active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable )) return; 
-    if(battleOn){ 
-      const k = e.key.toLowerCase(); 
-      if(e.key === "ArrowLeft" || k === "a"){ e.preventDefault(); battlePick("A"); return; } 
-      if(e.key === "ArrowRight" || k === "d"){ e.preventDefault(); battlePick("B"); return; } 
-      if(e.key === "Enter"){ e.preventDefault(); battlePick("A"); return; } 
-      if(e.key === " "){ e.preventDefault(); battlePick("B"); return; } 
-    } 
-    if(e.key.toLowerCase()==="c" && !e.ctrlKey && !e.metaKey && !e.altKey){ 
-      const v = $("#topName")?.textContent; 
-      if(v && v!=="—"){ 
-        const ok = await copyText(v); 
-        toast(ok ? "Copied top pick" : "Copy failed"); 
-      } 
-    } 
+  if (btnGen) btnGen.addEventListener("click", () => {
+    if (battleOn) {
+      battleNextPair();
+    } else {
+      generate();
+    }
   });
   
-  (function initFromURL(){ 
-    try{ 
-      const params = new URLSearchParams(location.search); 
-      const urlMode = params.get("mode"); 
-      const sharedNick = params.get("nick"); 
-      if(urlMode){ 
-        const allowed = ["nickname","tiktok","instagram","gamer"]; 
-        if(allowed.includes(urlMode)){ 
-          updateTabs(urlMode); 
-        }else{ 
-          updateMetaDescription(MODE); 
-        } 
-      }else{ 
-        updateMetaDescription(MODE); 
-      } 
-      if(sharedNick){ 
-        setTopPick(sharedNick, MODE); 
-        toast("Shared nickname loaded"); 
-      } 
-    }catch(e){ 
-      updateMetaDescription(MODE); 
-    } 
+  const btnSurprise = $("#btnSurprise");
+  if (btnSurprise) btnSurprise.addEventListener("click", () => {
+    surprise();
+    if (battleOn) {
+      battleNextPair();
+    }
+  });
+  
+  const btnRerollTop = $("#btnRerollTop");
+  if (btnRerollTop) btnRerollTop.addEventListener("click", rerollTop);
+  
+  const btnMore = $("#btnMore");
+  if (btnMore) btnMore.addEventListener("click", () => {
+    if (battleOn) {
+      battleNextPair();
+    } else {
+      generateMore();
+    }
+  });
+  
+  const themeSelect = $("#theme");
+  if (themeSelect) themeSelect.addEventListener("change", () => {
+    if (battleOn) {
+      battleNextPair();
+    } else {
+      generate();
+    }
+  });
+  
+  const btnCopyTop = $("#btnCopyTop");
+  if (btnCopyTop) btnCopyTop.addEventListener("click", async () => {
+    const v = $("#topName")?.textContent;
+    if (v && v !== "—") {
+      const ok = await copyText(v);
+      if (ok) animateCopyButton(btnCopyTop);
+      toast(ok ? "Copied top pick" : "Copy failed");
+    }
+  });
+  
+  const btnPinTop = $("#btnPinTop");
+  if (btnPinTop) btnPinTop.addEventListener("click", () => {
+    const v = $("#topName")?.textContent;
+    if (v && v !== "—") pinValue(v, MODE);
+  });
+  
+  const btnCheckTop = $("#btnCheckTop");
+  if (btnCheckTop) btnCheckTop.addEventListener("click", (e) => {
+    const v = $("#topName")?.textContent;
+    if (v && v !== "—") checkUsernameAvailability(v, !!(e && e.shiftKey));
+  });
+  
+  const btnShareTop = $("#btnShareTop");
+  if (btnShareTop) btnShareTop.addEventListener("click", () => {
+    const v = $("#topName")?.textContent;
+    if (v && v !== "—") shareNickname(v);
+  });
+  
+  const btnClearFavs = $("#btnClearFavs");
+  if (btnClearFavs) btnClearFavs.addEventListener("click", () => {
+    pinned = [];
+    try { localStorage.removeItem("nf_pins"); } catch (e) {}
+    renderPins();
+    toast("Favorites cleared");
+  });
+  
+  const swNumbers = $("#swNumbers");
+  if (swNumbers) {
+    swNumbers.addEventListener("click", toggleNumbers);
+    swNumbers.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleNumbers();
+      }
+    });
+  }
+  
+  const btnBattle = $("#btnBattle");
+  if (btnBattle) btnBattle.addEventListener("click", () => {
+    if (battleOn) {
+      battleExit();
+    } else {
+      battleEnter();
+    }
+  });
+  
+  const btnBattleExit = $("#btnBattleExit");
+  if (btnBattleExit) btnBattleExit.addEventListener("click", battleExit);
+  
+  const btnBattleNext = $("#btnBattleNext");
+  if (btnBattleNext) btnBattleNext.addEventListener("click", battleNextPair);
+  
+  // ИСПРАВЛЕНО: добавлен stopPropagation для всех кнопок в battle
+  const btnPickA = $("#btnPickA");
+  if (btnPickA) btnPickA.addEventListener("click", (e) => {
+    e.stopPropagation();
+    battlePick("A");
+  });
+  
+  const btnPickB = $("#btnPickB");
+  if (btnPickB) btnPickB.addEventListener("click", (e) => {
+    e.stopPropagation();
+    battlePick("B");
+  });
+  
+  const btnCopyA = $("#btnCopyA");
+  if (btnCopyA) btnCopyA.addEventListener("click", (e) => {
+    e.stopPropagation();
+    battleCopy(battleA, btnCopyA);
+  });
+  
+  const btnCopyB = $("#btnCopyB");
+  if (btnCopyB) btnCopyB.addEventListener("click", (e) => {
+    e.stopPropagation();
+    battleCopy(battleB, btnCopyB);
+  });
+  
+  const btnCheckA = $("#btnCheckA");
+  if (btnCheckA) btnCheckA.addEventListener("click", (e) => {
+    e.stopPropagation();
+    battleCheck(battleA, e);
+  });
+  
+  const btnCheckB = $("#btnCheckB");
+  if (btnCheckB) btnCheckB.addEventListener("click", (e) => {
+    e.stopPropagation();
+    battleCheck(battleB, e);
+  });
+  
+  const battleCardA = $("#battleCardA");
+  if (battleCardA) battleCardA.addEventListener("click", () => battlePick("A"));
+  
+  const battleCardB = $("#battleCardB");
+  if (battleCardB) battleCardB.addEventListener("click", () => battlePick("B"));
+  
+  const btnStage = $("#btnStage");
+  if (btnStage) btnStage.addEventListener("click", () => {
+    genStageName();
+    toast("New stage name");
+  });
+  
+  const btnCopyStage = $("#btnCopyStage");
+  if (btnCopyStage) btnCopyStage.addEventListener("click", async () => {
+    const ok = await copyText($("#stageBig")?.textContent || "");
+    if (ok) animateCopyButton(btnCopyStage);
+    toast(ok ? "Copied stage name" : "Copy failed");
+  });
+  
+  const stageBig = $("#stageBig");
+  if (stageBig) {
+    stageBig.addEventListener("click", genStageName);
+    stageBig.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        genStageName();
+      }
+    });
+  }
+  
+  const baseInput = $("#base");
+  if (baseInput) baseInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      if (battleOn) {
+        battleNextPair();
+      } else {
+        generate();
+      }
+    }
+  });
+  
+  document.addEventListener("keydown", async (e) => {
+    const active = document.activeElement;
+    if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable)) return;
+    if (battleOn) {
+      const k = e.key.toLowerCase();
+      if (e.key === "ArrowLeft" || k === "a") {
+        e.preventDefault();
+        battlePick("A");
+        return;
+      }
+      if (e.key === "ArrowRight" || k === "d") {
+        e.preventDefault();
+        battlePick("B");
+        return;
+      }
+      if (e.key === "Enter") {
+        e.preventDefault();
+        battlePick("A");
+        return;
+      }
+      if (e.key === " ") {
+        e.preventDefault();
+        battlePick("B");
+        return;
+      }
+    }
+    if (e.key.toLowerCase() === "c" && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      const v = $("#topName")?.textContent;
+      if (v && v !== "—") {
+        const ok = await copyText(v);
+        toast(ok ? "Copied top pick" : "Copy failed");
+      }
+    }
+  });
+  
+  (function initFromURL() {
+    try {
+      const params = new URLSearchParams(location.search);
+      const urlMode = params.get("mode");
+      const sharedNick = params.get("nick");
+      if (urlMode) {
+        const allowed = ["nickname", "tiktok", "instagram", "gamer"];
+        if (allowed.includes(urlMode)) {
+          updateTabs(urlMode);
+        } else {
+          updateMetaDescription(MODE);
+        }
+      } else {
+        updateMetaDescription(MODE);
+      }
+      if (sharedNick) {
+        setTopPick(sharedNick, MODE);
+        toast("Shared nickname loaded");
+      }
+    } catch (e) {
+      updateMetaDescription(MODE);
+    }
   })();
   
-  renderPins(); 
-  setNumbersSwitch(false); 
-  genStageName(); 
-  updateBattleUIVisibility(); 
+  renderPins();
+  setNumbersSwitch(false);
+  genStageName();
+  updateBattleUIVisibility();
   generate();
-
-  // --- КОНЕЦ ИСПРАВЛЕННОГО JS ---
 </script>
 </body>
 </html>
