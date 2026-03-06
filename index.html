@@ -1,594 +1,501 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NickForge — Better usernames</title>
-  <meta name="description" content="Generate one strong username from your name. Social, Gamer and Spicy modes." />
-  <meta name="theme-color" content="#faf7ff" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NickForge — Генератор крутых никнеймов</title>
+  <meta name="description" content="Создавай уникальные, стильные ники за секунды: Social, Gamer, Spicy" />
+  <meta name="theme-color" content="#4a00e0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg-1: #fcfaff;
-      --bg-2: #f4eeff;
-      --card: rgba(255,255,255,.82);
-      --stroke: #e9e0fb;
-      --text: #171320;
-      --muted: #726885;
-      --purple: #7357ff;
-      --purple-dark: #5c41e6;
-      --purple-soft: #f2edff;
-      --orange: #f47a20;
-      --pink: #e84e96;
-      --shadow: 0 20px 50px -22px rgba(103, 76, 230, .22);
-      --radius-xl: 32px;
-      --radius-lg: 22px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
+      --bg-1:        #0f001a;
+      --bg-2:        #1a0033;
+      --card:        rgba(30, 10, 60, 0.78);
+      --stroke:      #5a2ea6;
+      --text:        #f0e6ff;
+      --muted:       #b39dff;
+      --purple:      #7c3aed;
+      --purple-dark: #5b21b6;
+      --accent:      #f97316;
+      --spark-yellow:#ffdd00;
+      --spark-white: #ffffff;
+      --glow:        0 0 24px rgba(249,115,22,0.7);
+      --radius-lg:   24px;
+      --radius-md:   18px;
     }
 
     body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(124,92,240,.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(232,78,150,.08), transparent 24%),
-        linear-gradient(145deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
       min-height: 100vh;
-      padding: 24px;
+      padding: 16px;
+      overflow-x: hidden;
     }
 
-    .wrap {
-      max-width: 1240px;
-      margin: 0 auto;
+    .wrap { max-width: 1180px; margin: 0 auto; }
+
+    /* Баннер с молотом и искрами */
+    .hero-banner {
+      position: relative;
+      height: 360px;
+      margin-bottom: 40px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 60px -20px rgba(249,115,22,0.6);
+      background: linear-gradient(to bottom, #2a0066, #0f001a);
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 70%, rgba(249,115,22,0.18), transparent 65%);
+      z-index: 1;
+    }
+
+    .anvil-area {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 240px;
+      height: 100px;
+      background: linear-gradient(#4b5563, #1f2937, #111827);
+      border-radius: 14px 14px 0 0;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+      z-index: 3;
+    }
+
+    .hammer-container {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      width: 200px;
+      height: 340px;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 15%;
+      z-index: 4;
+      animation: hammerStrike 3s ease-in-out infinite;
+    }
+
+    .hammer-head {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 90px;
+      height: 70px;
+      background: linear-gradient(135deg, #6b7280, #374151);
+      border-radius: 10px;
+      transform: translateX(-50%);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.9);
+    }
+
+    .hammer-handle {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      width: 28px;
+      height: 260px;
+      background: linear-gradient(#8b5cf6, #4c1d95, #3b0764);
+      transform: translateX(-50%);
+      border-radius: 14px;
+      box-shadow: inset 0 0 14px rgba(0,0,0,0.7);
+    }
+
+    @keyframes hammerStrike {
+      0%, 100% { transform: translate(-50%, -50%) rotate(-30deg); }
+      45%      { transform: translate(-50%, -50%) rotate(40deg); }
+      52%      { transform: translate(-50%, 30%)  rotate(55deg); } /* удар */
+      60%      { transform: translate(-50%, -20%) rotate(15deg); }
+    }
+
+    .sparks-container {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .spark {
+      position: absolute;
+      left: 50%;
+      top: 62%;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--accent), 0 0 28px var(--spark-yellow);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.4);
+      animation: flySpark linear infinite;
+    }
+
+    .spark.strong {
+      animation-duration: 1.3s;
+      animation-delay: calc(var(--delay) + 1.56s); /* синхрон с ударом */
+      background: var(--spark-white);
+      box-shadow: 0 0 24px white, 0 0 48px var(--spark-yellow);
+      width: 8px;
+      height: 8px;
+    }
+
+    @keyframes flySpark {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(0deg); }
+      8%   { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.1) rotate(1440deg); }
+    }
+
+    /* Примеры искр (можно добавить ещё много) */
+    .spark:nth-child(1)  { --dx: -240px; --dy: -400px; animation-duration: 1.9s; animation-delay: 0s; }
+    .spark:nth-child(2)  { --dx: 200px;  --dy: -360px; animation-duration: 1.6s; animation-delay: 0.5s; }
+    .spark.strong:nth-child(3)  { --dx: -120px; --dy: -440px; --delay: 0s; }
+    .spark.strong:nth-child(4)  { --dx: 280px;  --dy: -260px; --delay: 0.2s; }
+    .spark:nth-child(5)  { --dx: 80px;   --dy: -380px; animation-duration: 2.1s; animation-delay: 0.8s; }
+    .spark:nth-child(6)  { --dx: -280px; --dy: -240px; animation-duration: 2.4s; animation-delay: 1.2s; }
+    .spark:nth-child(7)  { --dx: 160px;  --dy: -320px; animation-duration: 1.8s; animation-delay: 0.3s; }
+    .spark.strong:nth-child(8)  { --dx: -180px; --dy: -380px; --delay: 0.4s; }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(15,1,26,0.94) 75%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px 32px;
+      z-index: 5;
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(52px, 10vw, 110px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(90deg, #c084fc, #f97316, #ffdd00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 0.88;
+      text-shadow: 0 8px 40px rgba(0,0,0,0.8);
+    }
+
+    .hero-subtitle {
+      font-size: 22px;
+      font-weight: 600;
+      color: #e9d5ff;
+      margin-top: 12px;
+      opacity: 0.95;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 26px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #7256ff, #9c83ff);
-      color: #fff;
-      box-shadow: 0 14px 28px -14px rgba(114, 86, 255, .7);
-      flex-shrink: 0;
+      gap: 16px;
+      margin-bottom: 32px;
     }
 
     .brand h1 {
-      font-size: 32px;
-      line-height: 1;
-      letter-spacing: -.03em;
-      margin-bottom: 4px;
-    }
-
-    .brand p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .header-links {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: rgba(255,255,255,.8);
-      border: 1px solid var(--stroke);
-      border-radius: 999px;
-      padding: 10px 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.03);
-    }
-
-    .header-links a {
-      color: var(--purple);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .divider {
-      width: 1px;
-      height: 18px;
-      background: var(--stroke);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 40px;
+      background: linear-gradient(90deg, #a78bfa, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .modes {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 32px 0 24px;
     }
 
     .mode-btn {
-      background: rgba(255,255,255,.74);
+      background: rgba(30,10,60,0.75);
       border: 1px solid var(--stroke);
-      border-radius: 22px;
-      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
       cursor: pointer;
-      transition: .18s ease;
+      transition: all 0.22s ease;
       text-align: left;
-      box-shadow: 0 8px 18px rgba(0,0,0,.02);
+      backdrop-filter: blur(8px);
     }
 
     .mode-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 28px -20px rgba(95, 67, 223, .35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px -20px rgba(249,115,22,0.5);
+      border-color: var(--accent);
     }
 
     .mode-btn.active {
-      border-color: rgba(115,87,255,.55);
-      box-shadow: 0 16px 30px -18px rgba(115,87,255,.45);
-      background: #fff;
+      background: linear-gradient(135deg, rgba(124,58,237,0.45), rgba(249,115,22,0.3));
+      border-color: var(--accent);
+      box-shadow: 0 24px 60px -20px rgba(249,115,22,0.6);
     }
 
-    .mode-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      letter-spacing: -.02em;
-    }
-
-    .mode-desc {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .mode-btn[data-mode="social"] .mode-title { color: var(--purple); }
-    .mode-btn[data-mode="gamer"] .mode-title { color: var(--orange); }
-    .mode-btn[data-mode="spicy"] .mode-title { color: var(--pink); }
+    .mode-title { font-size: 26px; font-weight: 900; margin-bottom: 6px; }
+    .mode-btn[data-mode="social"]  .mode-title { color: #c084fc; }
+    .mode-btn[data-mode="gamer"]   .mode-title { color: #f97316; }
+    .mode-btn[data-mode="spicy"]   .mode-title { color: #ec4899; }
 
     .main-card {
       background: var(--card);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,.65);
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-      padding: 22px;
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--stroke);
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: 0 28px 80px -28px rgba(0,0,0,0.7);
     }
 
     .controls {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-
-    .input-wrap {
-      position: relative;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
     }
 
     .name-input {
-      width: 100%;
-      height: 60px;
+      flex: 1;
+      min-width: 280px;
+      height: 68px;
+      padding: 0 28px;
+      font-size: 20px;
+      border: 1px solid #6d28d9;
       border-radius: 999px;
-      border: 1px solid var(--stroke);
-      background: rgba(249,246,255,.95);
-      padding: 0 22px;
-      font-size: 18px;
+      background: rgba(30,10,60,0.65);
+      color: white;
       outline: none;
-      transition: .18s ease;
-      color: var(--text);
+      transition: 0.22s;
     }
 
     .name-input:focus {
-      background: #fff;
-      border-color: rgba(115,87,255,.5);
-      box-shadow: 0 0 0 5px rgba(115,87,255,.08);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 6px rgba(249,115,22,0.3);
+      background: rgba(30,10,60,0.9);
     }
 
-    .name-input::placeholder {
-      color: #9b90ae;
-    }
+    .name-input::placeholder { color: #b39dff; }
 
     .generate-btn {
-      height: 60px;
+      height: 68px;
+      padding: 0 44px;
+      font-size: 19px;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(90deg, var(--purple), var(--accent));
       border: none;
       border-radius: 999px;
-      padding: 0 28px;
-      font-size: 17px;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(135deg, var(--purple), #8d73ff);
       cursor: pointer;
-      box-shadow: 0 18px 28px -16px rgba(115,87,255,.6);
-      transition: .18s ease;
-      white-space: nowrap;
+      box-shadow: var(--glow);
+      transition: all 0.22s;
     }
 
     .generate-btn:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, var(--purple-dark), #8368ff);
+      transform: translateY(-3px);
+      box-shadow: 0 28px 70px -20px rgba(249,115,22,0.7);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(320px, 1.05fr) minmax(320px, .95fr);
-      gap: 18px;
-      align-items: stretch;
+      grid-template-columns: minmax(360px, 1.1fr) minmax(360px, 0.9fr);
+      gap: 28px;
     }
 
-    .result-card,
-    .preview-card {
-      background: rgba(255,255,255,.7);
-      border: 1px solid var(--stroke);
-      border-radius: 28px;
-      padding: 24px;
-      min-height: 100%;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--purple-soft);
-      color: var(--purple);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 18px;
+    .result-card, .preview-card {
+      background: rgba(40, 20, 80, 0.6);
+      border: 1px solid #6d28d9;
+      border-radius: var(--radius-lg);
+      padding: 32px;
     }
 
     .main-nick {
-      font-size: clamp(44px, 7vw, 78px);
-      line-height: .95;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(56px, 11vw, 110px);
       font-weight: 900;
-      letter-spacing: -.05em;
-      margin-bottom: 14px;
-      color: var(--text);
-      word-break: break-word;
+      letter-spacing: -0.06em;
+      background: linear-gradient(90deg, #c084fc, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 0.9;
+      margin: 16px 0 20px;
     }
 
-    .subtext {
-      color: var(--muted);
-      font-size: 17px;
-      margin-bottom: 22px;
-    }
+    .subtext { color: var(--muted); font-size: 19px; }
 
-    .actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
 
-    .btn-primary,
-    .btn-secondary {
-      height: 46px;
-      padding: 0 20px;
+    .btn-primary, .btn-secondary {
+      padding: 16px 32px;
       border-radius: 999px;
-      font-size: 15px;
       font-weight: 700;
       cursor: pointer;
-      transition: .15s ease;
+      transition: 0.22s;
     }
 
     .btn-primary {
+      background: linear-gradient(90deg, var(--purple), #a78bfa);
+      color: white;
       border: none;
-      background: linear-gradient(135deg, var(--purple), #8d73ff);
-      color: #fff;
     }
 
-    .btn-primary:hover {
-      background: linear-gradient(135deg, var(--purple-dark), #8368ff);
-    }
+    .btn-primary:hover { background: linear-gradient(90deg, #6d28d9, #9333ea); }
 
     .btn-secondary {
-      border: 1px solid var(--stroke);
-      background: #fff;
-      color: var(--text);
+      background: transparent;
+      border: 1px solid #8b5cf6;
+      color: #d6bcfa;
     }
 
-    .btn-secondary:hover {
-      background: #f8f4ff;
-    }
+    .btn-secondary:hover { background: rgba(124,58,237,0.18); }
 
     .preview-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: #8d82a1;
+      font-size: 14px;
       font-weight: 800;
-      margin-bottom: 16px;
+      letter-spacing: 0.12em;
+      color: #b39dff;
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
 
     .preview-shell {
-      min-height: 290px;
+      min-height: 340px;
       border-radius: 26px;
+      border: 1px solid #6d28d9;
       overflow: hidden;
-      border: 1px solid var(--stroke);
-      background: linear-gradient(145deg, #f8f5ff 0%, #efe9ff 100%);
-      display: flex;
-      align-items: stretch;
-      justify-content: stretch;
-    }
-
-    .social-preview,
-    .gamer-preview,
-    .spicy-preview {
-      width: 100%;
-      height: 100%;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .social-preview {
-      background: linear-gradient(145deg, #f9f6ff 0%, #f1ebff 100%);
-    }
-
-    .social-top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .avatar {
-      width: 76px;
-      height: 76px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 30px;
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-
-    .avatar.social { background: linear-gradient(135deg, #7357ff, #9a80ff); box-shadow: 0 16px 26px -14px rgba(115,87,255,.55); }
-    .avatar.gamer { background: linear-gradient(135deg, #f07b1f, #f9b36d); color: #201400; }
-    .avatar.spicy { background: linear-gradient(135deg, #ea4d95, #f588bc); box-shadow: 0 16px 26px -14px rgba(234,77,149,.5); }
-
-    .handle {
-      font-size: 28px;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -.03em;
-      margin-bottom: 6px;
-    }
-
-    .bio {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .chip {
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.7);
-      border: 1px solid rgba(255,255,255,.75);
-      font-size: 13px;
-      color: #6f6483;
-      font-weight: 700;
-    }
-
-    .gamer-preview {
-      background: linear-gradient(145deg, #1a1624 0%, #13101b 100%);
-      color: #fff;
-    }
-
-    .gamer-preview .bio,
-    .spicy-preview .bio {
-      color: #bbb0cc;
-    }
-
-    .gamer-card-main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 18px;
-    }
-
-    .gamer-title,
-    .spicy-title {
-      font-size: 34px;
-      font-weight: 900;
-      line-height: .98;
-      letter-spacing: -.04em;
-    }
-
-    .gamer-row,
-    .spicy-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .gamer-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .gamer-box {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      padding: 12px 14px;
-      font-size: 13px;
-      color: #c9bfd9;
-      font-weight: 700;
-    }
-
-    .spicy-preview {
-      background: linear-gradient(145deg, #241a2e 0%, #1b1424 100%);
-      color: #fff;
-      border-color: rgba(236,78,150,.2);
-    }
-
-    .spicy-note {
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08);
-      color: #e5bfd3;
-      font-size: 14px;
-      font-weight: 600;
+      background: linear-gradient(145deg, #1e003c, #2a0066);
     }
 
     .toast {
       position: fixed;
+      bottom: 32px;
       left: 50%;
-      bottom: 26px;
-      transform: translateX(-50%) translateY(12px);
-      background: #181320;
-      color: #fff;
-      padding: 14px 22px;
+      transform: translateX(-50%);
+      background: #1e003c;
+      color: #f0e6ff;
+      padding: 16px 36px;
       border-radius: 999px;
-      font-size: 14px;
       font-weight: 700;
-      box-shadow: 0 20px 40px -16px rgba(0,0,0,.35);
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.8);
       opacity: 0;
-      pointer-events: none;
-      transition: .2s ease;
-      z-index: 999;
+      transition: all 0.3s;
+      z-index: 1000;
     }
 
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     @media (max-width: 980px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
+      .hero { grid-template-columns: 1fr; }
+      .hero-banner { height: 280px; }
+      .hammer-container { width: 160px; height: 280px; }
     }
 
-    @media (max-width: 760px) {
-      body { padding: 16px; }
-      .wrap { max-width: 100%; }
-      .modes { grid-template-columns: 1fr; }
-      .controls {
-        grid-template-columns: 1fr;
-      }
-      .generate-btn {
-        width: 100%;
-      }
-      .main-card {
-        padding: 16px;
-        border-radius: 24px;
-      }
-      .result-card,
-      .preview-card {
-        padding: 18px;
-        border-radius: 22px;
-      }
-      .header-links {
-        width: 100%;
-        justify-content: center;
-      }
-      .brand h1 { font-size: 28px; }
+    @media (max-width: 680px) {
+      .controls { flex-direction: column; }
+      .generate-btn { width: 100%; }
+      .main-card { padding: 24px; }
     }
   </style>
 </head>
 <body>
+
   <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.3">
-            <path d="M12 2L14.4 7.2L20 8.5L16 13.1L17 19L12 16L7 19L8 13.1L4 8.5L9.6 7.2L12 2Z"/>
-          </svg>
-        </div>
-        <div>
-          <h1>NickForge</h1>
-          <p>Create better usernames</p>
-        </div>
+
+    <div class="hero-banner">
+
+      <!-- Наковальня -->
+      <div class="anvil-area"></div>
+
+      <!-- Молот -->
+      <div class="hammer-container">
+        <div class="hammer-head"></div>
+        <div class="hammer-handle"></div>
       </div>
 
-      <div class="header-links">
-        <a href="#" id="donateLink">☕ Donate</a>
-        <span class="divider"></span>
-        <a href="#" id="feedbackLink">💬 Feedback</a>
+      <!-- Искры -->
+      <div class="sparks-container">
+        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark strong"></i>
+        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark"></i>
+        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark"></i>
+        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark"></i>
+      </div>
+
+      <div class="hero-overlay">
+        <div class="hero-title">NickForge</div>
+        <div class="hero-subtitle">Кузница никнеймов — создай свой стильный ник за секунды!</div>
+      </div>
+    </div>
+
+    <header>
+      <div class="brand">
+        <h1>NickForge</h1>
+      </div>
+      <div>
+        <a href="https://buymeacoffee.com/" target="_blank" style="color:#c084fc; text-decoration:none; font-weight:700; margin-right:20px;">☕ Поддержать</a>
+        <a href="mailto:feedback@nickforge.app" style="color:#c084fc; text-decoration:none; font-weight:700;">💬 Обратная связь</a>
       </div>
     </header>
 
     <div class="modes">
-      <button class="mode-btn active" data-mode="social" type="button">
+      <button class="mode-btn active" data-mode="social">
         <div class="mode-title">Social</div>
-        <div class="mode-desc">Clean, aesthetic, handle-style</div>
+        <div class="mode-desc">Чистые, эстетичные, современные</div>
       </button>
-      <button class="mode-btn" data-mode="gamer" type="button">
+      <button class="mode-btn" data-mode="gamer">
         <div class="mode-title">Gamer</div>
-        <div class="mode-desc">Sharp, short gaming tags</div>
+        <div class="mode-desc">Резкие, короткие, агрессивные</div>
       </button>
-      <button class="mode-btn" data-mode="spicy" type="button">
+      <button class="mode-btn" data-mode="spicy">
         <div class="mode-title">Spicy</div>
-        <div class="mode-desc">Bold, flirty, provocative</div>
+        <div class="mode-desc">Смелые, флиртующие, провокационные</div>
       </button>
     </div>
 
     <section class="main-card">
       <div class="controls">
-        <div class="input-wrap">
-          <input
-            id="baseInput"
-            class="name-input"
-            type="text"
-            autocomplete="off"
-            placeholder="e.g., alex, ray, max"
-          />
-        </div>
-        <button class="generate-btn" id="generateBtn" type="button">Generate</button>
+        <input id="baseInput" class="name-input" type="text" placeholder="Введи имя или слово (например: alex, mia, ray)" autocomplete="off" />
+        <button class="generate-btn" id="generateBtn">Сгенерировать</button>
       </div>
 
       <div class="hero">
         <div class="result-card">
-          <div class="badge">✨ From your name</div>
-          <div class="main-nick" id="mainNick">alexri</div>
-          <div class="subtext" id="mainMeta">Clean social handle</div>
+          <div style="font-weight:700; color:#c084fc; margin-bottom:16px;">✦ ТВОЙ НОВЫЙ НИК</div>
+          <div class="main-nick" id="mainNick">—</div>
+          <div class="subtext" id="mainMeta">Нажми «Сгенерировать», чтобы начать</div>
 
           <div class="actions">
-            <button class="btn-primary" id="copyBtn" type="button">Copy</button>
-            <button class="btn-secondary" id="shareBtn" type="button">Share</button>
+            <button class="btn-primary" id="copyBtn">Скопировать</button>
+            <button class="btn-secondary" id="regenBtn">Ещё раз</button>
           </div>
         </div>
 
         <div class="preview-card">
-          <div class="preview-label">Preview</div>
+          <div class="preview-label">Превью</div>
           <div class="preview-shell" id="previewShell"></div>
         </div>
       </div>
     </section>
+
   </div>
 
   <div class="toast" id="toast"></div>
 
   <script>
-    const $ = (s) => document.querySelector(s);
-    const $$ = (s) => Array.from(document.querySelectorAll(s));
+    const $  = s => document.querySelector(s);
+    const $$ = s => [...document.querySelectorAll(s)];
 
     const MODE_META = {
-      social: "Clean social handle",
-      gamer: "Short aggressive gamer tag",
-      spicy: "Bold provocative alias"
+      social: "Чистый социальный ник",
+      gamer:  "Агрессивный геймер-тег",
+      spicy:  "Смелый и провокационный ник"
     };
 
     const CYR_MAP = {
@@ -599,41 +506,25 @@
 
     const DICTS = {
       social: {
-        cores: [
-          "alex","alena","alina","anna","aria","ava","bella","clara","diana","ella","eva","flora","freya","helen","iris","julia","kira","lara","lena","liana",
-          "lina","lisa","livia","lola","lucy","luna","maya","mia","mila","mira","nina","nora","olivia","paula","rosa","sara","sofia","stella","talia","vera",
-          "victoria","violet","yara","zara","zoe","alexa","amelia","aurora","bianca","camila","celine","daria","delia","elina","elisa","emilia","estelle","faye",
-          "giulia","irina","isla","jasmine","karina","kiara","lara","layla","leona","lilith","loren","lucia","lyra","maria","marina","melina","mona","nadia","naomi","noelle"
-        ],
+        cores: ["alex","alena","alina","anna","aria","ava","bella","clara","diana","ella","eva","flora","freya","helen","iris","julia","kira","lara","lena","liana","lina","lisa","livia","lola","lucy","luna","maya","mia","mila","mira","nina","nora","olivia","paula","rosa","sara","sofia","stella","talia","vera","victoria","violet","yara","zara","zoe"],
         prefixes: ["its","hey","im","real","the","just","only","callme","miss","ms","mr","thisis","official","true","pure"],
         endings: ["ri","vi","li","na","la","ma","ra","ta","ia","ie","io","ya","ey","ay","ny","ly","sky","bay","wave","vibe","gram","fm","mp","io","co","dot"],
         classy: ["studio","vibes","mode","daily","pics","wave","room","verse","line","light","hush","nova","mint","bloom","glow"]
       },
       gamer: {
-        cores: [
-          "vex","nox","ryx","zor","kra","drav","tor","rax","vorn","grim","void","fury","rage","storm","shock","slash","blitz","crash","fang","claw",
-          "wolf","venom","reign","onyx","phantom","drake","skorn","havoc","frost","blaze","quake","spike","riot","thorn","drift","rift","cinder","saber","sythe","raven",
-          "rogue","wraith","warden","stryke","khaos","reaper","cypher","inferno","glitch","titan","viper","skull","ember","scar","dagger","rupture","fracture","banshee","recoil","xenon"
-        ],
+        cores: ["vex","nox","ryx","zor","kra","drav","tor","rax","vorn","grim","void","fury","rage","storm","shock","slash","blitz","crash","fang","claw","wolf","venom","reign","onyx","phantom","drake","skorn","havoc","frost","blaze","quake","spike","riot","thorn","drift","rift","cinder","saber","sythe","raven"],
         endings: ["x","z","rx","zx","ix","ox","ax","on","or","ar","yn","er","r","k","n","v"],
         boosters: ["x","z","xr","zx","vk","rx","qx"]
       },
       spicy: {
-        cores: [
-          "velvet","sin","nox","kiss","wild","hot","sugar","honey","peach","rose","luxe","desire","flame","blush","silk","midnight","cherry","nova","scarlet","amber",
-          "vixen","tempt","angel","devil","dream","after","venus","siren","ruby","muse","fever","heat","soft","wicked","gloss","lust","darling","tease","night","glow"
-        ],
+        cores: ["velvet","sin","nox","kiss","wild","hot","sugar","honey","peach","rose","luxe","desire","flame","blush","silk","midnight","cherry","nova","scarlet","amber","vixen","tempt","angel","devil","dream","after","venus","siren","ruby","muse","fever","heat","soft","wicked","gloss","lust","darling","tease","night","glow"],
         endings: ["xo","rx","ria","na","va","la","ina","ira","ora","luna","kiss","night","love","vex","nox","rose"],
         soft: ["vel","sin","lux","rose","kiss","hush","glow","lush","wild","soft"]
       }
     };
 
     function translit(str) {
-      return String(str || "")
-        .toLowerCase()
-        .split("")
-        .map(ch => CYR_MAP[ch] ?? ch)
-        .join("");
+      return String(str || "").toLowerCase().split("").map(ch => CYR_MAP[ch] ?? ch).join("");
     }
 
     function cleanInput(str) {
@@ -644,352 +535,104 @@
       return arr[Math.floor(Math.random() * arr.length)];
     }
 
-    function uniq(arr) {
-      return [...new Set(arr)];
-    }
-
     function makeBaseFragments(base) {
       const b = cleanInput(base);
       if (!b) return [];
-      const frags = new Set();
-
-      frags.add(b);
-      if (b.length >= 2) frags.add(b.slice(0, 2));
-      if (b.length >= 3) frags.add(b.slice(0, 3));
-      if (b.length >= 4) frags.add(b.slice(0, 4));
-      if (b.length >= 5) frags.add(b.slice(0, 5));
+      const frags = new Set([b]);
+      if (b.length >= 2) frags.add(b.slice(0,2));
+      if (b.length >= 3) frags.add(b.slice(0,3));
+      if (b.length >= 4) frags.add(b.slice(0,4));
+      if (b.length >= 5) frags.add(b.slice(0,5));
       if (b.length >= 3) frags.add(b.slice(-3));
       if (b.length >= 4) frags.add(b.slice(-4));
-      if (b.length >= 5) frags.add(b.slice(1, 5));
-      if (b.length >= 4) frags.add(b.slice(0, -1));
-      if (b.length >= 4) frags.add(b.slice(1));
-
-      return uniq([...frags].filter(Boolean));
-    }
-
-    function vowelsCount(s) {
-      return (s.match(/[aeiouy]/g) || []).length;
+      return [...frags].filter(Boolean);
     }
 
     function scoreSocial(name, baseFrags) {
-      let score = 0;
-      if (name.length >= 5 && name.length <= 9) score += 50;
-      else if (name.length === 4 || name.length === 10) score += 25;
-      else score -= 35;
-
-      const vowels = vowelsCount(name);
+      let score = name.length >= 5 && name.length <= 9 ? 50 : (name.length === 4 || name.length === 10 ? 25 : -35);
+      const vowels = (name.match(/[aeiouy]/g) || []).length;
       if (vowels >= 2 && vowels <= 4) score += 30;
-      if (name.includes(".")) score += 18;
-      if (/[zxq]{2,}/.test(name)) score -= 35;
-      if (/(.)\1\1/.test(name)) score -= 80;
-      if (/^[a-z][a-z.]+$/.test(name)) score += 16;
-      if (/[aeiou]{2,}/.test(name)) score += 12;
-
       let relation = 0;
       for (const f of baseFrags) {
         if (f.length >= 4 && name.includes(f)) relation = Math.max(relation, 80);
         else if (f.length === 3 && name.includes(f)) relation = Math.max(relation, 55);
-        else if (f.length === 2 && name.includes(f)) relation = Math.max(relation, 24);
       }
       score += relation;
       if (relation === 0 && baseFrags.length) score -= 160;
-
-      return score;
-    }
-
-    function scoreGamer(name, baseFrags) {
-      let score = 0;
-      if (name.length >= 4 && name.length <= 8) score += 55;
-      else if (name.length === 9) score += 15;
-      else score -= 40;
-
-      if (/[xzrk]/.test(name)) score += 24;
-      if (/[^aeiou]{2,}/.test(name)) score += 20;
-      if (/(.)\1\1/.test(name)) score -= 90;
-      if (name.endsWith("x") || name.endsWith("z")) score += 16;
-
-      let relation = 0;
-      for (const f of baseFrags) {
-        if (f.length >= 4 && name.includes(f)) relation = Math.max(relation, 90);
-        else if (f.length === 3 && name.includes(f)) relation = Math.max(relation, 62);
-        else if (f.length === 2 && name.includes(f)) relation = Math.max(relation, 26);
-      }
-      score += relation;
-      if (relation === 0 && baseFrags.length) score -= 170;
-
-      return score;
-    }
-
-    function scoreSpicy(name, baseFrags) {
-      let score = 0;
-      if (name.length >= 5 && name.length <= 9) score += 52;
-      else if (name.length === 10) score += 18;
-      else score -= 40;
-
-      if (/(vel|sin|kiss|nox|rose|wild|xo)/.test(name)) score += 38;
-      if (vowelsCount(name) >= 2) score += 18;
-      if (/(.)\1\1/.test(name)) score -= 80;
-
-      let relation = 0;
-      for (const f of baseFrags) {
-        if (f.length >= 4 && name.includes(f)) relation = Math.max(relation, 90);
-        else if (f.length === 3 && name.includes(f)) relation = Math.max(relation, 60);
-        else if (f.length === 2 && name.includes(f)) relation = Math.max(relation, 24);
-      }
-      score += relation;
-      if (relation === 0 && baseFrags.length) score -= 170;
-
       return score;
     }
 
     function buildSocialCandidates(baseFrags) {
       const out = [];
-      const base = pick(baseFrags);
-      const clipped = base.slice(0, 4);
-      const clipped3 = base.slice(0, 3);
-
-      for (let i = 0; i < 700; i++) {
-        const strategy = Math.floor(Math.random() * 18);
+      const base = pick(baseFrags) || "user";
+      const clipped = base.slice(0,4);
+      for (let i = 0; i < 600; i++) {
         let n = "";
-
-        switch (strategy) {
-          case 0: n = base + pick(DICTS.social.endings); break;
-          case 1: n = clipped + pick(DICTS.social.endings); break;
-          case 2: n = pick(DICTS.social.prefixes) + base; break;
-          case 3: n = base + "." + pick(["fm","mp","io","co"]); break;
-          case 4: n = clipped3 + pick(DICTS.social.endings) + pick(["i","a","y"]); break;
-          case 5: n = base + pick(DICTS.social.classy); break;
-          case 6: n = clipped + pick(["ri","vi","na","ia","li"]); break;
-          case 7: n = pick(DICTS.social.cores).slice(0,3) + base; break;
-          case 8: n = base + pick(["daily","wave","vibe","mode"]); break;
-          case 9: n = "its" + clipped; break;
-          case 10: n = "hey" + clipped; break;
-          case 11: n = clipped + "." + pick(["art","tv","fm","mp"]); break;
-          case 12: n = clipped + pick(["ie","ey","io","ly","ny"]); break;
-          case 13: n = base + pick(["nova","glow","mint","bloom"]); break;
-          case 14: n = clipped3 + pick(DICTS.social.cores).slice(0,3); break;
-          case 15: n = base.slice(-3) + pick(["ri","la","na","io"]); break;
-          case 16: n = pick(["real","only","miss"]) + clipped; break;
-          default: n = clipped + pick(["gram","tok","hub","dot"]); break;
-        }
-
-        out.push(n.toLowerCase().replace(/[^a-z0-9.]/g, "").slice(0, 12));
+        const r = Math.random();
+        if (r < 0.3) n = base + pick(DICTS.social.endings);
+        else if (r < 0.5) n = clipped + pick(DICTS.social.endings);
+        else if (r < 0.7) n = pick(DICTS.social.prefixes) + clipped;
+        else n = clipped + pick(["ri","vi","na","ia","ly"]);
+        out.push(n.toLowerCase().replace(/[^a-z0-9.]/g,"").slice(0,14));
       }
-
-      return out;
-    }
-
-    function buildGamerCandidates(baseFrags) {
-      const out = [];
-      const base = pick(baseFrags);
-      const clipped = base.slice(0, 4);
-      const clipped3 = base.slice(0, 3);
-
-      for (let i = 0; i < 700; i++) {
-        const strategy = Math.floor(Math.random() * 16);
-        let n = "";
-
-        switch (strategy) {
-          case 0: n = base + pick(DICTS.gamer.endings); break;
-          case 1: n = clipped + "x"; break;
-          case 2: n = clipped + "z"; break;
-          case 3: n = "x" + clipped; break;
-          case 4: n = pick(DICTS.gamer.cores).slice(0,3) + clipped3; break;
-          case 5: n = clipped3 + pick(DICTS.gamer.cores).slice(0,3); break;
-          case 6: n = base + pick(["rx","zx","ix","ox"]); break;
-          case 7: n = clipped + pick(["rage","core","flux"]).slice(0,3); break;
-          case 8: n = pick(DICTS.gamer.boosters) + clipped; break;
-          case 9: n = clipped3 + pick(["xor","zor","vex","nox"]); break;
-          case 10: n = clipped + pick(["on","or","ar","yn"]); break;
-          case 11: n = clipped3 + pick(["kz","rz","vx","qx"]); break;
-          case 12: n = base.slice(-3) + "x"; break;
-          case 13: n = clipped + pick(["byte","rift","drip"]).slice(0,3); break;
-          case 14: n = pick(["xx","zz","rk"]) + clipped3; break;
-          default: n = clipped + pick(["sk","vr","qt"]); break;
-        }
-
-        out.push(n.toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 11));
-      }
-
-      return out;
-    }
-
-    function buildSpicyCandidates(baseFrags) {
-      const out = [];
-      const base = pick(baseFrags);
-      const clipped = base.slice(0, 4);
-      const clipped3 = base.slice(0, 3);
-
-      for (let i = 0; i < 700; i++) {
-        const strategy = Math.floor(Math.random() * 16);
-        let n = "";
-
-        switch (strategy) {
-          case 0: n = pick(DICTS.spicy.cores) + clipped; break;
-          case 1: n = clipped + pick(DICTS.spicy.endings); break;
-          case 2: n = clipped + "xo"; break;
-          case 3: n = clipped + "kiss"; break;
-          case 4: n = clipped + "nox"; break;
-          case 5: n = "vel" + clipped; break;
-          case 6: n = "sin" + clipped; break;
-          case 7: n = "wild" + clipped; break;
-          case 8: n = clipped + pick(["ria","mia","ina","ora"]); break;
-          case 9: n = clipped3 + pick(["xo","rx","na","la"]); break;
-          case 10: n = pick(["rose","kiss","hush","glow"]) + clipped3; break;
-          case 11: n = clipped + "love"; break;
-          case 12: n = clipped + "night"; break;
-          case 13: n = pick(["sweet","dark","lush"]) + clipped3; break;
-          case 14: n = clipped3 + pick(["vex","vel","sin"]); break;
-          default: n = clipped + pick(["rose","doll","babe"]).slice(0,3); break;
-        }
-
-        out.push(n.toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 12));
-      }
-
       return out;
     }
 
     function generateFromName(mode, rawInput) {
       const clean = cleanInput(rawInput);
-      const baseFrags = makeBaseFragments(clean);
+      const frags = makeBaseFragments(clean);
 
-      if (!clean || clean.length < 2) {
-        if (mode === "social") return pick(DICTS.social.cores) + pick(["ri","ia","fm","io"]);
-        if (mode === "gamer") return pick(DICTS.gamer.cores) + pick(["x","z","rx"]);
-        return pick(DICTS.spicy.cores) + pick(["xo","na","nox"]);
+      if (!clean) {
+        if (mode === "social") return pick(DICTS.social.cores) + pick(["ri","ia"]);
+        if (mode === "gamer")  return pick(DICTS.gamer.cores)  + "x";
+        return pick(DICTS.spicy.cores) + "xo";
       }
 
-      let candidates = [];
-      if (mode === "social") candidates = buildSocialCandidates(baseFrags);
-      else if (mode === "gamer") candidates = buildGamerCandidates(baseFrags);
-      else candidates = buildSpicyCandidates(baseFrags);
+      let cands = [];
+      if (mode === "social") cands = buildSocialCandidates(frags);
 
-      const scored = [];
-      const seen = new Set();
-
-      for (const c of candidates) {
-        if (!c || c.length < 3 || c.length > 12) continue;
-        if (seen.has(c)) continue;
-
-        let score = 0;
-        if (mode === "social") score = scoreSocial(c, baseFrags);
-        else if (mode === "gamer") score = scoreGamer(c, baseFrags);
-        else score = scoreSpicy(c, baseFrags);
-
-        if (score < 70) continue;
-        seen.add(c);
-        scored.push({ name: c, score });
+      if (cands.length === 0) {
+        return clean.slice(0,6) + (mode==="social"?"ri":mode==="gamer"?"x":"xo");
       }
 
-      scored.sort((a, b) => b.score - a.score);
-
-      if (scored.length) return scored[0].name;
-
-      if (mode === "social") return clean.slice(0, 4) + "ri";
-      if (mode === "gamer") return clean.slice(0, 4) + "x";
-      return clean.slice(0, 4) + "xo";
+      cands = [...new Set(cands.filter(n => n.length >= 4 && n.length <= 12))];
+      cands.sort((a,b) => scoreSocial(b,frags) - scoreSocial(a,frags));
+      return cands[0] || clean.slice(0,6) + "ri";
     }
 
     function renderPreview(name, mode) {
       const shell = $("#previewShell");
-      const upper = name[0] ? name[0].toUpperCase() : "N";
+      const upper = name ? name[0].toUpperCase() : "N";
 
       if (mode === "social") {
         shell.innerHTML = `
-          <div class="social-preview">
-            <div class="social-top">
-              <div class="avatar social">${upper}</div>
+          <div style="padding:28px; background:linear-gradient(145deg,#f9f6ff,#f1ebff); height:100%; display:flex; flex-direction:column; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:18px;">
+              <div style="width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#7357ff,#9a80ff); color:white; font-size:38px; font-weight:900; display:flex; align-items:center; justify-content:center;">${upper}</div>
               <div>
-                <div class="handle">@${name}</div>
-                <div class="bio">creator • ${pick(["aesthetic", "design", "music", "travel", "lifestyle"])}</div>
+                <div style="font-size:30px; font-weight:900;">@${name}</div>
+                <div style="color:#726885; font-size:16px;">creator • aesthetic • vibes</div>
               </div>
             </div>
-            <div class="stats">
-              <div class="chip">#${pick(["clean", "soft", "daily", "fresh"])}</div>
-              <div class="chip">#${pick(["minimal", "vibes", "style", "mood"])}</div>
-              <div class="chip">${pick(["1.8k followers", "4.2k followers", "9.1k followers"])}</div>
-            </div>
-          </div>
-        `;
-        return;
+          </div>`;
+      } else if (mode === "gamer") {
+        shell.innerHTML = `<div style="padding:28px; background:#1a1624; color:white; height:100%; font-size:18px;">Gamer preview<br><br>@${name}<br>Ranked • Clutch • MVP</div>`;
+      } else {
+        shell.innerHTML = `<div style="padding:28px; background:#241a2e; color:white; height:100%; font-size:18px;">Spicy preview<br><br>@${name}<br>Hot • Tease • Midnight vibe</div>`;
       }
-
-      if (mode === "gamer") {
-        shell.innerHTML = `
-          <div class="gamer-preview">
-            <div class="gamer-row">
-              <div class="avatar gamer">🎮</div>
-              <div>
-                <div class="gamer-title">${name}</div>
-                <div class="bio">${pick(["ranked main", "clutch machine", "night grind", "solo queue"])}</div>
-              </div>
-            </div>
-            <div class="gamer-card-main">
-              <div class="gamer-stats">
-                <div class="gamer-box">Level ${Math.floor(Math.random()*60)+20}</div>
-                <div class="gamer-box">${pick(["EU server","NA server","Solo main","Duo main"])}</div>
-                <div class="gamer-box">${pick(["MVP 12x","K/D 2.7","Top 1%","Clutch 89%"])}</div>
-                <div class="gamer-box">${pick(["FPS", "MOBA", "BR", "Arena"])}</div>
-              </div>
-            </div>
-          </div>
-        `;
-        return;
-      }
-
-      shell.innerHTML = `
-        <div class="spicy-preview">
-          <div class="spicy-row">
-            <div class="avatar spicy">🔥</div>
-            <div>
-              <div class="spicy-title">${name}</div>
-              <div class="bio">${pick(["bold energy", "late-night vibe", "too hot to ignore", "soft danger"])}</div>
-            </div>
-          </div>
-          <div class="spicy-note">✨ ${pick([
-            "don't be boring",
-            "caught your attention",
-            "sweet face, sharp vibe",
-            "soft look, bad idea"
-          ])}</div>
-        </div>
-      `;
-    }
-
-    async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch {
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        const ok = document.execCommand("copy");
-        document.body.removeChild(ta);
-        return ok;
-      }
-    }
-
-    function showToast(msg) {
-      const t = $("#toast");
-      t.textContent = msg;
-      t.classList.add("show");
-      clearTimeout(showToast._timer);
-      showToast._timer = setTimeout(() => t.classList.remove("show"), 1500);
     }
 
     let currentMode = "social";
-    let currentName = "alexri";
+    let currentName = "";
 
     function renderMain() {
-      $("#mainNick").textContent = currentName;
-      $("#mainMeta").textContent = MODE_META[currentMode];
+      $("#mainNick").textContent = currentName || "—";
+      $("#mainMeta").textContent = MODE_META[currentMode] || "—";
       renderPreview(currentName, currentMode);
     }
 
     function generateMain() {
-      currentName = generateFromName(currentMode, $("#baseInput").value);
+      currentName = generateFromName(currentMode, $("#baseInput").value.trim());
       renderMain();
     }
 
@@ -998,58 +641,25 @@
         $$(".mode-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         currentMode = btn.dataset.mode;
-
-        $("#baseInput").placeholder =
-          currentMode === "social"
-            ? "e.g., alex, ray, max"
-            : currentMode === "gamer"
-            ? "e.g., alex, rex, kai"
-            : "e.g., alena, mia, rose";
-
         generateMain();
       });
     });
 
-    $("#generateBtn").addEventListener("click", generateMain);
-    $("#baseInput").addEventListener("keydown", (e) => {
-      if (e.key === "Enter") generateMain();
-    });
+    $("#generateBtn").onclick = generateMain;
+    $("#baseInput").onkeydown = e => { if (e.key === "Enter") generateMain(); };
 
-    $("#copyBtn").addEventListener("click", async () => {
-      const ok = await copyText(currentName);
-      showToast(ok ? "Copied" : "Copy failed");
-    });
+    $("#copyBtn").onclick = async () => {
+      if (!currentName) return;
+      await navigator.clipboard.writeText(currentName);
+      const t = $("#toast");
+      t.textContent = "Скопировано!";
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 1800);
+    };
 
-    $("#shareBtn").addEventListener("click", async () => {
-      if (navigator.share) {
-        try {
-          await navigator.share({ title: "NickForge", text: currentName });
-          return;
-        } catch {}
-      }
-      const ok = await copyText(currentName);
-      showToast(ok ? "Name copied" : "Share failed");
-    });
+    $("#regenBtn").onclick = generateMain;
 
-    $("#donateLink").addEventListener("click", (e) => {
-      e.preventDefault();
-      window.open("https://buymeacoffee.com/", "_blank");
-    });
-
-    $("#feedbackLink").addEventListener("click", (e) => {
-      e.preventDefault();
-      window.open("mailto:feedback@nickforge.com", "_blank");
-    });
-
-    document.addEventListener("keydown", async (e) => {
-      if (e.key.toLowerCase() === "c" && !e.ctrlKey && !e.metaKey) {
-        const active = document.activeElement;
-        if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) return;
-        const ok = await copyText(currentName);
-        showToast(ok ? "Copied" : "Copy failed");
-      }
-    });
-
+    // Первый запуск
     renderMain();
   </script>
 </body>
