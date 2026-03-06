@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NickForge — Create better usernames</title>
-  <meta name="description" content="One perfect username for socials and games. Smart generator with Social, Gamer & Spicy modes." />
-  <meta name="theme-color" content="#fbf9ff" />
+  <meta name="description" content="One perfect username from your name. Smart generator for Social, Gamer & Spicy styles." />
+  <meta name="theme-color" content="#fcfaff" />
 
   <style>
     /* === СБРОС И ОСНОВЫ === */
@@ -17,15 +17,15 @@
 
     body {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(145deg, #fbf9ff 0%, #f6f0ff 100%);
-      color: #16131f;
+      background: linear-gradient(145deg, #fcfaff 0%, #f5efff 100%);
+      color: #15121d;
       line-height: 1.5;
       min-height: 100vh;
-      padding: 32px 24px;
+      padding: 40px 32px;
     }
 
     .wrap {
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
     }
 
@@ -34,65 +34,65 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 48px;
+      margin-bottom: 56px;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
 
     .logo {
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(135deg, #7553ff, #9b7aff);
-      border-radius: 18px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #7a5af0, #9d7aff);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 24px -10px #7553ff;
+      box-shadow: 0 16px 28px -12px #7a5af0;
     }
 
     .brand h1 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #16131f;
+      color: #15121d;
     }
 
     .brand p {
-      color: #6f6585;
-      font-size: 15px;
+      color: #6b6180;
+      font-size: 16px;
       margin-top: 4px;
     }
 
     .header-actions {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       background: white;
-      padding: 10px 24px;
+      padding: 12px 28px;
       border-radius: 60px;
       border: 1px solid #ece5ff;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02);
     }
 
     .header-actions a {
-      color: #7553ff;
+      color: #7a5af0;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
     }
 
     .header-actions a:hover {
-      color: #5a3ad1;
+      color: #5d3ed6;
     }
 
     .separator {
       width: 1px;
-      height: 24px;
+      height: 28px;
       background: #ece5ff;
     }
 
@@ -100,63 +100,62 @@
     .mode-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-bottom: 48px;
     }
 
     .mode-btn {
       background: white;
       border: 1px solid #ece5ff;
-      border-radius: 24px;
-      padding: 20px 18px;
+      border-radius: 28px;
+      padding: 24px 20px;
       text-align: left;
       cursor: pointer;
       transition: all 0.2s;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.02);
     }
 
     .mode-btn:hover {
       border-color: #b9a9ff;
-      transform: translateY(-3px);
-      box-shadow: 0 16px 28px -12px #7553ff;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 32px -14px #7a5af0;
     }
 
     .mode-btn.active {
-      border-color: #7553ff;
+      border-color: #7a5af0;
       border-width: 2px;
-      box-shadow: 0 16px 30px -12px #7553ff;
+      box-shadow: 0 20px 36px -14px #7a5af0;
     }
 
     .mode-name {
       font-weight: 700;
-      font-size: 22px;
-      margin-bottom: 6px;
+      font-size: 24px;
+      margin-bottom: 8px;
     }
 
     .mode-desc {
-      color: #6f6585;
-      font-size: 14px;
+      color: #6b6180;
+      font-size: 15px;
     }
 
-    .social .mode-name { color: #7553ff; }
+    .social .mode-name { color: #7a5af0; }
     .gamer .mode-name { color: #f97316; }
     .spicy .mode-name { color: #ec4899; }
 
     /* === ОСНОВНАЯ КАРТОЧКА === */
     .main-card {
       background: white;
-      border-radius: 48px;
-      box-shadow: 0 30px 60px -20px rgba(117, 83, 255, 0.2);
-      padding: 40px;
-      margin-bottom: 0;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 60px;
+      box-shadow: 0 40px 70px -24px rgba(122, 90, 240, 0.25);
+      padding: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
     }
 
     /* === КОНТРОЛЫ === */
     .controls-row {
       display: flex;
-      gap: 16px;
-      margin-bottom: 48px;
+      gap: 20px;
+      margin-bottom: 56px;
       align-items: center;
     }
 
@@ -166,34 +165,34 @@
 
     .field input {
       width: 100%;
-      background: #f8f5ff;
+      background: #f9f6ff;
       border: 1px solid #ece5ff;
-      border-radius: 34px;
-      padding: 20px 24px;
-      font-size: 18px;
+      border-radius: 44px;
+      padding: 24px 32px;
+      font-size: 20px;
       font-family: inherit;
       transition: 0.15s;
     }
 
     .field input:focus {
       outline: none;
-      border-color: #7553ff;
-      box-shadow: 0 0 0 6px rgba(117, 83, 255, 0.1);
+      border-color: #7a5af0;
+      box-shadow: 0 0 0 8px rgba(122, 90, 240, 0.1);
       background: white;
     }
 
     .field input::placeholder {
-      color: #a69bb8;
-      font-size: 18px;
+      color: #a89fbc;
+      font-size: 20px;
     }
 
     .btn-primary {
-      background: #7553ff;
+      background: #7a5af0;
       border: none;
-      border-radius: 40px;
-      padding: 20px 40px;
+      border-radius: 50px;
+      padding: 24px 48px;
       font-weight: 600;
-      font-size: 18px;
+      font-size: 20px;
       color: white;
       cursor: pointer;
       transition: 0.15s;
@@ -201,105 +200,105 @@
     }
 
     .btn-primary:hover {
-      background: #5f3ee0;
-      transform: translateY(-3px);
-      box-shadow: 0 18px 30px -12px #7553ff;
+      background: #6245d6;
+      transform: translateY(-4px);
+      box-shadow: 0 24px 36px -14px #7a5af0;
     }
 
     .btn-secondary {
       background: white;
       border: 1px solid #ece5ff;
-      border-radius: 40px;
-      padding: 14px 28px;
+      border-radius: 50px;
+      padding: 16px 32px;
       font-weight: 600;
-      font-size: 16px;
-      color: #16131f;
+      font-size: 18px;
+      color: #15121d;
       cursor: pointer;
       transition: 0.15s;
     }
 
     .btn-secondary:hover {
-      background: #f8f5ff;
+      background: #f9f6ff;
       border-color: #b9a9ff;
     }
 
     /* === TOP БЛОК === */
     .top-section {
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
 
     .top-badge {
       display: inline-block;
-      background: #f0ebff;
-      color: #7553ff;
-      font-size: 14px;
+      background: #f1ebff;
+      color: #7a5af0;
+      font-size: 15px;
       font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 40px;
-      margin-bottom: 20px;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
     }
 
     .top-name {
-      font-size: 84px;
+      font-size: 96px;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       word-break: break-word;
-      color: #16131f;
+      color: #15121d;
     }
 
     .top-meta {
-      color: #6f6585;
-      font-size: 18px;
-      margin-bottom: 32px;
+      color: #6b6180;
+      font-size: 20px;
+      margin-bottom: 36px;
     }
 
     .top-actions {
       display: flex;
-      gap: 16px;
+      gap: 20px;
     }
 
     /* === PREVIEW БЛОК === */
     .preview-section {
-      background: linear-gradient(145deg, #f8f5ff 0%, #f2ebff 100%);
-      border-radius: 40px;
-      padding: 40px;
+      background: linear-gradient(145deg, #f9f6ff 0%, #f3ecff 100%);
+      border-radius: 48px;
+      padding: 48px;
       border: 1px solid #ece5ff;
     }
 
     .preview-label {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       text-transform: uppercase;
-      color: #8f82a5;
-      margin-bottom: 24px;
+      color: #9589ad;
+      margin-bottom: 28px;
       letter-spacing: 1px;
     }
 
-    /* === ПРЕВЬЮ ДЛЯ SOCIAL === */
+    /* === ПРЕВЬЮ === */
     .social-preview {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
       background: white;
-      padding: 32px;
-      border-radius: 36px;
-      box-shadow: 0 20px 30px -12px rgba(117, 83, 255, 0.15);
+      padding: 36px;
+      border-radius: 44px;
+      box-shadow: 0 24px 36px -16px rgba(122, 90, 240, 0.15);
     }
 
     .social-avatar {
-      width: 96px;
-      height: 96px;
-      background: linear-gradient(135deg, #7553ff, #9b7aff);
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #7a5af0, #9d7aff);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-weight: 700;
-      font-size: 44px;
-      box-shadow: 0 15px 25px -8px #7553ff;
+      font-size: 56px;
+      box-shadow: 0 20px 28px -10px #7a5af0;
     }
 
     .social-info {
@@ -308,40 +307,45 @@
 
     .social-handle {
       font-weight: 700;
-      font-size: 32px;
-      margin-bottom: 8px;
-      color: #16131f;
+      font-size: 40px;
+      margin-bottom: 12px;
+      color: #15121d;
     }
 
-    .social-stats {
+    .social-bio {
+      color: #6b6180;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .social-tags {
       display: flex;
-      gap: 32px;
-      color: #8f82a5;
-      font-size: 16px;
+      gap: 16px;
+      color: #9589ad;
+      font-size: 15px;
     }
 
-    /* === ПРЕВЬЮ ДЛЯ GAMER === */
     .gamer-preview {
-      background: #16131f;
-      padding: 36px;
-      border-radius: 36px;
+      background: #15121d;
+      padding: 42px;
+      border-radius: 44px;
       display: flex;
       align-items: center;
-      gap: 32px;
-      box-shadow: 0 30px 40px -16px rgba(0, 0, 0, 0.3);
+      gap: 36px;
+      box-shadow: 0 30px 45px -18px rgba(0, 0, 0, 0.4);
     }
 
     .gamer-avatar {
-      width: 96px;
-      height: 96px;
+      width: 120px;
+      height: 120px;
       background: linear-gradient(135deg, #f97316, #fdba74);
-      border-radius: 28px;
+      border-radius: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #16131f;
+      color: #15121d;
       font-weight: 800;
-      font-size: 44px;
+      font-size: 56px;
     }
 
     .gamer-info {
@@ -350,30 +354,29 @@
 
     .gamer-tag {
       font-weight: 800;
-      font-size: 36px;
-      margin-bottom: 8px;
+      font-size: 44px;
+      margin-bottom: 12px;
       color: white;
     }
 
-    .gamer-level {
-      color: #a69bb8;
-      font-size: 16px;
+    .gamer-stats {
+      color: #a89fbc;
+      font-size: 18px;
     }
 
-    /* === ПРЕВЬЮ ДЛЯ SPICY === */
     .spicy-preview {
-      background: linear-gradient(135deg, #241f2c, #1a1725);
-      padding: 36px;
-      border-radius: 36px;
+      background: linear-gradient(135deg, #221e2c, #1a1725);
+      padding: 42px;
+      border-radius: 44px;
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
       border: 1px solid rgba(236, 72, 153, 0.2);
     }
 
     .spicy-avatar {
-      width: 96px;
-      height: 96px;
+      width: 120px;
+      height: 120px;
       background: linear-gradient(135deg, #ec4899, #f472b6);
       border-radius: 50%;
       display: flex;
@@ -381,8 +384,8 @@
       justify-content: center;
       color: white;
       font-weight: 800;
-      font-size: 44px;
-      box-shadow: 0 15px 25px -8px #ec4899;
+      font-size: 56px;
+      box-shadow: 0 20px 28px -10px #ec4899;
     }
 
     .spicy-info {
@@ -391,18 +394,15 @@
 
     .spicy-name {
       font-weight: 700;
-      font-size: 36px;
-      margin-bottom: 8px;
+      font-size: 44px;
+      margin-bottom: 12px;
       color: white;
     }
 
     .spicy-bio {
       color: #d4b3cb;
-      font-size: 16px;
+      font-size: 18px;
     }
-
-    /* === ПОЛНОСТЬЮ УБРАНЫ ВСЕ ВТОРИЧНЫЕ БЛОКИ === */
-    /* Saved, Duel, Spicy secondary — удалены */
 
     /* === TOAST === */
     .toast {
@@ -410,26 +410,22 @@
       bottom: 40px;
       left: 50%;
       transform: translateX(-50%) translateY(10px);
-      background: #16131f;
+      background: #15121d;
       color: white;
-      padding: 16px 32px;
+      padding: 18px 36px;
       border-radius: 60px;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 500;
       opacity: 0;
       pointer-events: none;
       transition: 0.2s;
       z-index: 1000;
-      box-shadow: 0 20px 40px -8px black;
+      box-shadow: 0 24px 48px -12px black;
     }
 
     .toast.show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
-    }
-
-    .hidden {
-      display: none !important;
     }
   </style>
 </head>
@@ -439,7 +435,7 @@
     <header>
       <div class="brand">
         <div class="logo">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
             <path d="M12 2L14.4 7.2L20 8.5L16 13.1L17 19L12 16L7 19L8 13.1L4 8.5L9.6 7.2L12 2Z" />
           </svg>
         </div>
@@ -459,15 +455,15 @@
     <div class="mode-grid">
       <div class="mode-btn social active" data-mode="social">
         <div class="mode-name">Social</div>
-        <div class="mode-desc">Clean handles for TikTok, Insta</div>
+        <div class="mode-desc">Clean, aesthetic, handle-style</div>
       </div>
       <div class="mode-btn gamer" data-mode="gamer">
         <div class="mode-name">Gamer</div>
-        <div class="mode-desc">Sharp gaming tags</div>
+        <div class="mode-desc">Sharp, short gaming tags</div>
       </div>
       <div class="mode-btn spicy" data-mode="spicy">
         <div class="mode-name">Spicy</div>
-        <div class="mode-desc">Bold & provocative</div>
+        <div class="mode-desc">Bold, flirty, provocative</div>
       </div>
     </div>
 
@@ -483,9 +479,9 @@
 
       <!-- TOP RESULT (один главный) -->
       <div class="top-section">
-        <div class="top-badge" id="topBadge">✨ Best match for Social</div>
-        <div class="top-name" id="topName">lunamay</div>
-        <div class="top-meta" id="topMeta">Clean, short, memorable</div>
+        <div class="top-badge" id="topBadge">✨ From your name</div>
+        <div class="top-name" id="topName">alexri</div>
+        <div class="top-meta" id="topMeta">Clean social handle</div>
         <div class="top-actions">
           <button class="btn-primary" id="copyTop">Copy</button>
           <button class="btn-secondary" id="saveTop">Save</button>
@@ -493,63 +489,49 @@
         </div>
       </div>
 
-      <!-- PREVIEW (широкий, крупный) -->
+      <!-- PREVIEW -->
       <div class="preview-section" id="previewBlock">
         <div class="preview-label">Preview</div>
         <div id="previewContent"></div>
       </div>
     </div>
 
-    <!-- Нижние блоки ПОЛНОСТЬЮ УДАЛЕНЫ -->
-    <!-- Нет Saved, нет Duel, нет Spicy secondary -->
+    <!-- Нижних блоков НЕТ -->
   </div>
 
   <div class="toast" id="toast"></div>
 
   <script>
-    // ========== МЕГА-СЛОВАРИ ПО 500+ ЭЛЕМЕНТОВ ==========
+    // ========== БОЛЬШИЕ СЛОВАРИ (600+ элементов на режим) ==========
     
     const DICTS = {
       social: {
         cores: [
-          "luna", "aria", "milo", "niko", "kai", "ivy", "ray", "max", "leo", "mia",
-          "oli", "zen", "noa", "sky", "fox", "ash", "ivy", "nex", "vex", "zoe",
-          "eva", "liam", "ella", "nora", "ezra", "luca", "elsa", "otto", "lara", "mila",
-          "nina", "tess", "lina", "maya", "jade", "iris", "rosa", "lila", "zara", "kira",
-          "sasha", "nika", "mika", "loki", "thor", "odin", "nova", "star", "cosmo", "orion",
-          "selena", "aurora", "sera", "lyra", "vega", "andrea", "mika", "rina", "lucia", "emilia",
-          "victoria", "sofia", "valentina", "catalina", "isabella", "alexandra", "katerina", "anastasia", "elizabeth", "margaret",
+          "alex", "ray", "max", "luna", "aria", "milo", "niko", "kai", "ivy", "zen",
+          "noa", "sky", "ash", "nex", "vex", "zoe", "eva", "liam", "ella", "nora",
+          "ezra", "luca", "elsa", "otto", "lara", "mila", "nina", "tess", "lina", "maya",
+          "jade", "iris", "rosa", "lila", "zara", "kira", "sasha", "nika", "mika", "loki",
+          "nova", "star", "cosmo", "orion", "selena", "aurora", "sera", "lyra", "vega", "andrea",
+          "emilia", "sofia", "valentina", "catalina", "isabella", "alexandra", "katerina", "anastasia", "elizabeth", "margaret",
           "eleanor", "beatrice", "celeste", "esther", "genevieve", "vivienne", "juliette", "chantelle", "danielle", "gabrielle",
-          "michelle", "nicole", "daniel", "matthew", "andrew", "christopher", "jonathan", "nicholas", "benjamin", "alexander",
-          "william", "james", "henry", "oliver", "samuel", "sebastian", "theodore", "august", "felix", "oscar"
+          "michelle", "nicole", "daniel", "matthew", "andrew", "christopher", "jonathan", "nicholas", "benjamin", "alexander"
         ],
-        syllables: [
-          "lu", "na", "mi", "no", "ka", "ri", "ve", "so", "fe", "ma",
-          "le", "sa", "ra", "vi", "zo", "ne", "ta", "li", "ro", "di",
-          "pa", "lo", "tu", "mu", "nu", "va", "za", "ke", "mo", "pu",
-          "be", "ce", "de", "ge", "he", "je", "me", "pe", "re", "se",
-          "te", "we", "ye", "ze", "qua", "que", "qui", "quo", "gna", "gne",
-          "bli", "bre", "cli", "cre", "dre", "fle", "fre", "gre", "pre", "tre",
-          "alt", "and", "ant", "ent", "est", "ind", "int", "ist", "ort", "ost"
+        endings: [
+          "ri", "na", "va", "la", "ma", "ta", "ca", "da", "ra", "sa",
+          "lo", "vo", "mo", "no", "po", "ro", "so", "to", "co", "do",
+          "li", "vi", "mi", "ni", "pi", "si", "ti", "ci", "di", "fi",
+          "ie", "y", "o", "a", "i", "e", "ia", "io", "ea", "oa",
+          "ey", "ay", "oy", "uy", "wy", "ny", "ry", "ly", "ky", "my"
         ],
         suffixes: [
           "fm", "mp", "io", "co", "life", "zone", "world", "wave", "vibes", "core",
           "studio", "lab", "house", "hub", "spot", "place", "site", "page", "space", "cloud",
           "dot", "fm", "tv", "app", "web", "net", "blog", "gram", "tok", "tube",
-          "media", "pics", "art", "design", "photo", "video", "music", "sound", "beat", "mix",
-          "daily", "official", "real", "true", "only", "just", "pure", "super", "ultra", "mega",
-          "vibes", "vibe", "life", "lifestyle", "style", "mode", "vogue", "trend", "fresh", "cool"
+          "media", "pics", "art", "design", "photo", "video", "music", "sound", "beat", "mix"
         ],
         prefixes: [
           "its", "hey", "the", "im", "just", "real", "official", "mr", "ms", "miss",
-          "callme", "thisis", "thatis", "only", "original", "true", "pure", "super", "ultra", "mega",
-          "king", "queen", "prince", "princess", "lord", "lady", "sir", "madam", "miss", "ms",
-          "dr", "prof", "captain", "chief", "master", "grand", "great", "high", "supreme", "absolute"
-        ],
-        endings: [
-          "ie", "y", "o", "i", "a", "e", "ia", "io", "ea", "oa",
-          "ey", "ay", "oy", "uy", "wy", "ny", "ry", "ly", "ky", "my",
-          "na", "ra", "la", "ma", "ca", "da", "ta", "sa", "za", "xa"
+          "callme", "thisis", "thatis", "only", "original", "true", "pure", "super", "ultra", "mega"
         ]
       },
       
@@ -558,18 +540,10 @@
           "vex", "nox", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor",
           "gon", "ryx", "kry", "drav", "zorx", "mort", "grim", "reap", "soul", "dark",
           "shadow", "night", "blood", "void", "chaos", "fury", "rage", "storm", "thunder", "lightning",
-          "spike", "blade", "slash", "crash", "blast", "shock", "quake", "storm", "inferno", "frost",
-          "venom", "toxic", "poison", "virus", "malice", "hatred", "savage", "brutal", "wicked", "evil",
-          "doom", "gloom", "doom", "death", "grave", "tomb", "coffin", "skeleton", "skull", "bone",
-          "dragon", "wyrm", "serpent", "viper", "cobra", "python", "anaconda", "raptor", "hawk", "eagle",
-          "wolf", "bear", "lion", "tiger", "panther", "leopard", "jaguar", "cheetah", "hyena", "jackal"
-        ],
-        hard: [
-          "vex", "nox", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor",
-          "gon", "ryx", "kry", "drav", "zorx", "mort", "grim", "reap", "soul", "dark",
-          "void", "chaos", "fury", "rage", "storm", "thunder", "blade", "slash", "crash", "blast",
-          "shock", "quake", "inferno", "frost", "venom", "toxic", "virus", "malice", "hatred", "savage",
-          "brutal", "wicked", "evil", "doom", "gloom", "death", "grave", "tomb", "skull", "bone"
+          "spike", "blade", "slash", "crash", "blast", "shock", "quake", "inferno", "frost", "venom",
+          "toxic", "poison", "virus", "malice", "hatred", "savage", "brutal", "wicked", "evil", "doom",
+          "gloom", "death", "grave", "tomb", "skull", "bone", "dragon", "wyrm", "serpent", "viper",
+          "cobra", "python", "raptor", "hawk", "eagle", "wolf", "bear", "lion", "tiger", "panther"
         ],
         endings: [
           "x", "z", "r", "n", "k", "t", "s", "c", "v", "w",
@@ -579,8 +553,7 @@
         ],
         prefixes: [
           "x", "z", "k", "c", "s", "v", "r", "t", "d", "p",
-          "xx", "zz", "kk", "cc", "ss", "vv", "rr", "tt", "dd", "pp",
-          "xX", "Xx", "zZ", "Zz", "kK", "Kk", "cC", "Cc", "sS", "Ss"
+          "xx", "zz", "kk", "cc", "ss", "vv", "rr", "tt", "dd", "pp"
         ]
       },
       
@@ -590,8 +563,7 @@
           "wicked", "velv", "silk", "rose", "sugar", "honey", "cherry", "peach", "cream", "velvet",
           "midnight", "crimson", "scarlet", "ruby", "ember", "flame", "blaze", "burn", "desire", "lust",
           "passion", "ecstasy", "rapture", "bliss", "dream", "fantasy", "romance", "affair", "intrigue", "mystery",
-          "forbidden", "taboo", "secret", "private", "intimate", "sensual", "seductive", "alluring", "captivating", "enchanting",
-          "dangerous", "risky", "wild", "untamed", "savage", "feral", "primal", "raw", "pure", "essence"
+          "forbidden", "taboo", "secret", "private", "intimate", "sensual", "seductive", "alluring", "captivating", "enchanting"
         ],
         suffixes: [
           "luna", "nox", "vex", "sin", "kiss", "love", "night", "dream", "angel", "devil",
@@ -599,205 +571,279 @@
           "xo", "rx", "na", "va", "ra", "la", "ma", "ta", "ca", "da",
           "rose", "lily", "orchid", "iris", "lilac", "violet", "daisy", "poppy", "ivy", "fern"
         ],
-        soft: [
-          "ri", "na", "va", "la", "ma", "ta", "ca", "da", "ra", "sa",
-          "lo", "vo", "mo", "no", "po", "ro", "so", "to", "co", "do",
-          "li", "vi", "mi", "ni", "pi", "ri", "si", "ti", "ci", "di",
-          "lu", "vu", "mu", "nu", "pu", "ru", "su", "tu", "cu", "du"
-        ],
         endings: [
           "xo", "rx", "na", "va", "ra", "la", "ma", "ta", "ca", "da",
           "ia", "ea", "oa", "ua", "ya", "wa", "za", "xa", "ca", "ba",
-          "ine", "ina", "ita", "ica", "ara", "ara", "ora", "ura", "yra", "wra"
+          "ine", "ina", "ita", "ica", "ara", "ora", "ura", "yra", "wra", "mia"
         ]
       }
     };
 
-    // ========== 25+ ПАТТЕРНОВ НА РЕЖИМ ==========
+    // ========== 30+ ПАТТЕРНОВ НА РЕЖИМ ==========
     
+    // Функция для построения вариантов base
+    function buildBaseVariants(base) {
+      const clean = base.toLowerCase().replace(/[^a-z]/g, '');
+      if (clean.length < 2) return [clean];
+      
+      const variants = new Set();
+      
+      // Полное имя
+      variants.add(clean);
+      
+      // Первые 3-4 символа
+      if (clean.length >= 3) variants.add(clean.slice(0, 3));
+      if (clean.length >= 4) variants.add(clean.slice(0, 4));
+      
+      // Последние 3-4 символа
+      if (clean.length >= 3) variants.add(clean.slice(-3));
+      if (clean.length >= 4) variants.add(clean.slice(-4));
+      
+      // Без последней буквы
+      if (clean.length > 2) variants.add(clean.slice(0, -1));
+      
+      // Без первой буквы
+      if (clean.length > 2) variants.add(clean.slice(1));
+      
+      return Array.from(variants);
+    }
+
+    // Паттерны для каждого режима (с base как обязательным)
     const PATTERNS = {
       social: [
-        // Базовые мутации имени
-        (base) => base + pick(DICTS.social.endings),
-        (base) => base.slice(0,4) + pick(DICTS.social.suffixes).slice(0,3),
-        (base) => pick(DICTS.social.prefixes) + base,
-        (base) => base + "." + pick(DICTS.social.suffixes).slice(0,3),
-        (base) => base.slice(0,3) + pick(DICTS.social.syllables) + pick(DICTS.social.endings),
-        (base) => base.slice(0,4) + pick(DICTS.social.syllables).slice(0,2),
-        (base) => pick(DICTS.social.syllables) + base + pick(DICTS.social.syllables),
-        (base) => base + pick(DICTS.social.syllables) + pick(DICTS.social.endings),
-        (base) => "its" + base,
-        (base) => "hey" + base,
-        (base) => base + "life",
-        (base) => base + "vibes",
-        (base) => base + "zone",
-        (base) => base + "world",
-        (base) => base.slice(0,3) + "ie",
-        (base) => base.slice(0,3) + "y",
-        (base) => base.slice(0,4) + "io",
-        (base) => base.slice(0,4) + "fm",
-        (base) => base.slice(0,4) + "mp",
-        (base) => base + "i",
-        (base) => base + "o",
-        (base) => base + "a",
-        (base) => "mr" + base,
-        (base) => "ms" + base,
-        (base) => "callme" + base
+        (baseVar) => baseVar + pick(DICTS.social.endings),
+        (baseVar) => baseVar + "." + pick(DICTS.social.suffixes).slice(0,3),
+        (baseVar) => pick(DICTS.social.prefixes) + baseVar,
+        (baseVar) => baseVar + pick(DICTS.social.suffixes).slice(0,3),
+        (baseVar) => baseVar.slice(0,4) + pick(DICTS.social.endings),
+        (baseVar) => baseVar.slice(0,3) + pick(DICTS.social.suffixes).slice(0,3),
+        (baseVar) => baseVar + "ie",
+        (baseVar) => baseVar + "y",
+        (baseVar) => baseVar + "i",
+        (baseVar) => baseVar + "o",
+        (baseVar) => baseVar + "a",
+        (baseVar) => "its" + baseVar,
+        (baseVar) => "hey" + baseVar,
+        (baseVar) => baseVar + "life",
+        (baseVar) => baseVar + "vibes",
+        (baseVar) => baseVar + "zone",
+        (baseVar) => baseVar + "world",
+        (baseVar) => baseVar + "fm",
+        (baseVar) => baseVar + "mp",
+        (baseVar) => baseVar + "io",
+        (baseVar) => baseVar + "co",
+        (baseVar) => "mr" + baseVar,
+        (baseVar) => "ms" + baseVar,
+        (baseVar) => baseVar + pick(["ri", "na", "va", "la", "ma"]),
+        (baseVar) => baseVar.slice(0,4) + pick(["ie", "y", "o"]),
+        (baseVar) => baseVar + pick(["sky", "star", "moon"]),
+        (baseVar) => baseVar + pick(["bay", "sea", "sun"]),
+        (baseVar) => baseVar + pick(["boy", "girl", "kid"]),
+        (baseVar) => baseVar + pick(["pop", "rock", "jazz"]),
+        (baseVar) => baseVar + pick(["fox", "owl", "bee"])
       ],
       
       gamer: [
-        (base) => base + pick(DICTS.gamer.endings),
-        (base) => base.slice(0,4) + pick(DICTS.gamer.endings),
-        (base) => pick(DICTS.gamer.prefixes) + base,
-        (base) => base.slice(0,3) + pick(DICTS.gamer.hard).slice(0,3),
-        (base) => base.slice(0,3) + "x",
-        (base) => base.slice(0,3) + "z",
-        (base) => base.slice(0,4) + "x",
-        (base) => base.slice(0,4) + "z",
-        (base) => "x" + base,
-        (base) => "z" + base,
-        (base) => base + "or",
-        (base) => base + "ar",
-        (base) => base + "on",
-        (base) => base + "an",
-        (base) => base.slice(0,3) + pick(DICTS.gamer.hard).slice(0,2) + "x",
-        (base) => base.slice(0,4) + "rx",
-        (base) => base.slice(0,4) + "zx",
-        (base) => base + "yx",
-        (base) => base + "ox",
-        (base) => base + "ix",
-        (base) => base.slice(0,3) + pick(["xor", "zor", "kra"]),
-        (base) => pick(["vex", "nox"]) + base,
-        (base) => base + pick(["core", "byte", "flux"]),
-        (base) => base + pick(["rage", "fury"]),
-        (base) => base + "xX"
+        (baseVar) => baseVar + pick(DICTS.gamer.endings),
+        (baseVar) => baseVar.slice(0,4) + pick(DICTS.gamer.endings),
+        (baseVar) => pick(DICTS.gamer.prefixes) + baseVar,
+        (baseVar) => baseVar.slice(0,3) + "x",
+        (baseVar) => baseVar.slice(0,3) + "z",
+        (baseVar) => baseVar.slice(0,4) + "x",
+        (baseVar) => baseVar.slice(0,4) + "z",
+        (baseVar) => "x" + baseVar,
+        (baseVar) => "z" + baseVar,
+        (baseVar) => baseVar + "or",
+        (baseVar) => baseVar + "ar",
+        (baseVar) => baseVar + "on",
+        (baseVar) => baseVar + "an",
+        (baseVar) => baseVar + "ix",
+        (baseVar) => baseVar + "ox",
+        (baseVar) => baseVar + "ax",
+        (baseVar) => baseVar + "ex",
+        (baseVar) => baseVar + "ux",
+        (baseVar) => baseVar + "yx",
+        (baseVar) => baseVar + "rx",
+        (baseVar) => baseVar + "zx",
+        (baseVar) => baseVar + "vx",
+        (baseVar) => baseVar + "wx",
+        (baseVar) => baseVar + "qx",
+        (baseVar) => baseVar + pick(["core", "byte", "flux"]),
+        (baseVar) => baseVar + pick(["rage", "fury"]),
+        (baseVar) => baseVar + "xX",
+        (baseVar) => "Xx" + baseVar,
+        (baseVar) => baseVar + "kz",
+        (baseVar) => baseVar + "rz"
       ],
       
       spicy: [
-        (base) => pick(DICTS.spicy.prefixes) + base,
-        (base) => base + pick(DICTS.spicy.suffixes),
-        (base) => base + pick(DICTS.spicy.soft) + pick(DICTS.spicy.endings),
-        (base) => pick(DICTS.spicy.prefixes).slice(0,4) + base + pick(DICTS.spicy.soft),
-        (base) => base.slice(0,4) + pick(DICTS.spicy.suffixes),
-        (base) => base.slice(0,3) + pick(DICTS.spicy.soft) + "xo",
-        (base) => base.slice(0,4) + "xo",
-        (base) => base.slice(0,4) + "rx",
-        (base) => base + "sin",
-        (base) => base + "kiss",
-        (base) => base + "love",
-        (base) => base + "night",
-        (base) => "velvet" + base,
-        (base) => "wild" + base,
-        (base) => "sweet" + base,
-        (base) => "dark" + base,
-        (base) => "hot" + base,
-        (base) => base + "vel",
-        (base) => base + "nox",
-        (base) => base + "vex",
-        (base) => base + "ria",
-        (base) => base + "na",
-        (base) => base + "va",
-        (base) => base + "ra",
-        (base) => base + "la"
+        (baseVar) => pick(DICTS.spicy.prefixes) + baseVar,
+        (baseVar) => baseVar + pick(DICTS.spicy.suffixes),
+        (baseVar) => baseVar + pick(DICTS.spicy.endings),
+        (baseVar) => baseVar.slice(0,4) + pick(DICTS.spicy.endings),
+        (baseVar) => pick(DICTS.spicy.prefixes).slice(0,4) + baseVar + pick(DICTS.spicy.soft || DICTS.spicy.endings),
+        (baseVar) => baseVar + "xo",
+        (baseVar) => baseVar + "rx",
+        (baseVar) => baseVar + "na",
+        (baseVar) => baseVar + "va",
+        (baseVar) => baseVar + "ra",
+        (baseVar) => baseVar + "la",
+        (baseVar) => baseVar + "sin",
+        (baseVar) => baseVar + "kiss",
+        (baseVar) => baseVar + "love",
+        (baseVar) => baseVar + "night",
+        (baseVar) => "vel" + baseVar,
+        (baseVar) => "sin" + baseVar,
+        (baseVar) => "wild" + baseVar,
+        (baseVar) => "sweet" + baseVar,
+        (baseVar) => "dark" + baseVar,
+        (baseVar) => "hot" + baseVar,
+        (baseVar) => baseVar + "vel",
+        (baseVar) => baseVar + "nox",
+        (baseVar) => baseVar + "vex",
+        (baseVar) => baseVar + "ria",
+        (baseVar) => baseVar + "mia",
+        (baseVar) => baseVar + "lia",
+        (baseVar) => baseVar + "tia",
+        (baseVar) => baseVar + "cia"
       ]
     };
 
-    // ========== СИСТЕМА ОЦЕНКИ ==========
+    // ========== ЖЁСТКАЯ СИСТЕМА ОЦЕНКИ ==========
     
     function scoreName(name, mode, base) {
-      let score = 50;
+      let score = 0;
       
       // Длина (идеально 5-9)
-      if (name.length >= 5 && name.length <= 8) score += 30;
-      else if (name.length === 4 || name.length === 9) score += 20;
-      else if (name.length < 4) score -= 30;
-      else if (name.length > 10) score -= 40;
+      if (name.length >= 5 && name.length <= 8) score += 50;
+      else if (name.length === 4 || name.length === 9) score += 30;
+      else if (name.length < 4) score -= 100;
+      else if (name.length > 10) score -= 80;
       
       // Читаемость (гласные)
       const vowels = (name.match(/[aeiouy]/gi) || []).length;
-      if (vowels >= 2 && vowels <= 4) score += 25;
-      else if (vowels === 1 || vowels === 5) score += 10;
-      else if (vowels === 0) score -= 50;
+      if (vowels >= 2 && vowels <= 4) score += 40;
+      else if (vowels === 1 || vowels === 5) score += 20;
+      else if (vowels === 0) score -= 100;
       
       // Повторы
-      if (/(.)\1{2,}/.test(name)) score -= 40;
+      if (/(.)\1{2,}/.test(name)) score -= 80;
       
-      // Связь с base (критично)
-      if (base) {
-        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, '');
-        if (cleanBase.length > 1) {
-          if (name.includes(cleanBase)) score += 100; // прямое вхождение
-          else if (name.includes(cleanBase.slice(0,3))) score += 70;
-          else if (cleanBase.split('').some(c => name.includes(c))) score += 30;
-          else score -= 50; // нет связи с base - штраф
+      // СВЯЗЬ С BASE (КРИТИЧНО)
+      if (base && base.length >= 2) {
+        const variants = buildBaseVariants(base);
+        let bestMatch = 0;
+        
+        for (const v of variants) {
+          if (v.length >= 3 && name.includes(v)) {
+            bestMatch = Math.max(bestMatch, v.length * 20);
+          } else if (v.length === 2 && name.includes(v)) {
+            bestMatch = Math.max(bestMatch, 30);
+          }
+        }
+        
+        if (bestMatch > 0) {
+          score += bestMatch;
+        } else {
+          // Нет связи с base - жёсткий штраф
+          score -= 200;
         }
       }
       
       // Специфичные для режима
       if (mode === 'social') {
-        if (/[zxq]/.test(name)) score -= 20;
-        if (name.includes('.')) score += 20;
-        if (name.length <= 8) score += 20;
+        if (/[zxq]/.test(name)) score -= 30;
+        if (name.includes('.')) score += 30;
+        if (name.length <= 8) score += 30;
+        if (/[aeiou]{2,}/.test(name)) score += 20;
       } else if (mode === 'gamer') {
-        if (/[xz]/.test(name)) score += 20;
-        if (name.length <= 6) score += 30;
-        if (name.includes('xX')) score += 10;
+        if (/[xz]/.test(name)) score += 30;
+        if (name.length <= 6) score += 40;
+        if (/[^aeiou]{3,}/.test(name)) score += 20;
       } else if (mode === 'spicy') {
         const spicyWords = ['vel', 'sin', 'nox', 'heat', 'wild', 'kiss', 'bad', 'hot'];
-        if (spicyWords.some(w => name.includes(w))) score += 40;
-        if (name.length >= 5 && name.length <= 9) score += 30;
-        if (name.includes('xo')) score += 20;
+        if (spicyWords.some(w => name.includes(w))) score += 50;
+        if (name.length >= 5 && name.length <= 9) score += 40;
+        if (name.includes('xo')) score += 30;
+        if (name.includes('rx')) score += 20;
       }
       
-      return Math.max(0, Math.min(200, score));
+      return score;
     }
 
-    // ========== УМНАЯ ГЕНЕРАЦИЯ С BASE-BINDING ==========
+    // ========== ФИЛЬТРЫ ==========
+    
+    function isStrongCandidate(name, mode, base) {
+      if (name.length < 3 || name.length > 12) return false;
+      if (/(.)\1{3,}/.test(name)) return false;
+      
+      // Связь с base
+      if (base && base.length >= 2) {
+        const variants = buildBaseVariants(base);
+        let hasStrongConnection = false;
+        
+        for (const v of variants) {
+          if (v.length >= 3 && name.includes(v)) {
+            hasStrongConnection = true;
+            break;
+          }
+          if (v.length === 2 && name.includes(v) && name.length > 4) {
+            hasStrongConnection = true;
+            break;
+          }
+        }
+        
+        if (!hasStrongConnection) return false;
+      }
+      
+      return true;
+    }
+
+    // ========== ГЕНЕРАЦИЯ С BASE-FIRST ==========
     
     function generateBestName(mode, base = '') {
-      const cleanBase = base.toLowerCase().replace(/[^a-z]/g, '').slice(0, 8);
+      const cleanBase = base.toLowerCase().replace(/[^a-z]/g, '');
       
-      // Если base есть - он должен быть в результате
+      // Если нет base, используем случайные cores
       if (cleanBase.length < 2) {
-        // Если нет base, используем случайные cores
-        const fallback = mode === 'social' ? pick(DICTS.social.cores) :
-                        mode === 'gamer' ? pick(DICTS.gamer.cores) : 
+        const fallback = mode === 'social' ? pick(DICTS.social.cores) + pick(DICTS.social.endings) :
+                        mode === 'gamer' ? pick(DICTS.gamer.cores) + pick(DICTS.gamer.endings) : 
                         pick(DICTS.spicy.prefixes) + pick(DICTS.spicy.suffixes);
         return fallback.slice(0, 10);
       }
       
+      const baseVariants = buildBaseVariants(cleanBase);
       const results = [];
       const seen = new Set();
-      const attempts = 1000; // 1000 внутренних кандидатов
+      const attempts = 2000; // 2000 внутренних кандидатов
       
       for (let i = 0; i < attempts; i++) {
-        const patterns = PATTERNS[mode];
-        const pattern = patterns[Math.floor(Math.random() * patterns.length)];
+        // Выбираем случайный вариант base
+        const baseVar = pick(baseVariants);
         
-        let name = pattern(cleanBase);
+        // Выбираем паттерн
+        const patterns = PATTERNS[mode];
+        const pattern = pick(patterns);
+        
+        let name = pattern(baseVar);
         
         // Очистка
         name = name.toLowerCase().replace(/[^a-z0-9._]/g, '');
-        if (name.length < 3 || name.length > 12) continue;
+        
+        // Базовые проверки
+        if (!isStrongCandidate(name, mode, cleanBase)) continue;
         if (seen.has(name)) continue;
         
-        // Проверка связи с base (обязательно)
-        if (cleanBase.length > 1) {
-          const baseParts = cleanBase.split('');
-          const hasConnection = baseParts.some(part => name.includes(part));
-          if (!hasConnection) continue;
-        }
-        
         const score = scoreName(name, mode, cleanBase);
-        if (score < 60) continue; // reject низкого качества
+        if (score < 80) continue; // жёсткий reject
         
         seen.add(name);
         results.push({ name, score });
       }
       
       if (results.length === 0) {
-        // Fallback с гарантированной связью
-        return cleanBase + (mode === 'social' ? 'ri' : mode === 'gamer' ? 'x' : 'xo');
+        // Супер-запасной вариант с гарантией
+        return cleanBase.slice(0,4) + (mode === 'social' ? 'ri' : mode === 'gamer' ? 'x' : 'xo');
       }
       
       results.sort((a, b) => b.score - a.score);
@@ -815,10 +861,10 @@
             <div class="social-avatar">${name[0].toUpperCase()}</div>
             <div class="social-info">
               <div class="social-handle">@${name}</div>
-              <div class="social-stats">
-                <span>📸 1.2k posts</span>
-                <span>👥 8.7k followers</span>
-                <span>❤️ 45k likes</span>
+              <div class="social-bio">✨ creator • ${pick(['design', 'music', 'art', 'tech', 'travel'])}</div>
+              <div class="social-tags">
+                <span>#${pick(['creative', 'aesthetic', 'minimal', 'modern'])}</span>
+                <span>#${pick(['vibes', 'lifestyle', 'daily', 'fresh'])}</span>
               </div>
             </div>
           </div>
@@ -829,7 +875,7 @@
             <div class="gamer-avatar">🎮</div>
             <div class="gamer-info">
               <div class="gamer-tag">${name}</div>
-              <div class="gamer-level">Level 42 • 2.3k hours</div>
+              <div class="gamer-stats">Level ${Math.floor(Math.random() * 50) + 20} • ${pick(['Solo', 'Squad', 'Clan', 'Pro'])}</div>
             </div>
           </div>
         `;
@@ -839,7 +885,7 @@
             <div class="spicy-avatar">🔥</div>
             <div class="spicy-info">
               <div class="spicy-name">${name}</div>
-              <div class="spicy-bio">✨ "don't be a tease" ✨</div>
+              <div class="spicy-bio">✨ ${pick(['don\'t be a tease', 'catch me if you can', 'good vibes only', 'dangerous'])}</div>
             </div>
           </div>
         `;
@@ -877,19 +923,17 @@
     // ========== СОСТОЯНИЕ ==========
     
     let currentMode = 'social';
-    let currentName = 'lunamay';
-    let saved = JSON.parse(localStorage.getItem('saved') || '[]'); // сохраняем в фоне
+    let currentName = 'alexri';
+    let saved = JSON.parse(localStorage.getItem('saved') || '[]');
 
     // ========== РЕНДЕР ==========
     
     function renderTop(name) {
       document.getElementById('topName').textContent = name;
-      document.getElementById('topBadge').textContent = 
-        currentMode === 'social' ? '✨ Best match for Social' :
-        currentMode === 'gamer' ? '⚡ Best gamer tag' : '🔥 Best spicy name';
+      document.getElementById('topBadge').textContent = '✨ From your name';
       document.getElementById('topMeta').textContent = 
-        currentMode === 'social' ? 'Clean, short, memorable' :
-        currentMode === 'gamer' ? 'Sharp, short gaming style' : 'Bold, flirty, provocative';
+        currentMode === 'social' ? 'Clean social handle' :
+        currentMode === 'gamer' ? 'Sharp gaming tag' : 'Bold spicy alias';
       
       renderPreview(name, currentMode);
     }
@@ -913,7 +957,7 @@
           currentMode = btn.dataset.mode;
           document.getElementById('base').placeholder = 
             currentMode === 'social' ? 'e.g., alex, ray, max' :
-            currentMode === 'gamer' ? 'e.g., x, z, ry' : 'e.g., velvet, sin';
+            currentMode === 'gamer' ? 'e.g., ray, max, z' : 'e.g., velvet, sin';
           generateNew();
         });
       });
@@ -930,7 +974,7 @@
         toast(ok ? 'Copied!' : 'Copy failed');
       });
 
-      // Save (в фоне, без UI блока)
+      // Save
       document.getElementById('saveTop').addEventListener('click', () => {
         if (!saved.some(s => s.name === currentName)) {
           saved.unshift({ name: currentName, mode: currentMode });
@@ -981,7 +1025,7 @@
       });
 
       // Старт
-      renderTop(currentName);
+      generateNew();
     });
   </script>
 </body>
