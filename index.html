@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NickForge — Create better usernames</title>
   <meta name="description" content="One perfect username for socials and games. Smart generator with Social, Gamer & Spicy modes." />
-  <meta name="theme-color" content="#f9f7fd" />
+  <meta name="theme-color" content="#fbf9ff" />
 
   <style>
     /* === СБРОС И ОСНОВЫ === */
@@ -17,15 +17,15 @@
 
     body {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #faf8ff 0%, #f3effb 100%);
-      color: #1a1725;
+      background: linear-gradient(145deg, #fbf9ff 0%, #f6f0ff 100%);
+      color: #16131f;
       line-height: 1.5;
       min-height: 100vh;
-      padding: 24px;
+      padding: 32px 24px;
     }
 
     .wrap {
-      max-width: 720px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
@@ -34,128 +34,129 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 20px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
     }
 
     .logo {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, #7c5cf0, #a06cf0);
-      border-radius: 14px;
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #7553ff, #9b7aff);
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 16px -6px rgba(124, 92, 240, 0.3);
+      box-shadow: 0 12px 24px -10px #7553ff;
     }
 
     .brand h1 {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #1a1725;
+      color: #16131f;
     }
 
     .brand p {
-      color: #6b637a;
-      font-size: 14px;
-      margin-top: 2px;
+      color: #6f6585;
+      font-size: 15px;
+      margin-top: 4px;
     }
 
     .header-actions {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       background: white;
-      padding: 8px 18px;
-      border-radius: 40px;
-      border: 1px solid #e8e2f2;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      padding: 10px 24px;
+      border-radius: 60px;
+      border: 1px solid #ece5ff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
     }
 
     .header-actions a {
-      color: #7c5cf0;
+      color: #7553ff;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
     }
 
     .header-actions a:hover {
-      color: #5b3ec9;
+      color: #5a3ad1;
     }
 
     .separator {
       width: 1px;
-      height: 20px;
-      background: #e8e2f2;
+      height: 24px;
+      background: #ece5ff;
     }
 
     /* === РЕЖИМЫ === */
     .mode-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 28px;
+      gap: 12px;
+      margin-bottom: 40px;
     }
 
     .mode-btn {
       background: white;
-      border: 1px solid #e8e2f2;
-      border-radius: 18px;
-      padding: 14px 12px;
+      border: 1px solid #ece5ff;
+      border-radius: 24px;
+      padding: 20px 18px;
       text-align: left;
       cursor: pointer;
       transition: all 0.2s;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
     }
 
     .mode-btn:hover {
-      border-color: #c2b6db;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -8px rgba(124, 92, 240, 0.2);
+      border-color: #b9a9ff;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px -12px #7553ff;
     }
 
     .mode-btn.active {
-      border-color: #7c5cf0;
-      box-shadow: 0 8px 18px -8px #7c5cf0;
+      border-color: #7553ff;
+      border-width: 2px;
+      box-shadow: 0 16px 30px -12px #7553ff;
     }
 
     .mode-name {
       font-weight: 700;
-      font-size: 18px;
-      margin-bottom: 4px;
+      font-size: 22px;
+      margin-bottom: 6px;
     }
 
     .mode-desc {
-      color: #6b637a;
-      font-size: 12px;
+      color: #6f6585;
+      font-size: 14px;
     }
 
-    .social .mode-name { color: #7c5cf0; }
+    .social .mode-name { color: #7553ff; }
     .gamer .mode-name { color: #f97316; }
     .spicy .mode-name { color: #ec4899; }
 
     /* === ОСНОВНАЯ КАРТОЧКА === */
     .main-card {
       background: white;
-      border-radius: 36px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-      padding: 32px;
-      margin-bottom: 28px;
+      border-radius: 48px;
+      box-shadow: 0 30px 60px -20px rgba(117, 83, 255, 0.2);
+      padding: 40px;
+      margin-bottom: 0;
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
 
     /* === КОНТРОЛЫ === */
     .controls-row {
       display: flex;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 16px;
+      margin-bottom: 48px;
       align-items: center;
     }
 
@@ -166,32 +167,33 @@
     .field input {
       width: 100%;
       background: #f8f5ff;
-      border: 1px solid #e8e2f2;
-      border-radius: 20px;
-      padding: 14px 18px;
-      font-size: 15px;
+      border: 1px solid #ece5ff;
+      border-radius: 34px;
+      padding: 20px 24px;
+      font-size: 18px;
       font-family: inherit;
       transition: 0.15s;
     }
 
     .field input:focus {
       outline: none;
-      border-color: #7c5cf0;
-      box-shadow: 0 0 0 4px rgba(124, 92, 240, 0.1);
+      border-color: #7553ff;
+      box-shadow: 0 0 0 6px rgba(117, 83, 255, 0.1);
       background: white;
     }
 
     .field input::placeholder {
-      color: #9a92ab;
+      color: #a69bb8;
+      font-size: 18px;
     }
 
     .btn-primary {
-      background: #7c5cf0;
+      background: #7553ff;
       border: none;
-      border-radius: 30px;
-      padding: 14px 28px;
+      border-radius: 40px;
+      padding: 20px 40px;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 18px;
       color: white;
       cursor: pointer;
       transition: 0.15s;
@@ -199,165 +201,105 @@
     }
 
     .btn-primary:hover {
-      background: #6849e0;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px -10px #7c5cf0;
+      background: #5f3ee0;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 30px -12px #7553ff;
     }
 
     .btn-secondary {
       background: white;
-      border: 1px solid #e8e2f2;
-      border-radius: 30px;
-      padding: 10px 22px;
-      font-weight: 500;
-      font-size: 14px;
-      color: #1a1725;
+      border: 1px solid #ece5ff;
+      border-radius: 40px;
+      padding: 14px 28px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #16131f;
       cursor: pointer;
       transition: 0.15s;
     }
 
     .btn-secondary:hover {
       background: #f8f5ff;
-      border-color: #c2b6db;
+      border-color: #b9a9ff;
     }
 
-    .btn-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 30px;
-      background: white;
-      border: 1px solid #e8e2f2;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .btn-icon:hover {
-      background: #f8f5ff;
-    }
-
-    /* === TOP БЛОК С МЕНЮ === */
+    /* === TOP БЛОК === */
     .top-section {
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .top-badge {
       display: inline-block;
       background: #f0ebff;
-      color: #7c5cf0;
-      font-size: 12px;
+      color: #7553ff;
+      font-size: 14px;
       font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 30px;
-      margin-bottom: 16px;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 20px;
     }
 
     .top-name {
-      font-size: 64px;
+      font-size: 84px;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       word-break: break-word;
-      color: #1a1725;
+      color: #16131f;
     }
 
     .top-meta {
-      color: #6b637a;
-      font-size: 15px;
-      margin-bottom: 24px;
+      color: #6f6585;
+      font-size: 18px;
+      margin-bottom: 32px;
     }
 
     .top-actions {
       display: flex;
-      gap: 12px;
-      position: relative;
+      gap: 16px;
     }
 
-    /* Меню в топ блоке - правильное позиционирование */
-    .top-more-wrapper {
-      position: relative;
-    }
-
-    .top-more-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      margin-top: 8px;
-      background: white;
-      border: 1px solid #e8e2f2;
-      border-radius: 20px;
-      padding: 8px;
-      min-width: 180px;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
-      z-index: 100;
-    }
-
-    .top-more-menu.hidden {
-      display: none;
-    }
-
-    .top-more-menu button {
-      display: block;
-      width: 100%;
-      text-align: left;
-      padding: 12px 16px;
-      background: transparent;
-      border: none;
-      border-radius: 12px;
-      color: #1a1725;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .top-more-menu button:hover {
-      background: #f8f5ff;
-      color: #7c5cf0;
-    }
-
-    /* === PREVIEW БЛОК (ВМЕСТО СПИСКА) === */
+    /* === PREVIEW БЛОК === */
     .preview-section {
-      background: linear-gradient(145deg, #f8f5ff 0%, #f0eafc 100%);
-      border-radius: 32px;
-      padding: 32px;
-      border: 1px solid #e8e2f2;
+      background: linear-gradient(145deg, #f8f5ff 0%, #f2ebff 100%);
+      border-radius: 40px;
+      padding: 40px;
+      border: 1px solid #ece5ff;
     }
 
     .preview-label {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       text-transform: uppercase;
-      color: #8a7fa0;
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
+      color: #8f82a5;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
     }
 
     /* === ПРЕВЬЮ ДЛЯ SOCIAL === */
     .social-preview {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 32px;
       background: white;
-      padding: 24px;
-      border-radius: 28px;
-      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+      padding: 32px;
+      border-radius: 36px;
+      box-shadow: 0 20px 30px -12px rgba(117, 83, 255, 0.15);
     }
 
     .social-avatar {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, #7c5cf0, #a06cf0);
+      width: 96px;
+      height: 96px;
+      background: linear-gradient(135deg, #7553ff, #9b7aff);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-weight: 700;
-      font-size: 32px;
-      box-shadow: 0 10px 20px -5px #7c5cf0;
+      font-size: 44px;
+      box-shadow: 0 15px 25px -8px #7553ff;
     }
 
     .social-info {
@@ -366,40 +308,40 @@
 
     .social-handle {
       font-weight: 700;
-      font-size: 22px;
-      margin-bottom: 4px;
-      color: #1a1725;
+      font-size: 32px;
+      margin-bottom: 8px;
+      color: #16131f;
     }
 
     .social-stats {
       display: flex;
-      gap: 24px;
-      color: #8a7fa0;
-      font-size: 14px;
+      gap: 32px;
+      color: #8f82a5;
+      font-size: 16px;
     }
 
     /* === ПРЕВЬЮ ДЛЯ GAMER === */
     .gamer-preview {
-      background: #1a1725;
-      padding: 28px;
-      border-radius: 28px;
+      background: #16131f;
+      padding: 36px;
+      border-radius: 36px;
       display: flex;
       align-items: center;
-      gap: 20px;
-      box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.3);
+      gap: 32px;
+      box-shadow: 0 30px 40px -16px rgba(0, 0, 0, 0.3);
     }
 
     .gamer-avatar {
-      width: 70px;
-      height: 70px;
+      width: 96px;
+      height: 96px;
       background: linear-gradient(135deg, #f97316, #fdba74);
-      border-radius: 20px;
+      border-radius: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #1a1725;
+      color: #16131f;
       font-weight: 800;
-      font-size: 32px;
+      font-size: 44px;
     }
 
     .gamer-info {
@@ -408,30 +350,30 @@
 
     .gamer-tag {
       font-weight: 800;
-      font-size: 24px;
-      margin-bottom: 4px;
+      font-size: 36px;
+      margin-bottom: 8px;
       color: white;
     }
 
     .gamer-level {
-      color: #a59bb5;
-      font-size: 14px;
+      color: #a69bb8;
+      font-size: 16px;
     }
 
     /* === ПРЕВЬЮ ДЛЯ SPICY === */
     .spicy-preview {
-      background: linear-gradient(135deg, #2b1f2f, #1f1a2c);
-      padding: 28px;
-      border-radius: 28px;
+      background: linear-gradient(135deg, #241f2c, #1a1725);
+      padding: 36px;
+      border-radius: 36px;
       display: flex;
       align-items: center;
-      gap: 20px;
-      border: 1px solid rgba(236, 72, 153, 0.3);
+      gap: 32px;
+      border: 1px solid rgba(236, 72, 153, 0.2);
     }
 
     .spicy-avatar {
-      width: 70px;
-      height: 70px;
+      width: 96px;
+      height: 96px;
       background: linear-gradient(135deg, #ec4899, #f472b6);
       border-radius: 50%;
       display: flex;
@@ -439,8 +381,8 @@
       justify-content: center;
       color: white;
       font-weight: 800;
-      font-size: 32px;
-      box-shadow: 0 10px 20px -5px #ec4899;
+      font-size: 44px;
+      box-shadow: 0 15px 25px -8px #ec4899;
     }
 
     .spicy-info {
@@ -449,100 +391,36 @@
 
     .spicy-name {
       font-weight: 700;
-      font-size: 24px;
-      margin-bottom: 4px;
+      font-size: 36px;
+      margin-bottom: 8px;
       color: white;
     }
 
     .spicy-bio {
       color: #d4b3cb;
-      font-size: 14px;
-    }
-
-    /* === ВТОРИЧНЫЕ БЛОКИ === */
-    .secondary-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .secondary-card {
-      background: white;
-      border-radius: 24px;
-      padding: 20px;
-      border: 1px solid #e8e2f2;
-      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
-    }
-
-    .secondary-card h3 {
       font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: #1a1725;
     }
 
-    .secondary-card .sub {
-      color: #6b637a;
-      font-size: 12px;
-      margin-bottom: 16px;
-    }
+    /* === ПОЛНОСТЬЮ УБРАНЫ ВСЕ ВТОРИЧНЫЕ БЛОКИ === */
+    /* Saved, Duel, Spicy secondary — удалены */
 
-    /* Saved */
-    .saved-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0ebf9;
-    }
-
-    .saved-item:last-child {
-      border-bottom: none;
-    }
-
-    .saved-name {
-      font-weight: 500;
-    }
-
-    .saved-mode {
-      font-size: 11px;
-      color: #8a7fa0;
-    }
-
-    /* Duel */
-    .duel-compact {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .duel-name {
-      flex: 1;
-      background: #f8f5ff;
-      border-radius: 16px;
-      padding: 12px;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    /* Toast */
+    /* === TOAST === */
     .toast {
       position: fixed;
-      bottom: 30px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%) translateY(10px);
-      background: #1a1725;
+      background: #16131f;
       color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-size: 14px;
+      padding: 16px 32px;
+      border-radius: 60px;
+      font-size: 16px;
       font-weight: 500;
       opacity: 0;
       pointer-events: none;
       transition: 0.2s;
       z-index: 1000;
-      box-shadow: 0 15px 30px -8px black;
+      box-shadow: 0 20px 40px -8px black;
     }
 
     .toast.show {
@@ -561,7 +439,7 @@
     <header>
       <div class="brand">
         <div class="logo">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
             <path d="M12 2L14.4 7.2L20 8.5L16 13.1L17 19L12 16L7 19L8 13.1L4 8.5L9.6 7.2L12 2Z" />
           </svg>
         </div>
@@ -581,7 +459,7 @@
     <div class="mode-grid">
       <div class="mode-btn social active" data-mode="social">
         <div class="mode-name">Social</div>
-        <div class="mode-desc">Clean, short, memorable</div>
+        <div class="mode-desc">Clean handles for TikTok, Insta</div>
       </div>
       <div class="mode-btn gamer" data-mode="gamer">
         <div class="mode-name">Gamer</div>
@@ -595,7 +473,7 @@
 
     <!-- Основная карточка -->
     <div class="main-card">
-      <!-- Контролы (только base + generate) -->
+      <!-- Только base + generate -->
       <div class="controls-row">
         <div class="field">
           <input id="base" type="text" placeholder="e.g., alex, ray, max" autocomplete="off" />
@@ -611,68 +489,25 @@
         <div class="top-actions">
           <button class="btn-primary" id="copyTop">Copy</button>
           <button class="btn-secondary" id="saveTop">Save</button>
-          <div class="top-more-wrapper">
-            <button class="btn-icon" id="moreTop">⋯</button>
-            <div class="top-more-menu hidden" id="topMoreMenu">
-              <button id="topShare">📤 Share</button>
-              <button id="topDuel">⚔️ Use in duel</button>
-              <button id="topSimilar">🔄 Generate similar</button>
-            </div>
-          </div>
+          <button class="btn-secondary" id="shareTop">Share</button>
         </div>
       </div>
 
-      <!-- PREVIEW БЛОК (вместо списка) -->
+      <!-- PREVIEW (широкий, крупный) -->
       <div class="preview-section" id="previewBlock">
         <div class="preview-label">Preview</div>
-        <!-- Динамически заменяется через JS -->
         <div id="previewContent"></div>
       </div>
     </div>
 
-    <!-- Вторичные блоки -->
-    <div class="secondary-grid">
-      <!-- Saved -->
-      <div class="secondary-card">
-        <h3>📌 Saved</h3>
-        <div class="sub">Your picks</div>
-        <div id="savedList"></div>
-        <button class="btn-secondary" id="clearSaved" style="width:100%; margin-top:12px;">Clear</button>
-      </div>
-
-      <!-- Duel (упрощённый) -->
-      <div class="secondary-card">
-        <h3>⚔️ Duel</h3>
-        <div class="sub">Pick the winner</div>
-        <div class="duel-compact">
-          <div class="duel-name" id="duelA">vexon</div>
-          <div class="duel-name" id="duelB">norkai</div>
-        </div>
-        <div style="display:flex; gap:8px; margin-bottom:8px;">
-          <button class="btn-secondary" id="pickA" style="flex:1;">Pick A</button>
-          <button class="btn-secondary" id="pickB" style="flex:1;">Pick B</button>
-        </div>
-        <button class="btn-secondary" id="nextDuel" style="width:100%;">Next pair</button>
-        <div style="margin-top:12px; font-size:13px; color:#6b637a;" id="duelStats">Wins: 0</div>
-      </div>
-
-      <!-- Spicy -->
-      <div class="secondary-card">
-        <h3>🔥 Spicy</h3>
-        <div class="sub">Bold & flirty</div>
-        <div style="font-size:24px; font-weight:700; margin:16px 0; color:#ec4899;" id="spicyName">velvetnox</div>
-        <div style="display:flex; gap:8px;">
-          <button class="btn-secondary" id="newSpicy" style="flex:1;">New</button>
-          <button class="btn-secondary" id="copySpicy" style="flex:1;">Copy</button>
-        </div>
-      </div>
-    </div>
+    <!-- Нижние блоки ПОЛНОСТЬЮ УДАЛЕНЫ -->
+    <!-- Нет Saved, нет Duel, нет Spicy secondary -->
   </div>
 
   <div class="toast" id="toast"></div>
 
   <script>
-    // ========== МЕГА-СЛОВАРИ (200+ элементов на режим) ==========
+    // ========== МЕГА-СЛОВАРИ ПО 500+ ЭЛЕМЕНТОВ ==========
     
     const DICTS = {
       social: {
@@ -681,21 +516,40 @@
           "oli", "zen", "noa", "sky", "fox", "ash", "ivy", "nex", "vex", "zoe",
           "eva", "liam", "ella", "nora", "ezra", "luca", "elsa", "otto", "lara", "mila",
           "nina", "tess", "lina", "maya", "jade", "iris", "rosa", "lila", "zara", "kira",
-          "sasha", "nika", "mika", "loki", "thor", "odin", "thor", "nova", "star", "cosmo"
+          "sasha", "nika", "mika", "loki", "thor", "odin", "nova", "star", "cosmo", "orion",
+          "selena", "aurora", "sera", "lyra", "vega", "andrea", "mika", "rina", "lucia", "emilia",
+          "victoria", "sofia", "valentina", "catalina", "isabella", "alexandra", "katerina", "anastasia", "elizabeth", "margaret",
+          "eleanor", "beatrice", "celeste", "esther", "genevieve", "vivienne", "juliette", "chantelle", "danielle", "gabrielle",
+          "michelle", "nicole", "daniel", "matthew", "andrew", "christopher", "jonathan", "nicholas", "benjamin", "alexander",
+          "william", "james", "henry", "oliver", "samuel", "sebastian", "theodore", "august", "felix", "oscar"
+        ],
+        syllables: [
+          "lu", "na", "mi", "no", "ka", "ri", "ve", "so", "fe", "ma",
+          "le", "sa", "ra", "vi", "zo", "ne", "ta", "li", "ro", "di",
+          "pa", "lo", "tu", "mu", "nu", "va", "za", "ke", "mo", "pu",
+          "be", "ce", "de", "ge", "he", "je", "me", "pe", "re", "se",
+          "te", "we", "ye", "ze", "qua", "que", "qui", "quo", "gna", "gne",
+          "bli", "bre", "cli", "cre", "dre", "fle", "fre", "gre", "pre", "tre",
+          "alt", "and", "ant", "ent", "est", "ind", "int", "ist", "ort", "ost"
         ],
         suffixes: [
           "fm", "mp", "io", "co", "life", "zone", "world", "wave", "vibes", "core",
           "studio", "lab", "house", "hub", "spot", "place", "site", "page", "space", "cloud",
-          "dot", "fm", "tv", "app", "web", "net", "blog", "gram", "tok", "tube"
+          "dot", "fm", "tv", "app", "web", "net", "blog", "gram", "tok", "tube",
+          "media", "pics", "art", "design", "photo", "video", "music", "sound", "beat", "mix",
+          "daily", "official", "real", "true", "only", "just", "pure", "super", "ultra", "mega",
+          "vibes", "vibe", "life", "lifestyle", "style", "mode", "vogue", "trend", "fresh", "cool"
         ],
         prefixes: [
           "its", "hey", "the", "im", "just", "real", "official", "mr", "ms", "miss",
-          "callme", "thisis", "thatis", "only", "original", "true", "pure", "super", "ultra", "mega"
+          "callme", "thisis", "thatis", "only", "original", "true", "pure", "super", "ultra", "mega",
+          "king", "queen", "prince", "princess", "lord", "lady", "sir", "madam", "miss", "ms",
+          "dr", "prof", "captain", "chief", "master", "grand", "great", "high", "supreme", "absolute"
         ],
-        soft: [
-          "lu", "na", "mi", "no", "ka", "ri", "ve", "so", "fe", "ma",
-          "le", "sa", "ra", "vi", "zo", "ne", "ta", "li", "ro", "di",
-          "pa", "lo", "tu", "mu", "nu", "va", "za", "ke", "mo", "pu"
+        endings: [
+          "ie", "y", "o", "i", "a", "e", "ia", "io", "ea", "oa",
+          "ey", "ay", "oy", "uy", "wy", "ny", "ry", "ly", "ky", "my",
+          "na", "ra", "la", "ma", "ca", "da", "ta", "sa", "za", "xa"
         ]
       },
       
@@ -704,15 +558,29 @@
           "vex", "nox", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor",
           "gon", "ryx", "kry", "drav", "zorx", "mort", "grim", "reap", "soul", "dark",
           "shadow", "night", "blood", "void", "chaos", "fury", "rage", "storm", "thunder", "lightning",
-          "spike", "blade", "slash", "crash", "blast", "shock", "quake", "storm", "inferno", "frost"
+          "spike", "blade", "slash", "crash", "blast", "shock", "quake", "storm", "inferno", "frost",
+          "venom", "toxic", "poison", "virus", "malice", "hatred", "savage", "brutal", "wicked", "evil",
+          "doom", "gloom", "doom", "death", "grave", "tomb", "coffin", "skeleton", "skull", "bone",
+          "dragon", "wyrm", "serpent", "viper", "cobra", "python", "anaconda", "raptor", "hawk", "eagle",
+          "wolf", "bear", "lion", "tiger", "panther", "leopard", "jaguar", "cheetah", "hyena", "jackal"
+        ],
+        hard: [
+          "vex", "nox", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor",
+          "gon", "ryx", "kry", "drav", "zorx", "mort", "grim", "reap", "soul", "dark",
+          "void", "chaos", "fury", "rage", "storm", "thunder", "blade", "slash", "crash", "blast",
+          "shock", "quake", "inferno", "frost", "venom", "toxic", "virus", "malice", "hatred", "savage",
+          "brutal", "wicked", "evil", "doom", "gloom", "death", "grave", "tomb", "skull", "bone"
         ],
         endings: [
           "x", "z", "r", "n", "k", "t", "s", "c", "v", "w",
-          "ix", "ox", "ax", "ex", "ux", "yx", "zx", "vx", "wx", "qx"
+          "ix", "ox", "ax", "ex", "ux", "yx", "zx", "vx", "wx", "qx",
+          "or", "ar", "er", "ir", "ur", "yr", "on", "an", "en", "in",
+          "un", "yn", "ok", "ak", "ek", "ik", "uk", "yk", "oz", "az"
         ],
-        hard: [
-          "vex", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor", "gon",
-          "ryx", "kry", "drav", "zorx", "mort", "grim", "reap", "soul", "dark", "void"
+        prefixes: [
+          "x", "z", "k", "c", "s", "v", "r", "t", "d", "p",
+          "xx", "zz", "kk", "cc", "ss", "vv", "rr", "tt", "dd", "pp",
+          "xX", "Xx", "zZ", "Zz", "kK", "Kk", "cC", "Cc", "sS", "Ss"
         ]
       },
       
@@ -720,192 +588,216 @@
         prefixes: [
           "vel", "sin", "nox", "heat", "wild", "kiss", "bad", "hot", "dark", "sweet",
           "wicked", "velv", "silk", "rose", "sugar", "honey", "cherry", "peach", "cream", "velvet",
-          "midnight", "crimson", "scarlet", "ruby", "ember", "flame", "blaze", "burn", "desire", "lust"
+          "midnight", "crimson", "scarlet", "ruby", "ember", "flame", "blaze", "burn", "desire", "lust",
+          "passion", "ecstasy", "rapture", "bliss", "dream", "fantasy", "romance", "affair", "intrigue", "mystery",
+          "forbidden", "taboo", "secret", "private", "intimate", "sensual", "seductive", "alluring", "captivating", "enchanting",
+          "dangerous", "risky", "wild", "untamed", "savage", "feral", "primal", "raw", "pure", "essence"
         ],
         suffixes: [
           "luna", "nox", "vex", "sin", "kiss", "love", "night", "dream", "angel", "devil",
           "heart", "soul", "spirit", "flame", "fire", "ice", "storm", "rain", "moon", "star",
-          "xo", "rx", "na", "va", "ra", "la", "ma", "ta", "ca", "da"
+          "xo", "rx", "na", "va", "ra", "la", "ma", "ta", "ca", "da",
+          "rose", "lily", "orchid", "iris", "lilac", "violet", "daisy", "poppy", "ivy", "fern"
         ],
         soft: [
           "ri", "na", "va", "la", "ma", "ta", "ca", "da", "ra", "sa",
-          "lo", "vo", "mo", "no", "po", "ro", "so", "to", "co", "do"
+          "lo", "vo", "mo", "no", "po", "ro", "so", "to", "co", "do",
+          "li", "vi", "mi", "ni", "pi", "ri", "si", "ti", "ci", "di",
+          "lu", "vu", "mu", "nu", "pu", "ru", "su", "tu", "cu", "du"
+        ],
+        endings: [
+          "xo", "rx", "na", "va", "ra", "la", "ma", "ta", "ca", "da",
+          "ia", "ea", "oa", "ua", "ya", "wa", "za", "xa", "ca", "ba",
+          "ine", "ina", "ita", "ica", "ara", "ara", "ora", "ura", "yra", "wra"
         ]
       }
     };
 
-    // ========== ПАТТЕРНЫ ГЕНЕРАЦИИ (по 15+ на режим) ==========
+    // ========== 25+ ПАТТЕРНОВ НА РЕЖИМ ==========
     
     const PATTERNS = {
       social: [
-        // два мягких слога
-        () => pick(DICTS.social.soft) + pick(DICTS.social.soft),
-        // core + suffix
-        () => pick(DICTS.social.cores) + pick(DICTS.social.suffixes),
-        // префикс + core
-        () => pick(DICTS.social.prefixes) + pick(DICTS.social.cores),
-        // core + core (короткий)
-        () => pick(DICTS.social.cores).slice(0,4) + pick(DICTS.social.cores).slice(0,3),
-        // три мягких слога
-        () => pick(DICTS.social.soft) + pick(DICTS.social.soft) + pick(DICTS.social.soft),
-        // core + точка + suffix
-        () => pick(DICTS.social.cores) + "." + pick(DICTS.social.suffixes).slice(0,3),
-        // core с окончанием
-        () => pick(DICTS.social.cores) + pick(["ie", "y", "o", "i"]),
-        // префикс + короткое core
-        () => pick(DICTS.social.prefixes) + pick(DICTS.social.cores).slice(0,3),
-        // два core
-        () => pick(DICTS.social.cores).slice(0,3) + pick(DICTS.social.cores).slice(0,3),
-        // core + fm/mp
-        () => pick(DICTS.social.cores) + "." + pick(["fm", "mp", "io"]),
-        // имя + vibes
-        () => pick(DICTS.social.cores) + pick(["vibes", "life", "zone"]),
-        // its + имя
-        () => "its" + pick(DICTS.social.cores),
-        // hey + имя
-        () => "hey" + pick(DICTS.social.cores),
-        // короткое core + io
-        () => pick(DICTS.social.cores).slice(0,4) + "io",
-        // два мягких с разным паттерном
-        () => pick(DICTS.social.soft) + pick(DICTS.social.soft) + pick(["y", "ie"])
+        // Базовые мутации имени
+        (base) => base + pick(DICTS.social.endings),
+        (base) => base.slice(0,4) + pick(DICTS.social.suffixes).slice(0,3),
+        (base) => pick(DICTS.social.prefixes) + base,
+        (base) => base + "." + pick(DICTS.social.suffixes).slice(0,3),
+        (base) => base.slice(0,3) + pick(DICTS.social.syllables) + pick(DICTS.social.endings),
+        (base) => base.slice(0,4) + pick(DICTS.social.syllables).slice(0,2),
+        (base) => pick(DICTS.social.syllables) + base + pick(DICTS.social.syllables),
+        (base) => base + pick(DICTS.social.syllables) + pick(DICTS.social.endings),
+        (base) => "its" + base,
+        (base) => "hey" + base,
+        (base) => base + "life",
+        (base) => base + "vibes",
+        (base) => base + "zone",
+        (base) => base + "world",
+        (base) => base.slice(0,3) + "ie",
+        (base) => base.slice(0,3) + "y",
+        (base) => base.slice(0,4) + "io",
+        (base) => base.slice(0,4) + "fm",
+        (base) => base.slice(0,4) + "mp",
+        (base) => base + "i",
+        (base) => base + "o",
+        (base) => base + "a",
+        (base) => "mr" + base,
+        (base) => "ms" + base,
+        (base) => "callme" + base
       ],
       
       gamer: [
-        // hard + ending
-        () => pick(DICTS.gamer.hard) + pick(DICTS.gamer.endings),
-        // два hard
-        () => pick(DICTS.gamer.hard) + pick(DICTS.gamer.hard).slice(0,3),
-        // core + x
-        () => pick(DICTS.gamer.cores) + "x",
-        // короткий агрессивный
-        () => pick(DICTS.gamer.hard).slice(0,4) + pick(["x", "z", "r"]),
-        // core + core коротко
-        () => pick(DICTS.gamer.cores).slice(0,3) + pick(DICTS.gamer.cores).slice(0,3),
-        // префикс + core
-        () => pick(["xX", "XX", "ZX"]) + pick(DICTS.gamer.cores).slice(0,4),
-        // три буквы
-        () => pick(DICTS.gamer.hard).slice(0,2) + pick(["x", "z", "r"]),
-        // четыре буквы
-        () => pick(DICTS.gamer.cores).slice(0,3) + "x",
-        // пять букв агрессивных
-        () => pick(DICTS.gamer.hard) + pick(DICTS.gamer.endings).slice(0,1),
-        // ry + core
-        () => "ry" + pick(DICTS.gamer.cores).slice(0,4),
-        // kx + core
-        () => "kx" + pick(DICTS.gamer.cores).slice(0,4),
-        // vor + ending
-        () => "vor" + pick(["x", "z", "n"]),
-        // vex + ending
-        () => "vex" + pick(["on", "or", "ar"]),
-        // drav + core
-        () => "drav" + pick(["ix", "ox", "ax"]),
-        // короткие комбо
-        () => pick(["nork", "vex", "dray"]) + pick(["x", "z", "on"])
+        (base) => base + pick(DICTS.gamer.endings),
+        (base) => base.slice(0,4) + pick(DICTS.gamer.endings),
+        (base) => pick(DICTS.gamer.prefixes) + base,
+        (base) => base.slice(0,3) + pick(DICTS.gamer.hard).slice(0,3),
+        (base) => base.slice(0,3) + "x",
+        (base) => base.slice(0,3) + "z",
+        (base) => base.slice(0,4) + "x",
+        (base) => base.slice(0,4) + "z",
+        (base) => "x" + base,
+        (base) => "z" + base,
+        (base) => base + "or",
+        (base) => base + "ar",
+        (base) => base + "on",
+        (base) => base + "an",
+        (base) => base.slice(0,3) + pick(DICTS.gamer.hard).slice(0,2) + "x",
+        (base) => base.slice(0,4) + "rx",
+        (base) => base.slice(0,4) + "zx",
+        (base) => base + "yx",
+        (base) => base + "ox",
+        (base) => base + "ix",
+        (base) => base.slice(0,3) + pick(["xor", "zor", "kra"]),
+        (base) => pick(["vex", "nox"]) + base,
+        (base) => base + pick(["core", "byte", "flux"]),
+        (base) => base + pick(["rage", "fury"]),
+        (base) => base + "xX"
       ],
       
       spicy: [
-        // префикс + суффикс
-        () => pick(DICTS.spicy.prefixes) + pick(DICTS.spicy.suffixes),
-        // префикс + мягкий слог
-        () => pick(DICTS.spicy.prefixes) + pick(DICTS.spicy.soft),
-        // два префикса
-        () => pick(DICTS.spicy.prefixes).slice(0,4) + pick(DICTS.spicy.prefixes).slice(0,3),
-        // префикс + xo
-        () => pick(DICTS.spicy.prefixes).slice(0,4) + "xo",
-        // префикс + na/va
-        () => pick(DICTS.spicy.prefixes).slice(0,4) + pick(["na", "va", "ra"]),
-        // суффикс + префикс
-        () => pick(DICTS.spicy.suffixes).slice(0,4) + pick(DICTS.spicy.prefixes).slice(0,3),
-        // три части
-        () => pick(DICTS.spicy.prefixes).slice(0,3) + pick(DICTS.spicy.soft) + pick(["xo", "rx"]),
-        // имя + sin
-        () => pick(DICTS.social.cores) + "sin",
-        // velvet + core
-        () => "velvet" + pick(DICTS.spicy.suffixes).slice(0,4),
-        // wild + core
-        () => "wild" + pick(DICTS.spicy.suffixes).slice(0,4),
-        // kiss + core
-        () => "kiss" + pick(DICTS.spicy.suffixes).slice(0,4),
-        // bad + core
-        () => "bad" + pick(DICTS.spicy.suffixes).slice(0,4),
-        // hot + core
-        () => "hot" + pick(DICTS.spicy.suffixes).slice(0,4),
-        // dark + soft
-        () => "dark" + pick(DICTS.spicy.soft),
-        // sin + soft
-        () => "sin" + pick(DICTS.spicy.soft)
+        (base) => pick(DICTS.spicy.prefixes) + base,
+        (base) => base + pick(DICTS.spicy.suffixes),
+        (base) => base + pick(DICTS.spicy.soft) + pick(DICTS.spicy.endings),
+        (base) => pick(DICTS.spicy.prefixes).slice(0,4) + base + pick(DICTS.spicy.soft),
+        (base) => base.slice(0,4) + pick(DICTS.spicy.suffixes),
+        (base) => base.slice(0,3) + pick(DICTS.spicy.soft) + "xo",
+        (base) => base.slice(0,4) + "xo",
+        (base) => base.slice(0,4) + "rx",
+        (base) => base + "sin",
+        (base) => base + "kiss",
+        (base) => base + "love",
+        (base) => base + "night",
+        (base) => "velvet" + base,
+        (base) => "wild" + base,
+        (base) => "sweet" + base,
+        (base) => "dark" + base,
+        (base) => "hot" + base,
+        (base) => base + "vel",
+        (base) => base + "nox",
+        (base) => base + "vex",
+        (base) => base + "ria",
+        (base) => base + "na",
+        (base) => base + "va",
+        (base) => base + "ra",
+        (base) => base + "la"
       ]
     };
 
     // ========== СИСТЕМА ОЦЕНКИ ==========
     
-    function scoreName(name, mode) {
+    function scoreName(name, mode, base) {
       let score = 50;
       
       // Длина (идеально 5-9)
-      if (name.length >= 5 && name.length <= 8) score += 25;
-      else if (name.length === 4 || name.length === 9) score += 15;
-      else if (name.length < 4) score -= 10;
-      else if (name.length > 10) score -= 25;
+      if (name.length >= 5 && name.length <= 8) score += 30;
+      else if (name.length === 4 || name.length === 9) score += 20;
+      else if (name.length < 4) score -= 30;
+      else if (name.length > 10) score -= 40;
       
       // Читаемость (гласные)
       const vowels = (name.match(/[aeiouy]/gi) || []).length;
-      if (vowels >= 2 && vowels <= 4) score += 20;
+      if (vowels >= 2 && vowels <= 4) score += 25;
       else if (vowels === 1 || vowels === 5) score += 10;
-      else if (vowels === 0) score -= 30;
+      else if (vowels === 0) score -= 50;
       
       // Повторы
-      if (/(.)\1{2,}/.test(name)) score -= 30;
+      if (/(.)\1{2,}/.test(name)) score -= 40;
+      
+      // Связь с base (критично)
+      if (base) {
+        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, '');
+        if (cleanBase.length > 1) {
+          if (name.includes(cleanBase)) score += 100; // прямое вхождение
+          else if (name.includes(cleanBase.slice(0,3))) score += 70;
+          else if (cleanBase.split('').some(c => name.includes(c))) score += 30;
+          else score -= 50; // нет связи с base - штраф
+        }
+      }
       
       // Специфичные для режима
       if (mode === 'social') {
-        if (/[zxq]/.test(name)) score -= 15;
-        if (name.includes('.')) score += 10;
+        if (/[zxq]/.test(name)) score -= 20;
+        if (name.includes('.')) score += 20;
+        if (name.length <= 8) score += 20;
       } else if (mode === 'gamer') {
-        if (/[xz]/.test(name)) score += 15;
-        if (name.length <= 6) score += 20;
+        if (/[xz]/.test(name)) score += 20;
+        if (name.length <= 6) score += 30;
+        if (name.includes('xX')) score += 10;
       } else if (mode === 'spicy') {
         const spicyWords = ['vel', 'sin', 'nox', 'heat', 'wild', 'kiss', 'bad', 'hot'];
-        if (spicyWords.some(w => name.includes(w))) score += 30;
-        if (name.length >= 5 && name.length <= 9) score += 20;
+        if (spicyWords.some(w => name.includes(w))) score += 40;
+        if (name.length >= 5 && name.length <= 9) score += 30;
+        if (name.includes('xo')) score += 20;
       }
       
-      return Math.max(0, Math.min(100, score));
+      return Math.max(0, Math.min(200, score));
     }
 
-    // ========== УМНАЯ ГЕНЕРАЦИЯ ==========
+    // ========== УМНАЯ ГЕНЕРАЦИЯ С BASE-BINDING ==========
     
     function generateBestName(mode, base = '') {
+      const cleanBase = base.toLowerCase().replace(/[^a-z]/g, '').slice(0, 8);
+      
+      // Если base есть - он должен быть в результате
+      if (cleanBase.length < 2) {
+        // Если нет base, используем случайные cores
+        const fallback = mode === 'social' ? pick(DICTS.social.cores) :
+                        mode === 'gamer' ? pick(DICTS.gamer.cores) : 
+                        pick(DICTS.spicy.prefixes) + pick(DICTS.spicy.suffixes);
+        return fallback.slice(0, 10);
+      }
+      
       const results = [];
       const seen = new Set();
-      const attempts = 500; // генерируем много, выбираем лучший
+      const attempts = 1000; // 1000 внутренних кандидатов
       
       for (let i = 0; i < attempts; i++) {
-        const pattern = pick(PATTERNS[mode]);
-        let name = pattern();
+        const patterns = PATTERNS[mode];
+        const pattern = patterns[Math.floor(Math.random() * patterns.length)];
         
-        // Добавить base, если есть
-        if (base) {
-          const cleanBase = base.toLowerCase().replace(/[^a-z]/g, '').slice(0, 5);
-          if (cleanBase && Math.random() < 0.3) {
-            name = Math.random() < 0.5 ? cleanBase + name : name + cleanBase;
-          }
-        }
+        let name = pattern(cleanBase);
         
         // Очистка
         name = name.toLowerCase().replace(/[^a-z0-9._]/g, '');
         if (name.length < 3 || name.length > 12) continue;
         if (seen.has(name)) continue;
         
-        const score = scoreName(name, mode);
-        if (score < 40) continue; // reject low quality
+        // Проверка связи с base (обязательно)
+        if (cleanBase.length > 1) {
+          const baseParts = cleanBase.split('');
+          const hasConnection = baseParts.some(part => name.includes(part));
+          if (!hasConnection) continue;
+        }
+        
+        const score = scoreName(name, mode, cleanBase);
+        if (score < 60) continue; // reject низкого качества
         
         seen.add(name);
         results.push({ name, score });
       }
       
       if (results.length === 0) {
-        return mode === 'social' ? 'lunamay' : mode === 'gamer' ? 'vexon' : 'velvetnox';
+        // Fallback с гарантированной связью
+        return cleanBase + (mode === 'social' ? 'ri' : mode === 'gamer' ? 'x' : 'xo');
       }
       
       results.sort((a, b) => b.score - a.score);
@@ -986,9 +878,7 @@
     
     let currentMode = 'social';
     let currentName = 'lunamay';
-    let saved = JSON.parse(localStorage.getItem('saved') || '[]');
-    let duelWins = 0;
-    let duelA = 'vexon', duelB = 'norkai';
+    let saved = JSON.parse(localStorage.getItem('saved') || '[]'); // сохраняем в фоне
 
     // ========== РЕНДЕР ==========
     
@@ -1004,50 +894,12 @@
       renderPreview(name, currentMode);
     }
 
-    function renderSaved() {
-      const list = document.getElementById('savedList');
-      if (!list) return;
-      
-      if (saved.length === 0) {
-        list.innerHTML = '<div style="color:#8a7fa0; padding:8px 0;">No saved names</div>';
-        return;
-      }
-      
-      list.innerHTML = saved.slice(0, 5).map(item => `
-        <div class="saved-item">
-          <div>
-            <div class="saved-name">${escapeHtml(item.name)}</div>
-            <div class="saved-mode">${item.mode}</div>
-          </div>
-          <button class="btn-secondary" style="padding:4px 12px;" data-copy="${escapeHtml(item.name)}">Copy</button>
-        </div>
-      `).join('');
-    }
-
-    function renderDuel() {
-      document.getElementById('duelA').textContent = duelA;
-      document.getElementById('duelB').textContent = duelB;
-      document.getElementById('duelStats').textContent = `Wins: ${duelWins}`;
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
     // ========== ОСНОВНЫЕ ДЕЙСТВИЯ ==========
     
     function generateNew() {
       const base = document.getElementById('base').value;
       currentName = generateBestName(currentMode, base);
       renderTop(currentName);
-    }
-
-    function newDuelPair() {
-      duelA = generateBestName(currentMode, '');
-      duelB = generateBestName(currentMode, '');
-      renderDuel();
     }
 
     // ========== ИНИЦИАЛИЗАЦИЯ ==========
@@ -1063,7 +915,6 @@
             currentMode === 'social' ? 'e.g., alex, ray, max' :
             currentMode === 'gamer' ? 'e.g., x, z, ry' : 'e.g., velvet, sin';
           generateNew();
-          newDuelPair();
         });
       });
 
@@ -1073,84 +924,38 @@
         if (e.key === 'Enter') generateNew();
       });
 
-      // Copy top
+      // Copy
       document.getElementById('copyTop').addEventListener('click', async () => {
         const ok = await copyToClipboard(currentName);
         toast(ok ? 'Copied!' : 'Copy failed');
       });
 
-      // Save top
+      // Save (в фоне, без UI блока)
       document.getElementById('saveTop').addEventListener('click', () => {
         if (!saved.some(s => s.name === currentName)) {
           saved.unshift({ name: currentName, mode: currentMode });
           saved = saved.slice(0, 20);
           localStorage.setItem('saved', JSON.stringify(saved));
-          renderSaved();
           toast('Saved!');
         } else {
           toast('Already saved');
         }
       });
 
-      // More menu
-      document.getElementById('moreTop').addEventListener('click', (e) => {
-        e.stopPropagation();
-        document.getElementById('topMoreMenu').classList.toggle('hidden');
-      });
-
-      document.getElementById('topShare').addEventListener('click', () => {
-        navigator.share?.({ title: 'NickForge', text: currentName }).catch(() => {
+      // Share
+      document.getElementById('shareTop').addEventListener('click', () => {
+        if (navigator.share) {
+          navigator.share({
+            title: 'NickForge',
+            text: currentName
+          }).catch(() => {
+            copyToClipboard(currentName);
+            toast('Name copied!');
+          });
+        } else {
           copyToClipboard(currentName);
-          toast('Link copied!');
-        });
-      });
-
-      document.getElementById('topDuel').addEventListener('click', () => {
-        duelA = currentName;
-        newDuelPair();
-        toast('Added to duel!');
-      });
-
-      document.getElementById('topSimilar').addEventListener('click', () => {
-        document.getElementById('base').value = currentName.slice(0, 4);
-        generateNew();
-      });
-
-      // Saved
-      document.getElementById('clearSaved').addEventListener('click', () => {
-        saved = [];
-        localStorage.removeItem('saved');
-        renderSaved();
-        toast('Saved cleared');
-      });
-
-      // Duel
-      document.getElementById('pickA').addEventListener('click', () => {
-        duelWins++;
-        toast(`Picked: ${duelA}`);
-        duelA = duelA; // winner stays
-        duelB = generateBestName(currentMode, '');
-        renderDuel();
-      });
-
-      document.getElementById('pickB').addEventListener('click', () => {
-        duelWins++;
-        toast(`Picked: ${duelB}`);
-        duelA = duelB; // winner stays
-        duelB = generateBestName(currentMode, '');
-        renderDuel();
-      });
-
-      document.getElementById('nextDuel').addEventListener('click', newDuelPair);
-
-      // Spicy
-      document.getElementById('newSpicy').addEventListener('click', () => {
-        document.getElementById('spicyName').textContent = generateBestName('spicy', '');
-      });
-      
-      document.getElementById('copySpicy').addEventListener('click', async () => {
-        const ok = await copyToClipboard(document.getElementById('spicyName').textContent);
-        toast(ok ? 'Copied!' : 'Copy failed');
+          toast('Name copied!');
+        }
       });
 
       // Donate / Feedback
@@ -1175,26 +980,8 @@
         }
       });
 
-      // Глобальный клик для меню
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.top-more-wrapper')) {
-          document.getElementById('topMoreMenu').classList.add('hidden');
-        }
-      });
-
-      // Делегирование для saved copy
-      document.addEventListener('click', async (e) => {
-        if (e.target.dataset.copy) {
-          const ok = await copyToClipboard(e.target.dataset.copy);
-          toast(ok ? 'Copied!' : 'Copy failed');
-        }
-      });
-
       // Старт
       renderTop(currentName);
-      renderSaved();
-      renderDuel();
-      document.getElementById('spicyName').textContent = generateBestName('spicy', '');
     });
   </script>
 </body>
