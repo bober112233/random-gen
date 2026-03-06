@@ -1,666 +1,389 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NickForge — Генератор крутых никнеймов</title>
-  <meta name="description" content="Создавай уникальные, стильные ники за секунды: Social, Gamer, Spicy" />
+  <title>NickForge — Cool Username Generator</title>
+  <meta name="description" content="Generate unique, strong usernames in seconds. Social, Gamer & Spicy styles." />
   <meta name="theme-color" content="#4a00e0" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg-1:        #0f001a;
-      --bg-2:        #1a0033;
-      --card:        rgba(30, 10, 60, 0.78);
-      --stroke:      #5a2ea6;
-      --text:        #f0e6ff;
-      --muted:       #b39dff;
-      --purple:      #7c3aed;
-      --purple-dark: #5b21b6;
-      --accent:      #f97316;
-      --spark-yellow:#ffdd00;
-      --spark-white: #ffffff;
-      --glow:        0 0 24px rgba(249,115,22,0.7);
-      --radius-lg:   24px;
-      --radius-md:   18px;
+      --bg: #0a0015;
+      --card: rgba(20, 10, 50, 0.75);
+      --accent: #ff6b00;
+      --purple: #8b5cf6;
+      --purple-dark: #6d28d9;
+      --text: #f1eaff;
+      --muted: #a78bfa;
+      --border: #4c1d95;
+      --glow: 0 0 30px rgba(255,107,0,0.4);
+      --radius: 20px;
     }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
       min-height: 100vh;
-      padding: 16px;
-      overflow-x: hidden;
+      padding: 20px;
+      line-height: 1.5;
     }
 
-    .wrap { max-width: 1180px; margin: 0 auto; }
-
-    /* Баннер с молотом и искрами */
-    .hero-banner {
-      position: relative;
-      height: 360px;
-      margin-bottom: 40px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: 0 20px 60px -20px rgba(249,115,22,0.6);
-      background: linear-gradient(to bottom, #2a0066, #0f001a);
-    }
-
-    .hero-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 70%, rgba(249,115,22,0.18), transparent 65%);
-      z-index: 1;
-    }
-
-    .anvil-area {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 240px;
-      height: 100px;
-      background: linear-gradient(#4b5563, #1f2937, #111827);
-      border-radius: 14px 14px 0 0;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.8);
-      z-index: 3;
-    }
-
-    .hammer-container {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      width: 200px;
-      height: 340px;
-      transform: translate(-50%, -50%);
-      transform-origin: 50% 15%;
-      z-index: 4;
-      animation: hammerStrike 3s ease-in-out infinite;
-    }
-
-    .hammer-head {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 90px;
-      height: 70px;
-      background: linear-gradient(135deg, #6b7280, #374151);
-      border-radius: 10px;
-      transform: translateX(-50%);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.9);
-    }
-
-    .hammer-handle {
-      position: absolute;
-      top: 60px;
-      left: 50%;
-      width: 28px;
-      height: 260px;
-      background: linear-gradient(#8b5cf6, #4c1d95, #3b0764);
-      transform: translateX(-50%);
-      border-radius: 14px;
-      box-shadow: inset 0 0 14px rgba(0,0,0,0.7);
-    }
-
-    @keyframes hammerStrike {
-      0%, 100% { transform: translate(-50%, -50%) rotate(-30deg); }
-      45%      { transform: translate(-50%, -50%) rotate(40deg); }
-      52%      { transform: translate(-50%, 30%)  rotate(55deg); } /* удар */
-      60%      { transform: translate(-50%, -20%) rotate(15deg); }
-    }
-
-    .sparks-container {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 2;
-      overflow: hidden;
-    }
-
-    .spark {
-      position: absolute;
-      left: 50%;
-      top: 62%;
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 14px var(--accent), 0 0 28px var(--spark-yellow);
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.4);
-      animation: flySpark linear infinite;
-    }
-
-    .spark.strong {
-      animation-duration: 1.3s;
-      animation-delay: calc(var(--delay) + 1.56s); /* синхрон с ударом */
-      background: var(--spark-white);
-      box-shadow: 0 0 24px white, 0 0 48px var(--spark-yellow);
-      width: 8px;
-      height: 8px;
-    }
-
-    @keyframes flySpark {
-      0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(0deg); }
-      8%   { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
-      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.1) rotate(1440deg); }
-    }
-
-    /* Примеры искр (можно добавить ещё много) */
-    .spark:nth-child(1)  { --dx: -240px; --dy: -400px; animation-duration: 1.9s; animation-delay: 0s; }
-    .spark:nth-child(2)  { --dx: 200px;  --dy: -360px; animation-duration: 1.6s; animation-delay: 0.5s; }
-    .spark.strong:nth-child(3)  { --dx: -120px; --dy: -440px; --delay: 0s; }
-    .spark.strong:nth-child(4)  { --dx: 280px;  --dy: -260px; --delay: 0.2s; }
-    .spark:nth-child(5)  { --dx: 80px;   --dy: -380px; animation-duration: 2.1s; animation-delay: 0.8s; }
-    .spark:nth-child(6)  { --dx: -280px; --dy: -240px; animation-duration: 2.4s; animation-delay: 1.2s; }
-    .spark:nth-child(7)  { --dx: 160px;  --dy: -320px; animation-duration: 1.8s; animation-delay: 0.3s; }
-    .spark.strong:nth-child(8)  { --dx: -180px; --dy: -380px; --delay: 0.4s; }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 30%, rgba(15,1,26,0.94) 75%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 40px 32px;
-      z-index: 5;
-    }
-
-    .hero-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(52px, 10vw, 110px);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      background: linear-gradient(90deg, #c084fc, #f97316, #ffdd00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 0.88;
-      text-shadow: 0 8px 40px rgba(0,0,0,0.8);
-    }
-
-    .hero-subtitle {
-      font-size: 22px;
-      font-weight: 600;
-      color: #e9d5ff;
-      margin-top: 12px;
-      opacity: 0.95;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 40px;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 32px;
+      gap: 20px;
     }
 
-    .brand h1 {
+    .logo {
       font-family: 'Orbitron', sans-serif;
-      font-size: 40px;
-      background: linear-gradient(90deg, #a78bfa, #f97316);
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #c084fc, #ff6b00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover { color: white; }
+
     .modes {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
-      margin: 32px 0 24px;
+      margin: 40px 0 32px;
     }
 
-    .mode-btn {
-      background: rgba(30,10,60,0.75);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-md);
-      padding: 22px 26px;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      text-align: left;
-      backdrop-filter: blur(8px);
-    }
-
-    .mode-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px -20px rgba(249,115,22,0.5);
-      border-color: var(--accent);
-    }
-
-    .mode-btn.active {
-      background: linear-gradient(135deg, rgba(124,58,237,0.45), rgba(249,115,22,0.3));
-      border-color: var(--accent);
-      box-shadow: 0 24px 60px -20px rgba(249,115,22,0.6);
-    }
-
-    .mode-title { font-size: 26px; font-weight: 900; margin-bottom: 6px; }
-    .mode-btn[data-mode="social"]  .mode-title { color: #c084fc; }
-    .mode-btn[data-mode="gamer"]   .mode-title { color: #f97316; }
-    .mode-btn[data-mode="spicy"]   .mode-title { color: #ec4899; }
-
-    .main-card {
+    .mode {
       background: var(--card);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--stroke);
-      border-radius: 32px;
-      padding: 32px;
-      box-shadow: 0 28px 80px -28px rgba(0,0,0,0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(10px);
     }
 
-    .controls {
+    .mode:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--glow);
+      border-color: var(--accent);
+    }
+
+    .mode.active {
+      border-color: var(--accent);
+      box-shadow: var(--glow);
+      background: rgba(139,92,246,0.12);
+    }
+
+    .mode h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .social h3   { color: #c084fc; }
+    .gamer h3    { color: #ff6b00; }
+    .spicy h3    { color: #ec4899; }
+
+    .input-group {
       display: flex;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
       flex-wrap: wrap;
     }
 
-    .name-input {
+    input {
       flex: 1;
-      min-width: 280px;
-      height: 68px;
+      min-width: 300px;
+      height: 64px;
       padding: 0 28px;
-      font-size: 20px;
-      border: 1px solid #6d28d9;
+      font-size: 18px;
+      background: rgba(30,20,70,0.6);
+      border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(30,10,60,0.65);
       color: white;
       outline: none;
-      transition: 0.22s;
+      transition: all 0.2s;
     }
 
-    .name-input:focus {
+    input:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 6px rgba(249,115,22,0.3);
-      background: rgba(30,10,60,0.9);
+      box-shadow: 0 0 0 4px rgba(255,107,0,0.25);
     }
 
-    .name-input::placeholder { color: #b39dff; }
-
-    .generate-btn {
-      height: 68px;
-      padding: 0 44px;
-      font-size: 19px;
-      font-weight: 800;
-      color: white;
+    button.generate {
+      height: 64px;
+      padding: 0 40px;
+      font-size: 18px;
+      font-weight: 700;
       background: linear-gradient(90deg, var(--purple), var(--accent));
+      color: white;
       border: none;
       border-radius: 999px;
       cursor: pointer;
       box-shadow: var(--glow);
-      transition: all 0.22s;
+      transition: all 0.25s;
     }
 
-    .generate-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 28px 70px -20px rgba(249,115,22,0.7);
+    button.generate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(255,107,0,0.6);
     }
 
-    .hero {
+    .output {
       display: grid;
-      grid-template-columns: minmax(360px, 1.1fr) minmax(360px, 0.9fr);
-      gap: 28px;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
     }
 
-    .result-card, .preview-card {
-      background: rgba(40, 20, 80, 0.6);
-      border: 1px solid #6d28d9;
-      border-radius: var(--radius-lg);
+    .result {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       padding: 32px;
+      backdrop-filter: blur(10px);
     }
 
-    .main-nick {
+    .nickname {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(56px, 11vw, 110px);
+      font-size: clamp(48px, 9vw, 100px);
       font-weight: 900;
-      letter-spacing: -0.06em;
       background: linear-gradient(90deg, #c084fc, var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 0.9;
-      margin: 16px 0 20px;
+      margin: 16px 0;
+      word-break: break-all;
     }
 
-    .subtext { color: var(--muted); font-size: 19px; }
+    .meta {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
 
-    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
-
-    .btn-primary, .btn-secondary {
-      padding: 16px 32px;
+    .actions button {
+      padding: 14px 28px;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
-      transition: 0.22s;
+      transition: 0.2s;
+      margin-right: 12px;
     }
 
-    .btn-primary {
-      background: linear-gradient(90deg, var(--purple), #a78bfa);
-      color: white;
+    .copy-btn {
+      background: var(--accent);
+      color: black;
       border: none;
     }
 
-    .btn-primary:hover { background: linear-gradient(90deg, #6d28d9, #9333ea); }
-
-    .btn-secondary {
+    .regen-btn {
       background: transparent;
-      border: 1px solid #8b5cf6;
-      color: #d6bcfa;
+      border: 1px solid var(--muted);
+      color: var(--muted);
     }
 
-    .btn-secondary:hover { background: rgba(124,58,237,0.18); }
+    .preview {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      backdrop-filter: blur(10px);
+    }
 
     .preview-label {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      color: #b39dff;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    .preview-shell {
-      min-height: 340px;
-      border-radius: 26px;
-      border: 1px solid #6d28d9;
-      overflow: hidden;
-      background: linear-gradient(145deg, #1e003c, #2a0066);
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #1e003c;
-      color: #f0e6ff;
-      padding: 16px 36px;
-      border-radius: 999px;
+      font-size: 13px;
       font-weight: 700;
-      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.8);
-      opacity: 0;
-      transition: all 0.3s;
-      z-index: 1000;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
     }
 
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .preview-box {
+      min-height: 320px;
+      border-radius: 16px;
+      padding: 24px;
+      background: linear-gradient(145deg, rgba(139,92,246,0.08), rgba(255,107,0,0.08));
+    }
 
     @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-banner { height: 280px; }
-      .hammer-container { width: 160px; height: 280px; }
+      .output { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 680px) {
-      .controls { flex-direction: column; }
-      .generate-btn { width: 100%; }
-      .main-card { padding: 24px; }
+    @media (max-width: 600px) {
+      .input-group { flex-direction: column; }
+      button.generate { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrap">
-
-    <div class="hero-banner">
-
-      <!-- Наковальня -->
-      <div class="anvil-area"></div>
-
-      <!-- Молот -->
-      <div class="hammer-container">
-        <div class="hammer-head"></div>
-        <div class="hammer-handle"></div>
-      </div>
-
-      <!-- Искры -->
-      <div class="sparks-container">
-        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark strong"></i>
-        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark"></i>
-        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark"></i>
-        <i class="spark"></i><i class="spark"></i><i class="spark strong"></i><i class="spark"></i>
-      </div>
-
-      <div class="hero-overlay">
-        <div class="hero-title">NickForge</div>
-        <div class="hero-subtitle">Кузница никнеймов — создай свой стильный ник за секунды!</div>
-      </div>
-    </div>
+  <div class="container">
 
     <header>
-      <div class="brand">
-        <h1>NickForge</h1>
-      </div>
-      <div>
-        <a href="https://buymeacoffee.com/" target="_blank" style="color:#c084fc; text-decoration:none; font-weight:700; margin-right:20px;">☕ Поддержать</a>
-        <a href="mailto:feedback@nickforge.app" style="color:#c084fc; text-decoration:none; font-weight:700;">💬 Обратная связь</a>
+      <div class="logo">NickForge</div>
+      <div class="nav">
+        <a href="#">Donate ☕</a>
+        <a href="#">Feedback</a>
       </div>
     </header>
 
     <div class="modes">
-      <button class="mode-btn active" data-mode="social">
-        <div class="mode-title">Social</div>
-        <div class="mode-desc">Чистые, эстетичные, современные</div>
-      </button>
-      <button class="mode-btn" data-mode="gamer">
-        <div class="mode-title">Gamer</div>
-        <div class="mode-desc">Резкие, короткие, агрессивные</div>
-      </button>
-      <button class="mode-btn" data-mode="spicy">
-        <div class="mode-title">Spicy</div>
-        <div class="mode-desc">Смелые, флиртующие, провокационные</div>
-      </button>
+      <div class="mode active" data-mode="social">
+        <h3>Social</h3>
+        <p>Clean, aesthetic, modern handles</p>
+      </div>
+      <div class="mode" data-mode="gamer">
+        <h3>Gamer</h3>
+        <p>Sharp, short, aggressive tags</p>
+      </div>
+      <div class="mode" data-mode="spicy">
+        <h3>Spicy</h3>
+        <p>Bold, flirty, provocative</p>
+      </div>
     </div>
 
-    <section class="main-card">
-      <div class="controls">
-        <input id="baseInput" class="name-input" type="text" placeholder="Введи имя или слово (например: alex, mia, ray)" autocomplete="off" />
-        <button class="generate-btn" id="generateBtn">Сгенерировать</button>
-      </div>
+    <div class="input-group">
+      <input id="input" placeholder="Your name or keyword (alex, mia, vex...)" autocomplete="off" />
+      <button class="generate" id="generate">Generate</button>
+    </div>
 
-      <div class="hero">
-        <div class="result-card">
-          <div style="font-weight:700; color:#c084fc; margin-bottom:16px;">✦ ТВОЙ НОВЫЙ НИК</div>
-          <div class="main-nick" id="mainNick">—</div>
-          <div class="subtext" id="mainMeta">Нажми «Сгенерировать», чтобы начать</div>
-
-          <div class="actions">
-            <button class="btn-primary" id="copyBtn">Скопировать</button>
-            <button class="btn-secondary" id="regenBtn">Ещё раз</button>
-          </div>
-        </div>
-
-        <div class="preview-card">
-          <div class="preview-label">Превью</div>
-          <div class="preview-shell" id="previewShell"></div>
+    <div class="output">
+      <div class="result">
+        <div class="nickname" id="nickname">—</div>
+        <div class="meta" id="meta">Select mode and generate</div>
+        <div class="actions">
+          <button class="copy-btn" id="copy">Copy</button>
+          <button class="regen-btn" id="regen">Regenerate</button>
         </div>
       </div>
-    </section>
+
+      <div class="preview">
+        <div class="preview-label">Preview</div>
+        <div class="preview-box" id="preview"></div>
+      </div>
+    </div>
 
   </div>
 
-  <div class="toast" id="toast"></div>
-
   <script>
-    const $  = s => document.querySelector(s);
+    const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
 
-    const MODE_META = {
-      social: "Чистый социальный ник",
-      gamer:  "Агрессивный геймер-тег",
-      spicy:  "Смелый и провокационный ник"
+    const modes = {
+      social: { name: "Social", meta: "Clean social handle" },
+      gamer:  { name: "Gamer",  meta: "Aggressive gamer tag" },
+      spicy:  { name: "Spicy",  meta: "Bold & provocative alias" }
     };
-
-    const CYR_MAP = {
-      а:"a", б:"b", в:"v", г:"g", д:"d", е:"e", ё:"e", ж:"zh", з:"z", и:"i", й:"y",
-      к:"k", л:"l", м:"m", н:"n", о:"o", п:"p", р:"r", с:"s", т:"t", у:"u", ф:"f",
-      х:"h", ц:"ts", ч:"ch", ш:"sh", щ:"sch", ъ:"", ы:"y", ь:"", э:"e", ю:"yu", я:"ya"
-    };
-
-    const DICTS = {
-      social: {
-        cores: ["alex","alena","alina","anna","aria","ava","bella","clara","diana","ella","eva","flora","freya","helen","iris","julia","kira","lara","lena","liana","lina","lisa","livia","lola","lucy","luna","maya","mia","mila","mira","nina","nora","olivia","paula","rosa","sara","sofia","stella","talia","vera","victoria","violet","yara","zara","zoe"],
-        prefixes: ["its","hey","im","real","the","just","only","callme","miss","ms","mr","thisis","official","true","pure"],
-        endings: ["ri","vi","li","na","la","ma","ra","ta","ia","ie","io","ya","ey","ay","ny","ly","sky","bay","wave","vibe","gram","fm","mp","io","co","dot"],
-        classy: ["studio","vibes","mode","daily","pics","wave","room","verse","line","light","hush","nova","mint","bloom","glow"]
-      },
-      gamer: {
-        cores: ["vex","nox","ryx","zor","kra","drav","tor","rax","vorn","grim","void","fury","rage","storm","shock","slash","blitz","crash","fang","claw","wolf","venom","reign","onyx","phantom","drake","skorn","havoc","frost","blaze","quake","spike","riot","thorn","drift","rift","cinder","saber","sythe","raven"],
-        endings: ["x","z","rx","zx","ix","ox","ax","on","or","ar","yn","er","r","k","n","v"],
-        boosters: ["x","z","xr","zx","vk","rx","qx"]
-      },
-      spicy: {
-        cores: ["velvet","sin","nox","kiss","wild","hot","sugar","honey","peach","rose","luxe","desire","flame","blush","silk","midnight","cherry","nova","scarlet","amber","vixen","tempt","angel","devil","dream","after","venus","siren","ruby","muse","fever","heat","soft","wicked","gloss","lust","darling","tease","night","glow"],
-        endings: ["xo","rx","ria","na","va","la","ina","ira","ora","luna","kiss","night","love","vex","nox","rose"],
-        soft: ["vel","sin","lux","rose","kiss","hush","glow","lush","wild","soft"]
-      }
-    };
-
-    function translit(str) {
-      return String(str || "").toLowerCase().split("").map(ch => CYR_MAP[ch] ?? ch).join("");
-    }
-
-    function cleanInput(str) {
-      return translit(str).replace(/[^a-z0-9]/g, "");
-    }
-
-    function pick(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
-
-    function makeBaseFragments(base) {
-      const b = cleanInput(base);
-      if (!b) return [];
-      const frags = new Set([b]);
-      if (b.length >= 2) frags.add(b.slice(0,2));
-      if (b.length >= 3) frags.add(b.slice(0,3));
-      if (b.length >= 4) frags.add(b.slice(0,4));
-      if (b.length >= 5) frags.add(b.slice(0,5));
-      if (b.length >= 3) frags.add(b.slice(-3));
-      if (b.length >= 4) frags.add(b.slice(-4));
-      return [...frags].filter(Boolean);
-    }
-
-    function scoreSocial(name, baseFrags) {
-      let score = name.length >= 5 && name.length <= 9 ? 50 : (name.length === 4 || name.length === 10 ? 25 : -35);
-      const vowels = (name.match(/[aeiouy]/g) || []).length;
-      if (vowels >= 2 && vowels <= 4) score += 30;
-      let relation = 0;
-      for (const f of baseFrags) {
-        if (f.length >= 4 && name.includes(f)) relation = Math.max(relation, 80);
-        else if (f.length === 3 && name.includes(f)) relation = Math.max(relation, 55);
-      }
-      score += relation;
-      if (relation === 0 && baseFrags.length) score -= 160;
-      return score;
-    }
-
-    function buildSocialCandidates(baseFrags) {
-      const out = [];
-      const base = pick(baseFrags) || "user";
-      const clipped = base.slice(0,4);
-      for (let i = 0; i < 600; i++) {
-        let n = "";
-        const r = Math.random();
-        if (r < 0.3) n = base + pick(DICTS.social.endings);
-        else if (r < 0.5) n = clipped + pick(DICTS.social.endings);
-        else if (r < 0.7) n = pick(DICTS.social.prefixes) + clipped;
-        else n = clipped + pick(["ri","vi","na","ia","ly"]);
-        out.push(n.toLowerCase().replace(/[^a-z0-9.]/g,"").slice(0,14));
-      }
-      return out;
-    }
-
-    function generateFromName(mode, rawInput) {
-      const clean = cleanInput(rawInput);
-      const frags = makeBaseFragments(clean);
-
-      if (!clean) {
-        if (mode === "social") return pick(DICTS.social.cores) + pick(["ri","ia"]);
-        if (mode === "gamer")  return pick(DICTS.gamer.cores)  + "x";
-        return pick(DICTS.spicy.cores) + "xo";
-      }
-
-      let cands = [];
-      if (mode === "social") cands = buildSocialCandidates(frags);
-
-      if (cands.length === 0) {
-        return clean.slice(0,6) + (mode==="social"?"ri":mode==="gamer"?"x":"xo");
-      }
-
-      cands = [...new Set(cands.filter(n => n.length >= 4 && n.length <= 12))];
-      cands.sort((a,b) => scoreSocial(b,frags) - scoreSocial(a,frags));
-      return cands[0] || clean.slice(0,6) + "ri";
-    }
-
-    function renderPreview(name, mode) {
-      const shell = $("#previewShell");
-      const upper = name ? name[0].toUpperCase() : "N";
-
-      if (mode === "social") {
-        shell.innerHTML = `
-          <div style="padding:28px; background:linear-gradient(145deg,#f9f6ff,#f1ebff); height:100%; display:flex; flex-direction:column; justify-content:space-between;">
-            <div style="display:flex; align-items:center; gap:18px;">
-              <div style="width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#7357ff,#9a80ff); color:white; font-size:38px; font-weight:900; display:flex; align-items:center; justify-content:center;">${upper}</div>
-              <div>
-                <div style="font-size:30px; font-weight:900;">@${name}</div>
-                <div style="color:#726885; font-size:16px;">creator • aesthetic • vibes</div>
-              </div>
-            </div>
-          </div>`;
-      } else if (mode === "gamer") {
-        shell.innerHTML = `<div style="padding:28px; background:#1a1624; color:white; height:100%; font-size:18px;">Gamer preview<br><br>@${name}<br>Ranked • Clutch • MVP</div>`;
-      } else {
-        shell.innerHTML = `<div style="padding:28px; background:#241a2e; color:white; height:100%; font-size:18px;">Spicy preview<br><br>@${name}<br>Hot • Tease • Midnight vibe</div>`;
-      }
-    }
 
     let currentMode = "social";
-    let currentName = "";
+    let currentNick = "";
 
-    function renderMain() {
-      $("#mainNick").textContent = currentName || "—";
-      $("#mainMeta").textContent = MODE_META[currentMode] || "—";
-      renderPreview(currentName, currentMode);
+    const dicts = {
+      social: ["ri", "vi", "na", "ia", "ly", "sky", "vibe", "nova", "glow", "wave", "its", "hey", "real", "pure"],
+      gamer:  ["x", "z", "xx", "zz", "rx", "zx", "ix", "ox", "kz", "vx", "qx", "rk"],
+      spicy:  ["xo", "rx", "na", "va", "ina", "ora", "kiss", "love", "nox", "rose", "luna", "hot"]
+    };
+
+    function generateNick(mode, input) {
+      let base = input.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!base) base = ["alex","mia","vex","nova","kira","zara","luna"][Math.floor(Math.random()*7)];
+
+      const suffix = dicts[mode][Math.floor(Math.random() * dicts[mode].length)];
+
+      let nick = base + suffix;
+      if (nick.length > 14) nick = base.slice(0, 10) + suffix;
+
+      // Делаем более разнообразно
+      if (Math.random() > 0.6) nick = suffix + base.slice(0,8);
+      if (Math.random() > 0.8) nick = base.slice(0,5) + suffix + (Math.random()>0.5 ? "x" : "");
+
+      return nick;
     }
 
-    function generateMain() {
-      currentName = generateFromName(currentMode, $("#baseInput").value.trim());
-      renderMain();
+    function updatePreview(nick, mode) {
+      const p = $("#preview");
+      let style = "";
+
+      if (mode === "social") {
+        style = `background: linear-gradient(145deg, #2a1b4a, #1a0f33); color: white; padding: 32px; border-radius: 16px;`;
+        p.innerHTML = `
+          <div style="${style}">
+            <div style="font-size: 32px; font-weight: 900;">@${nick}</div>
+            <div style="margin: 12px 0; color: #c084fc;">creator • aesthetic • vibes</div>
+            <div style="font-size: 15px; color: #a78bfa;">1.2k followers • Jakarta</div>
+          </div>`;
+      } else if (mode === "gamer") {
+        style = `background: #0f0a1f; color: #ffedd5; padding: 32px; border-radius: 16px;`;
+        p.innerHTML = `
+          <div style="${style}">
+            <div style="font-size: 36px; color: #ff6b00; font-weight: 900;">${nick}</div>
+            <div style="margin: 16px 0; color: #fbbf24;">Ranked • Clutch King • K/D 3.8</div>
+            <div style="font-size: 16px;">EU West • Top 0.8%</div>
+          </div>`;
+      } else {
+        style = `background: #1f0f2a; color: #ffe4e1; padding: 32px; border-radius: 16px;`;
+        p.innerHTML = `
+          <div style="${style}">
+            <div style="font-size: 36px; color: #ec4899; font-weight: 900;">${nick}</div>
+            <div style="margin: 16px 0;">late night • too hot to handle • tease</div>
+            <div style="font-size: 16px;">don't blink 🔥</div>
+          </div>`;
+      }
     }
 
-    $$(".mode-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        $$(".mode-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentMode = btn.dataset.mode;
-        generateMain();
+    function generate() {
+      const input = $("#input").value.trim();
+      currentNick = generateNick(currentMode, input);
+      $("#nickname").textContent = currentNick;
+      $("#meta").textContent = modes[currentMode].meta;
+      updatePreview(currentNick, currentMode);
+    }
+
+    $$(".mode").forEach(el => {
+      el.addEventListener("click", () => {
+        $$(".mode").forEach(m => m.classList.remove("active"));
+        el.classList.add("active");
+        currentMode = el.dataset.mode;
+        generate();
       });
     });
 
-    $("#generateBtn").onclick = generateMain;
-    $("#baseInput").onkeydown = e => { if (e.key === "Enter") generateMain(); };
+    $("#generate").onclick = generate;
+    $("#input").onkeydown = e => { if (e.key === "Enter") generate(); };
+    $("#regen").onclick = generate;
 
-    $("#copyBtn").onclick = async () => {
-      if (!currentName) return;
-      await navigator.clipboard.writeText(currentName);
-      const t = $("#toast");
-      t.textContent = "Скопировано!";
-      t.classList.add("show");
-      setTimeout(() => t.classList.remove("show"), 1800);
+    $("#copy").onclick = async () => {
+      if (!currentNick) return;
+      await navigator.clipboard.writeText(currentNick);
+      alert("Copied to clipboard!");
     };
 
-    $("#regenBtn").onclick = generateMain;
-
-    // Первый запуск
-    renderMain();
+    // Initial render
+    generate();
   </script>
 </body>
 </html>
