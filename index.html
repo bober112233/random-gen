@@ -4,13 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NickForge — Create better usernames</title>
-  <meta name="description" content="Short, clean, memorable usernames for socials and games. Smart generator with three modes: Social, Gamer, Spicy." />
-  <meta name="theme-color" content="#f4f1f9" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="NickForge — Create better usernames" />
-  <meta property="og:description" content="Short, clean, memorable usernames for socials and games." />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="One perfect username for socials and games. Smart generator with Social, Gamer & Spicy modes." />
+  <meta name="theme-color" content="#f9f7fd" />
 
   <style>
     /* === СБРОС И ОСНОВЫ === */
@@ -22,7 +17,7 @@
 
     body {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(145deg, #f8f6fc 0%, #efebf6 100%);
+      background: linear-gradient(135deg, #faf8ff 0%, #f3effb 100%);
       color: #1a1725;
       line-height: 1.5;
       min-height: 100vh;
@@ -30,7 +25,7 @@
     }
 
     .wrap {
-      max-width: 1000px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
@@ -39,7 +34,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
       flex-wrap: wrap;
       gap: 16px;
     }
@@ -53,12 +48,12 @@
     .logo {
       width: 44px;
       height: 44px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, #7c5cf0, #a06cf0);
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 20px -8px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 8px 16px -6px rgba(124, 92, 240, 0.3);
     }
 
     .brand h1 {
@@ -69,77 +64,66 @@
     }
 
     .brand p {
-      color: #5f5b70;
+      color: #6b637a;
       font-size: 14px;
       margin-top: 2px;
     }
 
-    .badge {
+    .header-actions {
+      display: flex;
+      gap: 16px;
       background: white;
-      border: 1px solid #e4deee;
       padding: 8px 18px;
       border-radius: 40px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      border: 1px solid #e8e2f2;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
 
-    .badge a {
-      color: #6366f1;
+    .header-actions a {
+      color: #7c5cf0;
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
     }
 
-    .badge a:hover {
-      color: #4f46e5;
+    .header-actions a:hover {
+      color: #5b3ec9;
     }
 
     .separator {
       width: 1px;
       height: 20px;
-      background: #e4deee;
-    }
-
-    /* === ОСНОВНАЯ КАРТОЧКА === */
-    .main-card {
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-      padding: 28px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: #e8e2f2;
     }
 
     /* === РЕЖИМЫ === */
     .mode-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 28px;
     }
 
     .mode-btn {
-      background: #f8f6fc;
-      border: 1px solid #e4deee;
-      border-radius: 20px;
-      padding: 14px 18px;
+      background: white;
+      border: 1px solid #e8e2f2;
+      border-radius: 18px;
+      padding: 14px 12px;
       text-align: left;
       cursor: pointer;
       transition: all 0.2s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
     }
 
     .mode-btn:hover {
-      background: white;
-      border-color: #c7c0d8;
+      border-color: #c2b6db;
       transform: translateY(-2px);
+      box-shadow: 0 10px 20px -8px rgba(124, 92, 240, 0.2);
     }
 
     .mode-btn.active {
-      background: white;
-      border-color: #6366f1;
-      box-shadow: 0 10px 20px -10px #6366f1;
+      border-color: #7c5cf0;
+      box-shadow: 0 8px 18px -8px #7c5cf0;
     }
 
     .mode-name {
@@ -149,87 +133,63 @@
     }
 
     .mode-desc {
-      color: #5f5b70;
-      font-size: 13px;
+      color: #6b637a;
+      font-size: 12px;
     }
 
-    .social .mode-name { color: #6366f1; }
+    .social .mode-name { color: #7c5cf0; }
     .gamer .mode-name { color: #f97316; }
     .spicy .mode-name { color: #ec4899; }
+
+    /* === ОСНОВНАЯ КАРТОЧКА === */
+    .main-card {
+      background: white;
+      border-radius: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      padding: 32px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
 
     /* === КОНТРОЛЫ === */
     .controls-row {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
+      margin-bottom: 32px;
       align-items: center;
-      margin-bottom: 28px;
     }
 
     .field {
-      flex: 1 1 200px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: #5f5b70;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+      flex: 1;
     }
 
     .field input {
       width: 100%;
-      background: #f8f6fc;
-      border: 1px solid #e4deee;
-      border-radius: 16px;
-      padding: 12px 16px;
+      background: #f8f5ff;
+      border: 1px solid #e8e2f2;
+      border-radius: 20px;
+      padding: 14px 18px;
       font-size: 15px;
       font-family: inherit;
+      transition: 0.15s;
     }
 
     .field input:focus {
       outline: none;
-      border-color: #6366f1;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      border-color: #7c5cf0;
+      box-shadow: 0 0 0 4px rgba(124, 92, 240, 0.1);
       background: white;
     }
 
-    .count-selector {
-      display: flex;
-      background: #f8f6fc;
-      border: 1px solid #e4deee;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .count-btn {
-      padding: 12px 20px;
-      background: transparent;
-      border: none;
-      font-weight: 600;
-      font-size: 15px;
-      color: #5f5b70;
-      cursor: pointer;
-      transition: 0.1s;
-    }
-
-    .count-btn:hover {
-      background: #eeebf4;
-    }
-
-    .count-btn.active {
-      background: white;
-      color: #6366f1;
-      box-shadow: inset 0 -2px 0 #6366f1;
+    .field input::placeholder {
+      color: #9a92ab;
     }
 
     .btn-primary {
-      background: #6366f1;
+      background: #7c5cf0;
       border: none;
-      border-radius: 40px;
-      padding: 12px 28px;
+      border-radius: 30px;
+      padding: 14px 28px;
       font-weight: 600;
       font-size: 15px;
       color: white;
@@ -239,15 +199,15 @@
     }
 
     .btn-primary:hover {
-      background: #4f46e5;
+      background: #6849e0;
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px -10px #6366f1;
+      box-shadow: 0 12px 24px -10px #7c5cf0;
     }
 
     .btn-secondary {
       background: white;
-      border: 1px solid #e4deee;
-      border-radius: 40px;
+      border: 1px solid #e8e2f2;
+      border-radius: 30px;
       padding: 10px 22px;
       font-weight: 500;
       font-size: 14px;
@@ -257,209 +217,275 @@
     }
 
     .btn-secondary:hover {
-      background: #f8f6fc;
-      border-color: #c7c0d8;
+      background: #f8f5ff;
+      border-color: #c2b6db;
     }
 
     .btn-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 40px;
+      width: 44px;
+      height: 44px;
+      border-radius: 30px;
       background: white;
-      border: 1px solid #e4deee;
+      border: 1px solid #e8e2f2;
       font-size: 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
     .btn-icon:hover {
-      background: #f8f6fc;
+      background: #f8f5ff;
     }
 
-    /* === ТОП ПИК === */
+    /* === TOP БЛОК С МЕНЮ === */
     .top-section {
-      background: linear-gradient(135deg, #f8f6fc 0%, #f0ebf9 100%);
-      border-radius: 28px;
-      padding: 28px;
-      margin-bottom: 24px;
-      border: 1px solid #e4deee;
+      margin-bottom: 32px;
     }
 
     .top-badge {
       display: inline-block;
-      background: white;
-      color: #6366f1;
+      background: #f0ebff;
+      color: #7c5cf0;
       font-size: 12px;
       font-weight: 600;
       padding: 4px 12px;
       border-radius: 30px;
       margin-bottom: 16px;
-      border: 1px solid #e4deee;
     }
 
     .top-name {
-      font-size: 52px;
+      font-size: 64px;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       word-break: break-word;
       color: #1a1725;
     }
 
     .top-meta {
-      color: #5f5b70;
+      color: #6b637a;
       font-size: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .top-actions {
       display: flex;
       gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* === СПИСОК РЕЗУЛЬТАТОВ === */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .result-item {
-      background: #faf9fe;
-      border: 1px solid #e4deee;
-      border-radius: 18px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: 0.15s;
-    }
-
-    .result-item:hover {
-      background: white;
-      border-color: #c7c0d8;
-    }
-
-    .item-name {
-      font-weight: 600;
-      font-size: 16px;
-      color: #1a1725;
-    }
-
-    .item-mode {
-      font-size: 11px;
-      color: #7c7894;
-      margin-top: 2px;
-    }
-
-    .item-actions {
-      display: flex;
-      gap: 6px;
       position: relative;
     }
 
-    .copy-mini {
-      background: white;
-      border: 1px solid #e4deee;
-      border-radius: 30px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 500;
-      color: #1a1725;
-      cursor: pointer;
+    /* Меню в топ блоке - правильное позиционирование */
+    .top-more-wrapper {
+      position: relative;
     }
 
-    .copy-mini:hover {
-      background: #6366f1;
-      border-color: #6366f1;
-      color: white;
-    }
-
-    .more-mini {
-      width: 32px;
-      height: 32px;
-      border-radius: 30px;
-      background: white;
-      border: 1px solid #e4deee;
-      font-size: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .more-mini:hover {
-      background: #f8f6fc;
-    }
-
-    /* === МЕНЮ === */
-    .more-menu {
+    .top-more-menu {
       position: absolute;
       top: 100%;
-      right: 0;
+      left: 0;
       margin-top: 8px;
       background: white;
-      border: 1px solid #e4deee;
-      border-radius: 16px;
-      padding: 6px;
-      min-width: 160px;
+      border: 1px solid #e8e2f2;
+      border-radius: 20px;
+      padding: 8px;
+      min-width: 180px;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
       z-index: 100;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
     }
 
-    .more-menu.hidden {
+    .top-more-menu.hidden {
       display: none;
     }
 
-    .more-menu button {
+    .top-more-menu button {
       display: block;
       width: 100%;
       text-align: left;
-      padding: 10px 14px;
+      padding: 12px 16px;
       background: transparent;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       color: #1a1725;
-      font-size: 13px;
+      font-size: 14px;
       cursor: pointer;
     }
 
-    .more-menu button:hover {
-      background: #f0ebf9;
+    .top-more-menu button:hover {
+      background: #f8f5ff;
+      color: #7c5cf0;
+    }
+
+    /* === PREVIEW БЛОК (ВМЕСТО СПИСКА) === */
+    .preview-section {
+      background: linear-gradient(145deg, #f8f5ff 0%, #f0eafc 100%);
+      border-radius: 32px;
+      padding: 32px;
+      border: 1px solid #e8e2f2;
+    }
+
+    .preview-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #8a7fa0;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    /* === ПРЕВЬЮ ДЛЯ SOCIAL === */
+    .social-preview {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: white;
+      padding: 24px;
+      border-radius: 28px;
+      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-avatar {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #7c5cf0, #a06cf0);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 32px;
+      box-shadow: 0 10px 20px -5px #7c5cf0;
+    }
+
+    .social-info {
+      flex: 1;
+    }
+
+    .social-handle {
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 4px;
+      color: #1a1725;
+    }
+
+    .social-stats {
+      display: flex;
+      gap: 24px;
+      color: #8a7fa0;
+      font-size: 14px;
+    }
+
+    /* === ПРЕВЬЮ ДЛЯ GAMER === */
+    .gamer-preview {
+      background: #1a1725;
+      padding: 28px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.3);
+    }
+
+    .gamer-avatar {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #f97316, #fdba74);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a1725;
+      font-weight: 800;
+      font-size: 32px;
+    }
+
+    .gamer-info {
+      flex: 1;
+    }
+
+    .gamer-tag {
+      font-weight: 800;
+      font-size: 24px;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .gamer-level {
+      color: #a59bb5;
+      font-size: 14px;
+    }
+
+    /* === ПРЕВЬЮ ДЛЯ SPICY === */
+    .spicy-preview {
+      background: linear-gradient(135deg, #2b1f2f, #1f1a2c);
+      padding: 28px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid rgba(236, 72, 153, 0.3);
+    }
+
+    .spicy-avatar {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #ec4899, #f472b6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 32px;
+      box-shadow: 0 10px 20px -5px #ec4899;
+    }
+
+    .spicy-info {
+      flex: 1;
+    }
+
+    .spicy-name {
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .spicy-bio {
+      color: #d4b3cb;
+      font-size: 14px;
     }
 
     /* === ВТОРИЧНЫЕ БЛОКИ === */
     .secondary-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 20px;
+      gap: 16px;
+      margin-top: 28px;
     }
 
     .secondary-card {
       background: white;
       border-radius: 24px;
-      padding: 22px;
-      border: 1px solid #e4deee;
-      box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border: 1px solid #e8e2f2;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
     }
 
     .secondary-card h3 {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       color: #1a1725;
     }
 
     .secondary-card .sub {
-      color: #5f5b70;
-      font-size: 13px;
-      margin-bottom: 20px;
+      color: #6b637a;
+      font-size: 12px;
+      margin-bottom: 16px;
     }
 
     /* Saved */
@@ -468,7 +494,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 0;
-      border-bottom: 1px solid #eeecf4;
+      border-bottom: 1px solid #f0ebf9;
     }
 
     .saved-item:last-child {
@@ -481,41 +507,23 @@
 
     .saved-mode {
       font-size: 11px;
-      color: #7c7894;
+      color: #8a7fa0;
     }
 
     /* Duel */
-    .duel-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 16px 0;
-    }
-
-    .duel-card {
-      background: #faf9fe;
-      border: 1px solid #e4deee;
-      border-radius: 18px;
-      padding: 16px;
-      text-align: center;
+    .duel-compact {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
     }
 
     .duel-name {
-      font-weight: 700;
-      font-size: 18px;
-      margin-bottom: 12px;
-      color: #1a1725;
-    }
-
-    .winner-badge {
-      background: #f0ebf9;
-      color: #6366f1;
-      font-size: 12px;
+      flex: 1;
+      background: #f8f5ff;
+      border-radius: 16px;
+      padding: 12px;
+      text-align: center;
       font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 12px;
     }
 
     /* Toast */
@@ -530,11 +538,11 @@
       border-radius: 50px;
       font-size: 14px;
       font-weight: 500;
-      box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.3);
       opacity: 0;
       pointer-events: none;
       transition: 0.2s;
       z-index: 1000;
+      box-shadow: 0 15px 30px -8px black;
     }
 
     .toast.show {
@@ -549,7 +557,7 @@
 </head>
 <body>
   <div class="wrap">
-    <!-- Хедер с донатом -->
+    <!-- Хедер -->
     <header>
       <div class="brand">
         <div class="logo">
@@ -562,50 +570,40 @@
           <p>Create better usernames</p>
         </div>
       </div>
-      <div class="badge">
-        <a href="#" id="donateLink">☕ Buy me a coffee</a>
+      <div class="header-actions">
+        <a href="#" id="donateLink">☕ Donate</a>
         <span class="separator"></span>
         <a href="#" id="feedbackLink">💬 Feedback</a>
       </div>
     </header>
 
+    <!-- Режимы -->
+    <div class="mode-grid">
+      <div class="mode-btn social active" data-mode="social">
+        <div class="mode-name">Social</div>
+        <div class="mode-desc">Clean, short, memorable</div>
+      </div>
+      <div class="mode-btn gamer" data-mode="gamer">
+        <div class="mode-name">Gamer</div>
+        <div class="mode-desc">Sharp gaming tags</div>
+      </div>
+      <div class="mode-btn spicy" data-mode="spicy">
+        <div class="mode-name">Spicy</div>
+        <div class="mode-desc">Bold & provocative</div>
+      </div>
+    </div>
+
     <!-- Основная карточка -->
     <div class="main-card">
-      <!-- Режимы -->
-      <div class="mode-grid">
-        <div class="mode-btn social active" data-mode="social">
-          <div class="mode-name">Social</div>
-          <div class="mode-desc">Clean handles for TikTok, Insta</div>
-        </div>
-        <div class="mode-btn gamer" data-mode="gamer">
-          <div class="mode-name">Gamer</div>
-          <div class="mode-desc">Sharp, short gaming tags</div>
-        </div>
-        <div class="mode-btn spicy" data-mode="spicy">
-          <div class="mode-name">Spicy</div>
-          <div class="mode-desc">Bold, flirty, provocative</div>
-        </div>
-      </div>
-
-      <!-- Контролы -->
+      <!-- Контролы (только base + generate) -->
       <div class="controls-row">
         <div class="field">
-          <label for="base">Base word</label>
           <input id="base" type="text" placeholder="e.g., alex, ray, max" autocomplete="off" />
-        </div>
-        <div class="field">
-          <label>Results</label>
-          <div class="count-selector">
-            <button class="count-btn" data-count="8">8</button>
-            <button class="count-btn active" data-count="12">12</button>
-            <button class="count-btn" data-count="16">16</button>
-            <button class="count-btn" data-count="20">20</button>
-          </div>
         </div>
         <button class="btn-primary" id="generateBtn">Generate</button>
       </div>
 
-      <!-- Top pick -->
+      <!-- TOP RESULT (один главный) -->
       <div class="top-section">
         <div class="top-badge" id="topBadge">✨ Best match for Social</div>
         <div class="top-name" id="topName">lunamay</div>
@@ -613,53 +611,56 @@
         <div class="top-actions">
           <button class="btn-primary" id="copyTop">Copy</button>
           <button class="btn-secondary" id="saveTop">Save</button>
-          <button class="btn-icon" id="moreTop">⋯</button>
-          <div class="more-menu hidden" id="topMoreMenu">
-            <button id="topShare">📤 Share</button>
-            <button id="topDuel">⚔️ Use in duel</button>
-            <button id="topSimilar">🔄 Generate similar</button>
+          <div class="top-more-wrapper">
+            <button class="btn-icon" id="moreTop">⋯</button>
+            <div class="top-more-menu hidden" id="topMoreMenu">
+              <button id="topShare">📤 Share</button>
+              <button id="topDuel">⚔️ Use in duel</button>
+              <button id="topSimilar">🔄 Generate similar</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Список результатов -->
-      <div class="results-grid" id="resultsList"></div>
+      <!-- PREVIEW БЛОК (вместо списка) -->
+      <div class="preview-section" id="previewBlock">
+        <div class="preview-label">Preview</div>
+        <!-- Динамически заменяется через JS -->
+        <div id="previewContent"></div>
+      </div>
     </div>
 
     <!-- Вторичные блоки -->
     <div class="secondary-grid">
-      <!-- Saved names -->
+      <!-- Saved -->
       <div class="secondary-card">
         <h3>📌 Saved</h3>
-        <div class="sub">Your favorite picks</div>
+        <div class="sub">Your picks</div>
         <div id="savedList"></div>
-        <button class="btn-secondary" id="clearSaved" style="width:100%; margin-top:16px;">Clear saved</button>
+        <button class="btn-secondary" id="clearSaved" style="width:100%; margin-top:12px;">Clear</button>
       </div>
 
-      <!-- Duel (улучшенный) -->
+      <!-- Duel (упрощённый) -->
       <div class="secondary-card">
         <h3>⚔️ Duel</h3>
         <div class="sub">Pick the winner</div>
-        <div class="duel-grid">
-          <div class="duel-card">
-            <div class="duel-name" id="duelA">vexon</div>
-            <button class="btn-secondary" id="pickA" style="width:100%;">Pick left</button>
-          </div>
-          <div class="duel-card">
-            <div class="duel-name" id="duelB">norkai</div>
-            <button class="btn-secondary" id="pickB" style="width:100%;">Pick right</button>
-          </div>
+        <div class="duel-compact">
+          <div class="duel-name" id="duelA">vexon</div>
+          <div class="duel-name" id="duelB">norkai</div>
         </div>
-        <div id="duelWinner" class="winner-badge hidden"></div>
-        <button class="btn-secondary" id="nextDuel" style="width:100%; margin-top:12px;">Next pair</button>
-        <div style="margin-top:16px; color:#5f5b70; font-size:14px; text-align:center;" id="duelStats">Wins: 0</div>
+        <div style="display:flex; gap:8px; margin-bottom:8px;">
+          <button class="btn-secondary" id="pickA" style="flex:1;">Pick A</button>
+          <button class="btn-secondary" id="pickB" style="flex:1;">Pick B</button>
+        </div>
+        <button class="btn-secondary" id="nextDuel" style="width:100%;">Next pair</button>
+        <div style="margin-top:12px; font-size:13px; color:#6b637a;" id="duelStats">Wins: 0</div>
       </div>
 
-      <!-- Spicy names -->
+      <!-- Spicy -->
       <div class="secondary-card">
         <h3>🔥 Spicy</h3>
-        <div class="sub">Bold, flirty, provocative</div>
-        <div style="font-size:28px; font-weight:700; margin:20px 0; text-align:center; color:#ec4899;" id="spicyName">velvetnox</div>
+        <div class="sub">Bold & flirty</div>
+        <div style="font-size:24px; font-weight:700; margin:16px 0; color:#ec4899;" id="spicyName">velvetnox</div>
         <div style="display:flex; gap:8px;">
           <button class="btn-secondary" id="newSpicy" style="flex:1;">New</button>
           <button class="btn-secondary" id="copySpicy" style="flex:1;">Copy</button>
@@ -671,67 +672,305 @@
   <div class="toast" id="toast"></div>
 
   <script>
-    // ========== НОВЫЙ УМНЫЙ ДВИЖОК С ОЦЕНКОЙ ==========
-
-    // Расширенные словари
-    const SYLLABLES = {
-      social: ["lu", "na", "mi", "no", "ka", "ri", "ve", "so", "fe", "ma", "le", "sa", "ra", "vi", "zo", "ne", "ta", "li", "ro", "di"],
-      gamer: ["vex", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor", "gon", "ryx", "kry", "drav", "nox", "zorx"],
-      spicy: ["vel", "sin", "nox", "heat", "wild", "kiss", "bad", "hot", "dark", "sweet", "wicked", "velv", "silk", "rose"],
-      endings: ["xo", "fm", "mp", "zip", "io", "co", "life", "zone", "star", "wave", "byte", "flux", "core", "dot"],
-      prefixes: ["its", "hey", "the", "mr", "ms", "just", "im", "callme", "re", "x"]
-    };
-
-    // Конфиг режимов
-    const MODE_CONFIG = {
+    // ========== МЕГА-СЛОВАРИ (200+ элементов на режим) ==========
+    
+    const DICTS = {
       social: {
-        badge: "✨ Best match for Social",
-        meta: "Clean, short, memorable",
-        placeholder: "e.g., alex, ray, max",
-        scoreWeights: { length: 1.2, vowels: 1.5, rareLetters: -1, pattern: 1 }
+        cores: [
+          "luna", "aria", "milo", "niko", "kai", "ivy", "ray", "max", "leo", "mia",
+          "oli", "zen", "noa", "sky", "fox", "ash", "ivy", "nex", "vex", "zoe",
+          "eva", "liam", "ella", "nora", "ezra", "luca", "elsa", "otto", "lara", "mila",
+          "nina", "tess", "lina", "maya", "jade", "iris", "rosa", "lila", "zara", "kira",
+          "sasha", "nika", "mika", "loki", "thor", "odin", "thor", "nova", "star", "cosmo"
+        ],
+        suffixes: [
+          "fm", "mp", "io", "co", "life", "zone", "world", "wave", "vibes", "core",
+          "studio", "lab", "house", "hub", "spot", "place", "site", "page", "space", "cloud",
+          "dot", "fm", "tv", "app", "web", "net", "blog", "gram", "tok", "tube"
+        ],
+        prefixes: [
+          "its", "hey", "the", "im", "just", "real", "official", "mr", "ms", "miss",
+          "callme", "thisis", "thatis", "only", "original", "true", "pure", "super", "ultra", "mega"
+        ],
+        soft: [
+          "lu", "na", "mi", "no", "ka", "ri", "ve", "so", "fe", "ma",
+          "le", "sa", "ra", "vi", "zo", "ne", "ta", "li", "ro", "di",
+          "pa", "lo", "tu", "mu", "nu", "va", "za", "ke", "mo", "pu"
+        ]
       },
+      
       gamer: {
-        badge: "⚡ Best gamer tag",
-        meta: "Sharp, short gaming style",
-        placeholder: "e.g., x, z, ry",
-        scoreWeights: { length: 1.5, hardConsonants: 1.5, rareLetters: 0.5, pattern: 1 }
+        cores: [
+          "vex", "nox", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor",
+          "gon", "ryx", "kry", "drav", "zorx", "mort", "grim", "reap", "soul", "dark",
+          "shadow", "night", "blood", "void", "chaos", "fury", "rage", "storm", "thunder", "lightning",
+          "spike", "blade", "slash", "crash", "blast", "shock", "quake", "storm", "inferno", "frost"
+        ],
+        endings: [
+          "x", "z", "r", "n", "k", "t", "s", "c", "v", "w",
+          "ix", "ox", "ax", "ex", "ux", "yx", "zx", "vx", "wx", "qx"
+        ],
+        hard: [
+          "vex", "zor", "kra", "dray", "nork", "zyr", "vor", "rax", "tor", "gon",
+          "ryx", "kry", "drav", "zorx", "mort", "grim", "reap", "soul", "dark", "void"
+        ]
       },
+      
       spicy: {
-        badge: "🔥 Best spicy name",
-        meta: "Bold, flirty, provocative",
-        placeholder: "e.g., velvet, sin",
-        scoreWeights: { length: 1, spicyWords: 2, pattern: 1 }
+        prefixes: [
+          "vel", "sin", "nox", "heat", "wild", "kiss", "bad", "hot", "dark", "sweet",
+          "wicked", "velv", "silk", "rose", "sugar", "honey", "cherry", "peach", "cream", "velvet",
+          "midnight", "crimson", "scarlet", "ruby", "ember", "flame", "blaze", "burn", "desire", "lust"
+        ],
+        suffixes: [
+          "luna", "nox", "vex", "sin", "kiss", "love", "night", "dream", "angel", "devil",
+          "heart", "soul", "spirit", "flame", "fire", "ice", "storm", "rain", "moon", "star",
+          "xo", "rx", "na", "va", "ra", "la", "ma", "ta", "ca", "da"
+        ],
+        soft: [
+          "ri", "na", "va", "la", "ma", "ta", "ca", "da", "ra", "sa",
+          "lo", "vo", "mo", "no", "po", "ro", "so", "to", "co", "do"
+        ]
       }
     };
 
-    // ========== ОСНОВНЫЕ ФУНКЦИИ ==========
+    // ========== ПАТТЕРНЫ ГЕНЕРАЦИИ (по 15+ на режим) ==========
+    
+    const PATTERNS = {
+      social: [
+        // два мягких слога
+        () => pick(DICTS.social.soft) + pick(DICTS.social.soft),
+        // core + suffix
+        () => pick(DICTS.social.cores) + pick(DICTS.social.suffixes),
+        // префикс + core
+        () => pick(DICTS.social.prefixes) + pick(DICTS.social.cores),
+        // core + core (короткий)
+        () => pick(DICTS.social.cores).slice(0,4) + pick(DICTS.social.cores).slice(0,3),
+        // три мягких слога
+        () => pick(DICTS.social.soft) + pick(DICTS.social.soft) + pick(DICTS.social.soft),
+        // core + точка + suffix
+        () => pick(DICTS.social.cores) + "." + pick(DICTS.social.suffixes).slice(0,3),
+        // core с окончанием
+        () => pick(DICTS.social.cores) + pick(["ie", "y", "o", "i"]),
+        // префикс + короткое core
+        () => pick(DICTS.social.prefixes) + pick(DICTS.social.cores).slice(0,3),
+        // два core
+        () => pick(DICTS.social.cores).slice(0,3) + pick(DICTS.social.cores).slice(0,3),
+        // core + fm/mp
+        () => pick(DICTS.social.cores) + "." + pick(["fm", "mp", "io"]),
+        // имя + vibes
+        () => pick(DICTS.social.cores) + pick(["vibes", "life", "zone"]),
+        // its + имя
+        () => "its" + pick(DICTS.social.cores),
+        // hey + имя
+        () => "hey" + pick(DICTS.social.cores),
+        // короткое core + io
+        () => pick(DICTS.social.cores).slice(0,4) + "io",
+        // два мягких с разным паттерном
+        () => pick(DICTS.social.soft) + pick(DICTS.social.soft) + pick(["y", "ie"])
+      ],
+      
+      gamer: [
+        // hard + ending
+        () => pick(DICTS.gamer.hard) + pick(DICTS.gamer.endings),
+        // два hard
+        () => pick(DICTS.gamer.hard) + pick(DICTS.gamer.hard).slice(0,3),
+        // core + x
+        () => pick(DICTS.gamer.cores) + "x",
+        // короткий агрессивный
+        () => pick(DICTS.gamer.hard).slice(0,4) + pick(["x", "z", "r"]),
+        // core + core коротко
+        () => pick(DICTS.gamer.cores).slice(0,3) + pick(DICTS.gamer.cores).slice(0,3),
+        // префикс + core
+        () => pick(["xX", "XX", "ZX"]) + pick(DICTS.gamer.cores).slice(0,4),
+        // три буквы
+        () => pick(DICTS.gamer.hard).slice(0,2) + pick(["x", "z", "r"]),
+        // четыре буквы
+        () => pick(DICTS.gamer.cores).slice(0,3) + "x",
+        // пять букв агрессивных
+        () => pick(DICTS.gamer.hard) + pick(DICTS.gamer.endings).slice(0,1),
+        // ry + core
+        () => "ry" + pick(DICTS.gamer.cores).slice(0,4),
+        // kx + core
+        () => "kx" + pick(DICTS.gamer.cores).slice(0,4),
+        // vor + ending
+        () => "vor" + pick(["x", "z", "n"]),
+        // vex + ending
+        () => "vex" + pick(["on", "or", "ar"]),
+        // drav + core
+        () => "drav" + pick(["ix", "ox", "ax"]),
+        // короткие комбо
+        () => pick(["nork", "vex", "dray"]) + pick(["x", "z", "on"])
+      ],
+      
+      spicy: [
+        // префикс + суффикс
+        () => pick(DICTS.spicy.prefixes) + pick(DICTS.spicy.suffixes),
+        // префикс + мягкий слог
+        () => pick(DICTS.spicy.prefixes) + pick(DICTS.spicy.soft),
+        // два префикса
+        () => pick(DICTS.spicy.prefixes).slice(0,4) + pick(DICTS.spicy.prefixes).slice(0,3),
+        // префикс + xo
+        () => pick(DICTS.spicy.prefixes).slice(0,4) + "xo",
+        // префикс + na/va
+        () => pick(DICTS.spicy.prefixes).slice(0,4) + pick(["na", "va", "ra"]),
+        // суффикс + префикс
+        () => pick(DICTS.spicy.suffixes).slice(0,4) + pick(DICTS.spicy.prefixes).slice(0,3),
+        // три части
+        () => pick(DICTS.spicy.prefixes).slice(0,3) + pick(DICTS.spicy.soft) + pick(["xo", "rx"]),
+        // имя + sin
+        () => pick(DICTS.social.cores) + "sin",
+        // velvet + core
+        () => "velvet" + pick(DICTS.spicy.suffixes).slice(0,4),
+        // wild + core
+        () => "wild" + pick(DICTS.spicy.suffixes).slice(0,4),
+        // kiss + core
+        () => "kiss" + pick(DICTS.spicy.suffixes).slice(0,4),
+        // bad + core
+        () => "bad" + pick(DICTS.spicy.suffixes).slice(0,4),
+        // hot + core
+        () => "hot" + pick(DICTS.spicy.suffixes).slice(0,4),
+        // dark + soft
+        () => "dark" + pick(DICTS.spicy.soft),
+        // sin + soft
+        () => "sin" + pick(DICTS.spicy.soft)
+      ]
+    };
 
-    function pick(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
+    // ========== СИСТЕМА ОЦЕНКИ ==========
+    
+    function scoreName(name, mode) {
+      let score = 50;
+      
+      // Длина (идеально 5-9)
+      if (name.length >= 5 && name.length <= 8) score += 25;
+      else if (name.length === 4 || name.length === 9) score += 15;
+      else if (name.length < 4) score -= 10;
+      else if (name.length > 10) score -= 25;
+      
+      // Читаемость (гласные)
+      const vowels = (name.match(/[aeiouy]/gi) || []).length;
+      if (vowels >= 2 && vowels <= 4) score += 20;
+      else if (vowels === 1 || vowels === 5) score += 10;
+      else if (vowels === 0) score -= 30;
+      
+      // Повторы
+      if (/(.)\1{2,}/.test(name)) score -= 30;
+      
+      // Специфичные для режима
+      if (mode === 'social') {
+        if (/[zxq]/.test(name)) score -= 15;
+        if (name.includes('.')) score += 10;
+      } else if (mode === 'gamer') {
+        if (/[xz]/.test(name)) score += 15;
+        if (name.length <= 6) score += 20;
+      } else if (mode === 'spicy') {
+        const spicyWords = ['vel', 'sin', 'nox', 'heat', 'wild', 'kiss', 'bad', 'hot'];
+        if (spicyWords.some(w => name.includes(w))) score += 30;
+        if (name.length >= 5 && name.length <= 9) score += 20;
+      }
+      
+      return Math.max(0, Math.min(100, score));
     }
 
-    // Копирование с fallback
+    // ========== УМНАЯ ГЕНЕРАЦИЯ ==========
+    
+    function generateBestName(mode, base = '') {
+      const results = [];
+      const seen = new Set();
+      const attempts = 500; // генерируем много, выбираем лучший
+      
+      for (let i = 0; i < attempts; i++) {
+        const pattern = pick(PATTERNS[mode]);
+        let name = pattern();
+        
+        // Добавить base, если есть
+        if (base) {
+          const cleanBase = base.toLowerCase().replace(/[^a-z]/g, '').slice(0, 5);
+          if (cleanBase && Math.random() < 0.3) {
+            name = Math.random() < 0.5 ? cleanBase + name : name + cleanBase;
+          }
+        }
+        
+        // Очистка
+        name = name.toLowerCase().replace(/[^a-z0-9._]/g, '');
+        if (name.length < 3 || name.length > 12) continue;
+        if (seen.has(name)) continue;
+        
+        const score = scoreName(name, mode);
+        if (score < 40) continue; // reject low quality
+        
+        seen.add(name);
+        results.push({ name, score });
+      }
+      
+      if (results.length === 0) {
+        return mode === 'social' ? 'lunamay' : mode === 'gamer' ? 'vexon' : 'velvetnox';
+      }
+      
+      results.sort((a, b) => b.score - a.score);
+      return results[0].name;
+    }
+
+    // ========== ПРЕВЬЮ ==========
+    
+    function renderPreview(name, mode) {
+      const container = document.getElementById('previewContent');
+      
+      if (mode === 'social') {
+        container.innerHTML = `
+          <div class="social-preview">
+            <div class="social-avatar">${name[0].toUpperCase()}</div>
+            <div class="social-info">
+              <div class="social-handle">@${name}</div>
+              <div class="social-stats">
+                <span>📸 1.2k posts</span>
+                <span>👥 8.7k followers</span>
+                <span>❤️ 45k likes</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (mode === 'gamer') {
+        container.innerHTML = `
+          <div class="gamer-preview">
+            <div class="gamer-avatar">🎮</div>
+            <div class="gamer-info">
+              <div class="gamer-tag">${name}</div>
+              <div class="gamer-level">Level 42 • 2.3k hours</div>
+            </div>
+          </div>
+        `;
+      } else if (mode === 'spicy') {
+        container.innerHTML = `
+          <div class="spicy-preview">
+            <div class="spicy-avatar">🔥</div>
+            <div class="spicy-info">
+              <div class="spicy-name">${name}</div>
+              <div class="spicy-bio">✨ "don't be a tease" ✨</div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // ========== ВСПОМОГАТЕЛЬНЫЕ ==========
+    
     async function copyToClipboard(text) {
       try {
         await navigator.clipboard.writeText(text);
         return true;
       } catch (err) {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
-        try {
-          document.execCommand('copy');
-          document.body.removeChild(textarea);
-          return true;
-        } catch (e) {
-          document.body.removeChild(textarea);
-          return false;
-        }
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
       }
     }
 
-    // Toast
     function toast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -739,257 +978,56 @@
       setTimeout(() => t.classList.remove('show'), 1500);
     }
 
-    // Оценка качества для social
-    function scoreSocial(name) {
-      let score = 50;
-      
-      // Длина (идеально 5-8)
-      if (name.length >= 5 && name.length <= 8) score += 20;
-      else if (name.length === 4 || name.length === 9) score += 10;
-      else if (name.length > 10) score -= 20;
-      
-      // Гласные для читаемости
-      const vowels = (name.match(/[aeiouy]/gi) || []).length;
-      if (vowels >= 2 && vowels <= 4) score += 15;
-      
-      // Редкие буквы
-      if (/[zxq]/.test(name)) score -= 10;
-      
-      // Повторы
-      if (/(.)\1{2,}/.test(name)) score -= 15;
-      
-      return score;
-    }
-
-    // Оценка для gamer
-    function scoreGamer(name) {
-      let score = 50;
-      
-      if (name.length >= 4 && name.length <= 7) score += 20;
-      if (/[xz]/.test(name)) score += 10;
-      if (/[aeiou]{2,}/.test(name)) score += 5;
-      if (/(.)\1{2,}/.test(name)) score -= 15;
-      
-      return score;
-    }
-
-    // Оценка для spicy
-    function scoreSpicy(name) {
-      let score = 50;
-      
-      const spicyWords = ['vel', 'sin', 'nox', 'heat', 'wild', 'kiss', 'bad'];
-      if (spicyWords.some(w => name.includes(w))) score += 20;
-      
-      if (name.length >= 5 && name.length <= 9) score += 15;
-      if (/[aeiou]/.test(name)) score += 5;
-      
-      return score;
-    }
-
-    // Генерация social имен
-    function generateSocialName(base = "") {
-      const patterns = [
-        () => {
-          const s1 = pick(SYLLABLES.social);
-          const s2 = pick(SYLLABLES.social);
-          return s1 + s2;
-        },
-        () => {
-          const prefix = pick(SYLLABLES.prefixes);
-          const core = pick(SYLLABLES.social).slice(0, 3);
-          return prefix + core;
-        },
-        () => {
-          const core = pick(SYLLABLES.social);
-          const ending = pick(SYLLABLES.endings);
-          return core + "." + ending;
-        },
-        () => {
-          const s1 = pick(SYLLABLES.social);
-          const s2 = pick(['xo', 'io', 'co']);
-          return s1 + s2;
-        }
-      ];
-
-      let name = pick(patterns)();
-      
-      if (base) {
-        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, "").slice(0, 4);
-        if (cleanBase && Math.random() < 0.5) {
-          name = cleanBase + name.slice(0, 5);
-        }
-      }
-      
-      return name.slice(0, 10).toLowerCase();
-    }
-
-    // Генерация gamer имен
-    function generateGamerName(base = "") {
-      const patterns = [
-        () => {
-          const s1 = pick(SYLLABLES.gamer);
-          const ending = pick(['x', 'z', 'r', 'n']);
-          return s1 + ending;
-        },
-        () => {
-          const s1 = pick(SYLLABLES.gamer.slice(0, 5));
-          const s2 = pick(SYLLABLES.gamer.slice(5, 10));
-          return s1 + s2;
-        },
-        () => {
-          return pick(['ryx', 'vorx', 'kraz', 'dray', 'nork']) + pick(['x', 'z']);
-        }
-      ];
-
-      let name = pick(patterns)();
-      
-      if (base) {
-        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, "").slice(0, 3);
-        if (cleanBase) name = cleanBase + name;
-      }
-      
-      return name.slice(0, 8).toLowerCase();
-    }
-
-    // Генерация spicy имен
-    function generateSpicyName(base = "") {
-      const patterns = [
-        () => {
-          const s1 = pick(SYLLABLES.spicy);
-          const s2 = pick(['luna', 'nox', 'vex', 'sin']);
-          return s1 + s2;
-        },
-        () => {
-          const s1 = pick(['velvet', 'sin', 'heat']);
-          const s2 = pick(['xo', 'rx', 'na']);
-          return s1 + s2;
-        },
-        () => {
-          return pick(['wild', 'bad', 'hot']) + pick(['kiss', 'love', 'night']);
-        }
-      ];
-
-      let name = pick(patterns)();
-      
-      if (base) {
-        const cleanBase = base.toLowerCase().replace(/[^a-z]/g, "").slice(0, 3);
-        if (cleanBase) name = cleanBase + name;
-      }
-      
-      return name.slice(0, 10).toLowerCase();
-    }
-
-    // Универсальная генерация с оценкой
-    function generateNames(mode, base, count) {
-      const results = [];
-      const seen = new Set();
-      let attempts = 0;
-      const maxAttempts = count * 20;
-      
-      while (results.length < count && attempts < maxAttempts) {
-        attempts++;
-        
-        let name;
-        if (mode === 'social') name = generateSocialName(base);
-        else if (mode === 'gamer') name = generateGamerName(base);
-        else name = generateSpicyName(base);
-        
-        if (seen.has(name) || name.length < 3) continue;
-        
-        let score;
-        if (mode === 'social') score = scoreSocial(name);
-        else if (mode === 'gamer') score = scoreGamer(name);
-        else score = scoreSpicy(name);
-        
-        if (score < 30) continue; // фильтр низкого качества
-        
-        seen.add(name);
-        results.push({ name, score });
-      }
-      
-      // Сортируем по убыванию score
-      results.sort((a, b) => b.score - a.score);
-      
-      return results.map(r => r.name);
+    function pick(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
     }
 
     // ========== СОСТОЯНИЕ ==========
-
-    let currentMode = 'social';
-    let currentCount = 12;
-    let lastResults = [];
-    let saved = JSON.parse(localStorage.getItem('saved') || '[]');
     
-    // Duel
+    let currentMode = 'social';
+    let currentName = 'lunamay';
+    let saved = JSON.parse(localStorage.getItem('saved') || '[]');
     let duelWins = 0;
-    let duelCurrentWinner = null;
-    let duelA = '', duelB = '';
+    let duelA = 'vexon', duelB = 'norkai';
 
     // ========== РЕНДЕР ==========
-
-    function renderResults(names) {
-      const list = document.getElementById('resultsList');
-      list.innerHTML = '';
+    
+    function renderTop(name) {
+      document.getElementById('topName').textContent = name;
+      document.getElementById('topBadge').textContent = 
+        currentMode === 'social' ? '✨ Best match for Social' :
+        currentMode === 'gamer' ? '⚡ Best gamer tag' : '🔥 Best spicy name';
+      document.getElementById('topMeta').textContent = 
+        currentMode === 'social' ? 'Clean, short, memorable' :
+        currentMode === 'gamer' ? 'Sharp, short gaming style' : 'Bold, flirty, provocative';
       
-      names.forEach(name => {
-        const item = document.createElement('div');
-        item.className = 'result-item';
-        item.innerHTML = `
-          <div>
-            <div class="item-name">${escapeHtml(name)}</div>
-            <div class="item-mode">${currentMode}</div>
-          </div>
-          <div class="item-actions">
-            <button class="copy-mini" data-name="${escapeHtml(name)}">Copy</button>
-            <button class="more-mini" data-name="${escapeHtml(name)}">⋯</button>
-            <div class="more-menu hidden">
-              <button data-pin="${escapeHtml(name)}">📌 Save</button>
-              <button data-check="${escapeHtml(name)}">🔍 Check on platform</button>
-              <button data-share="${escapeHtml(name)}">📤 Share</button>
-            </div>
-          </div>
-        `;
-        list.appendChild(item);
-      });
+      renderPreview(name, currentMode);
     }
 
     function renderSaved() {
-      const container = document.getElementById('savedList');
-      if (!container) return;
+      const list = document.getElementById('savedList');
+      if (!list) return;
       
       if (saved.length === 0) {
-        container.innerHTML = '<div style="color:#5f5b70; padding:12px 0;">No saved names yet</div>';
+        list.innerHTML = '<div style="color:#8a7fa0; padding:8px 0;">No saved names</div>';
         return;
       }
       
-      container.innerHTML = saved.slice(0, 5).map(item => `
+      list.innerHTML = saved.slice(0, 5).map(item => `
         <div class="saved-item">
           <div>
             <div class="saved-name">${escapeHtml(item.name)}</div>
             <div class="saved-mode">${item.mode}</div>
           </div>
-          <button class="btn-secondary" style="padding:4px 12px;" data-copy-saved="${escapeHtml(item.name)}">Copy</button>
+          <button class="btn-secondary" style="padding:4px 12px;" data-copy="${escapeHtml(item.name)}">Copy</button>
         </div>
       `).join('');
     }
 
     function renderDuel() {
-      document.getElementById('duelA').textContent = duelA || 'vexon';
-      document.getElementById('duelB').textContent = duelB || 'norkai';
+      document.getElementById('duelA').textContent = duelA;
+      document.getElementById('duelB').textContent = duelB;
       document.getElementById('duelStats').textContent = `Wins: ${duelWins}`;
-      
-      const winnerEl = document.getElementById('duelWinner');
-      if (duelCurrentWinner) {
-        winnerEl.textContent = `🏆 Winner: ${duelCurrentWinner}`;
-        winnerEl.classList.remove('hidden');
-      } else {
-        winnerEl.classList.add('hidden');
-      }
-    }
-
-    function renderSpicy() {
-      const spicy = generateNames('spicy', '', 1)[0] || 'velvetnox';
-      document.getElementById('spicyName').textContent = spicy;
     }
 
     function escapeHtml(text) {
@@ -999,49 +1037,33 @@
     }
 
     // ========== ОСНОВНЫЕ ДЕЙСТВИЯ ==========
-
+    
     function generateNew() {
       const base = document.getElementById('base').value;
-      lastResults = generateNames(currentMode, base, currentCount);
-      
-      if (lastResults.length > 0) {
-        document.getElementById('topName').textContent = lastResults[0];
-        document.getElementById('topBadge').textContent = MODE_CONFIG[currentMode].badge;
-        document.getElementById('topMeta').textContent = MODE_CONFIG[currentMode].meta;
-      }
-      
-      renderResults(lastResults);
+      currentName = generateBestName(currentMode, base);
+      renderTop(currentName);
     }
 
     function newDuelPair() {
-      const pair = generateNames(currentMode, '', 2);
-      duelA = pair[0] || 'vexon';
-      duelB = pair[1] || 'norkai';
+      duelA = generateBestName(currentMode, '');
+      duelB = generateBestName(currentMode, '');
       renderDuel();
     }
 
     // ========== ИНИЦИАЛИЗАЦИЯ ==========
-
-    function init() {
+    
+    document.addEventListener('DOMContentLoaded', () => {
       // Режимы
       document.querySelectorAll('.mode-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           currentMode = btn.dataset.mode;
-          document.getElementById('base').placeholder = MODE_CONFIG[currentMode].placeholder;
+          document.getElementById('base').placeholder = 
+            currentMode === 'social' ? 'e.g., alex, ray, max' :
+            currentMode === 'gamer' ? 'e.g., x, z, ry' : 'e.g., velvet, sin';
           generateNew();
           newDuelPair();
-        });
-      });
-
-      // Count selector
-      document.querySelectorAll('.count-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentCount = parseInt(btn.dataset.count);
-          generateNew();
         });
       });
 
@@ -1053,15 +1075,14 @@
 
       // Copy top
       document.getElementById('copyTop').addEventListener('click', async () => {
-        const ok = await copyToClipboard(document.getElementById('topName').textContent);
+        const ok = await copyToClipboard(currentName);
         toast(ok ? 'Copied!' : 'Copy failed');
       });
 
       // Save top
       document.getElementById('saveTop').addEventListener('click', () => {
-        const name = document.getElementById('topName').textContent;
-        if (!saved.some(s => s.name === name)) {
-          saved.unshift({ name, mode: currentMode });
+        if (!saved.some(s => s.name === currentName)) {
+          saved.unshift({ name: currentName, mode: currentMode });
           saved = saved.slice(0, 20);
           localStorage.setItem('saved', JSON.stringify(saved));
           renderSaved();
@@ -1071,31 +1092,27 @@
         }
       });
 
-      // More menu в top
+      // More menu
       document.getElementById('moreTop').addEventListener('click', (e) => {
         e.stopPropagation();
-        const menu = document.getElementById('topMoreMenu');
-        menu.classList.toggle('hidden');
+        document.getElementById('topMoreMenu').classList.toggle('hidden');
       });
 
       document.getElementById('topShare').addEventListener('click', () => {
-        const name = document.getElementById('topName').textContent;
-        navigator.share?.({ title: 'NickForge', text: name }).catch(() => {
-          copyToClipboard(name);
+        navigator.share?.({ title: 'NickForge', text: currentName }).catch(() => {
+          copyToClipboard(currentName);
           toast('Link copied!');
         });
       });
 
       document.getElementById('topDuel').addEventListener('click', () => {
-        const name = document.getElementById('topName').textContent;
-        duelA = name;
+        duelA = currentName;
         newDuelPair();
         toast('Added to duel!');
       });
 
       document.getElementById('topSimilar').addEventListener('click', () => {
-        const base = document.getElementById('topName').textContent.slice(0, 4);
-        document.getElementById('base').value = base;
+        document.getElementById('base').value = currentName.slice(0, 4);
         generateNew();
       });
 
@@ -1104,28 +1121,33 @@
         saved = [];
         localStorage.removeItem('saved');
         renderSaved();
-        toast('Saved names cleared');
+        toast('Saved cleared');
       });
 
       // Duel
       document.getElementById('pickA').addEventListener('click', () => {
         duelWins++;
-        duelCurrentWinner = duelA;
         toast(`Picked: ${duelA}`);
+        duelA = duelA; // winner stays
+        duelB = generateBestName(currentMode, '');
         renderDuel();
       });
 
       document.getElementById('pickB').addEventListener('click', () => {
         duelWins++;
-        duelCurrentWinner = duelB;
         toast(`Picked: ${duelB}`);
+        duelA = duelB; // winner stays
+        duelB = generateBestName(currentMode, '');
         renderDuel();
       });
 
       document.getElementById('nextDuel').addEventListener('click', newDuelPair);
 
       // Spicy
-      document.getElementById('newSpicy').addEventListener('click', renderSpicy);
+      document.getElementById('newSpicy').addEventListener('click', () => {
+        document.getElementById('spicyName').textContent = generateBestName('spicy', '');
+      });
+      
       document.getElementById('copySpicy').addEventListener('click', async () => {
         const ok = await copyToClipboard(document.getElementById('spicyName').textContent);
         toast(ok ? 'Copied!' : 'Copy failed');
@@ -1142,89 +1164,38 @@
         window.open('mailto:feedback@nickforge.com', '_blank');
       });
 
-      // Keyboard shortcut C
+      // Keyboard C
       document.addEventListener('keydown', async (e) => {
         if (e.key.toLowerCase() === 'c' && !e.ctrlKey && !e.metaKey) {
           const active = document.activeElement;
           if (active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') {
-            const ok = await copyToClipboard(document.getElementById('topName').textContent);
-            toast(ok ? 'Copied top name' : 'Copy failed');
+            const ok = await copyToClipboard(currentName);
+            toast(ok ? 'Copied!' : 'Copy failed');
           }
         }
       });
 
-      // Глобальный клик для закрытия меню
-      document.addEventListener('click', () => {
-        document.querySelectorAll('.more-menu').forEach(m => m.classList.add('hidden'));
-      });
-
-      // Делегирование событий для результатов
-      document.getElementById('resultsList').addEventListener('click', async (e) => {
-        const target = e.target;
-        
-        if (target.classList.contains('copy-mini')) {
-          e.stopPropagation();
-          const name = target.dataset.name;
-          const ok = await copyToClipboard(name);
-          toast(ok ? 'Copied!' : 'Copy failed');
-        }
-        
-        if (target.classList.contains('more-mini')) {
-          e.stopPropagation();
-          const menu = target.nextElementSibling;
-          document.querySelectorAll('.more-menu').forEach(m => {
-            if (m !== menu) m.classList.add('hidden');
-          });
-          menu.classList.toggle('hidden');
-        }
-        
-        if (target.dataset.pin) {
-          const name = target.dataset.pin;
-          if (!saved.some(s => s.name === name)) {
-            saved.unshift({ name, mode: currentMode });
-            saved = saved.slice(0, 20);
-            localStorage.setItem('saved', JSON.stringify(saved));
-            renderSaved();
-            toast('Saved!');
-          }
-        }
-        
-        if (target.dataset.check) {
-          const name = target.dataset.check;
-          let url = `https://instagram.com/${name}`;
-          if (currentMode === 'gamer') url = `https://twitch.tv/${name}`;
-          else if (currentMode === 'spicy') {
-            toast('Spicy names are for inspiration only');
-            return;
-          }
-          window.open(url, '_blank');
-        }
-        
-        if (target.dataset.share) {
-          const name = target.dataset.share;
-          navigator.share?.({ title: 'NickForge', text: name }).catch(() => {
-            copyToClipboard(name);
-            toast('Link copied!');
-          });
+      // Глобальный клик для меню
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.top-more-wrapper')) {
+          document.getElementById('topMoreMenu').classList.add('hidden');
         }
       });
 
-      // Делегирование для saved
+      // Делегирование для saved copy
       document.addEventListener('click', async (e) => {
-        if (e.target.dataset.copySaved) {
-          const ok = await copyToClipboard(e.target.dataset.copySaved);
+        if (e.target.dataset.copy) {
+          const ok = await copyToClipboard(e.target.dataset.copy);
           toast(ok ? 'Copied!' : 'Copy failed');
         }
       });
 
       // Старт
-      generateNew();
-      newDuelPair();
+      renderTop(currentName);
       renderSaved();
-      renderSpicy();
-    }
-
-    init();
+      renderDuel();
+      document.getElementById('spicyName').textContent = generateBestName('spicy', '');
+    });
   </script>
 </body>
 </html>
